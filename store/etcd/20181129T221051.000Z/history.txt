@@ -1,0 +1,402 @@
+3	:invoke	:cas	[0 3]
+1	:invoke	:cas	[3 1]
+3	:fail	:cas	[0 3]	:not-found
+1	:fail	:cas	[3 1]	:not-found
+2	:invoke	:read	nil
+2	:ok	:read	nil
+2	:invoke	:write	4
+2	:ok	:write	4
+2	:invoke	:cas	[3 3]
+2	:fail	:cas	[3 3]
+1	:invoke	:cas	[4 0]
+1	:ok	:cas	[4 0]
+0	:invoke	:read	nil
+0	:ok	:read	0
+4	:invoke	:cas	[2 3]
+4	:fail	:cas	[2 3]
+3	:invoke	:read	nil
+3	:ok	:read	0
+1	:invoke	:cas	[2 2]
+1	:fail	:cas	[2 2]
+3	:invoke	:cas	[3 4]
+3	:fail	:cas	[3 4]
+0	:invoke	:write	2
+0	:ok	:write	2
+2	:invoke	:cas	[0 1]
+2	:fail	:cas	[0 1]
+4	:invoke	:cas	[3 4]
+4	:fail	:cas	[3 4]
+3	:invoke	:write	2
+3	:ok	:write	2
+1	:invoke	:read	nil
+1	:ok	:read	2
+3	:invoke	:write	0
+3	:ok	:write	0
+0	:invoke	:write	3
+0	:ok	:write	3
+2	:invoke	:write	4
+2	:ok	:write	4
+3	:invoke	:cas	[2 1]
+1	:invoke	:cas	[0 0]
+3	:fail	:cas	[2 1]
+1	:fail	:cas	[0 0]
+4	:invoke	:write	4
+4	:ok	:write	4
+:nemesis	:info	:start	nil
+1	:invoke	:write	0
+1	:ok	:write	0
+1	:invoke	:cas	[2 3]
+1	:fail	:cas	[2 3]
+:nemesis	:info	:start	[:isolated {"ec2-18-232-141-137.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-234-71-213.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}, "ec2-35-174-16-155.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-234-71-213.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}, "ec2-107-23-238-236.compute-1.amazonaws.com" #{"ec2-18-232-141-137.compute-1.amazonaws.com" "ec2-35-174-16-155.compute-1.amazonaws.com"}, "ec2-18-234-71-213.compute-1.amazonaws.com" #{"ec2-18-232-141-137.compute-1.amazonaws.com" "ec2-35-174-16-155.compute-1.amazonaws.com"}, "ec2-18-212-141-207.compute-1.amazonaws.com" #{"ec2-18-232-141-137.compute-1.amazonaws.com" "ec2-35-174-16-155.compute-1.amazonaws.com"}}]
+2	:invoke	:write	4
+4	:invoke	:read	nil
+4	:ok	:read	0
+0	:invoke	:write	1
+3	:invoke	:read	nil
+3	:ok	:read	0
+1	:invoke	:cas	[2 3]
+1	:fail	:cas	[2 3]
+3	:invoke	:write	3
+3	:ok	:write	3
+1	:invoke	:read	nil
+1	:ok	:read	3
+4	:invoke	:cas	[0 4]
+4	:fail	:cas	[0 4]
+4	:invoke	:write	2
+4	:ok	:write	2
+3	:invoke	:write	3
+3	:ok	:write	3
+1	:invoke	:read	nil
+1	:ok	:read	3
+4	:invoke	:cas	[4 3]
+4	:fail	:cas	[4 3]
+4	:invoke	:write	2
+4	:ok	:write	2
+3	:invoke	:read	nil
+3	:ok	:read	2
+1	:invoke	:write	1
+1	:ok	:write	1
+1	:invoke	:read	nil
+1	:ok	:read	1
+3	:invoke	:read	nil
+3	:ok	:read	1
+:nemesis	:info	:stop	nil
+1	:invoke	:cas	[4 1]
+1	:fail	:cas	[4 1]
+4	:invoke	:write	3
+4	:ok	:write	3
+2	:info	:write	4	:timeout
+:nemesis	:info	:stop	:network-healed
+0	:info	:write	1	:timeout
+4	:invoke	:write	0
+4	:ok	:write	0
+4	:invoke	:write	1
+3	:invoke	:read	nil
+1	:invoke	:read	nil
+7	:invoke	:cas	[1 4]
+5	:invoke	:write	1
+1	:ok	:read	4
+3	:ok	:read	4
+4	:ok	:write	1
+7	:ok	:cas	[1 4]
+5	:ok	:write	1
+:nemesis	:info	:start	nil
+:nemesis	:info	:start	[:isolated {"ec2-18-232-141-137.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-234-71-213.compute-1.amazonaws.com" "ec2-35-174-16-155.compute-1.amazonaws.com"}, "ec2-18-212-141-207.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-234-71-213.compute-1.amazonaws.com" "ec2-35-174-16-155.compute-1.amazonaws.com"}, "ec2-107-23-238-236.compute-1.amazonaws.com" #{"ec2-18-232-141-137.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}, "ec2-18-234-71-213.compute-1.amazonaws.com" #{"ec2-18-232-141-137.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}, "ec2-35-174-16-155.compute-1.amazonaws.com" #{"ec2-18-232-141-137.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}}]
+4	:invoke	:write	0
+4	:ok	:write	0
+3	:invoke	:write	0
+3	:ok	:write	0
+4	:invoke	:write	3
+4	:ok	:write	3
+5	:invoke	:cas	[2 3]
+5	:fail	:cas	[2 3]
+7	:invoke	:cas	[2 2]
+1	:invoke	:read	nil
+3	:invoke	:write	3
+3	:ok	:write	3
+5	:invoke	:read	nil
+5	:ok	:read	3
+5	:invoke	:read	nil
+5	:ok	:read	3
+5	:invoke	:cas	[1 3]
+5	:fail	:cas	[1 3]
+4	:invoke	:write	1
+4	:ok	:write	1
+3	:invoke	:read	nil
+3	:ok	:read	1
+5	:invoke	:write	0
+5	:ok	:write	0
+4	:invoke	:read	nil
+4	:ok	:read	0
+4	:invoke	:read	nil
+4	:ok	:read	0
+3	:invoke	:write	1
+3	:ok	:write	1
+4	:invoke	:read	nil
+4	:ok	:read	1
+5	:invoke	:read	nil
+5	:ok	:read	1
+3	:invoke	:write	0
+3	:ok	:write	0
+:nemesis	:info	:stop	nil
+:nemesis	:info	:stop	:network-healed
+5	:invoke	:write	3
+7	:info	:cas	[2 2]	:timeout
+4	:invoke	:read	nil
+1	:fail	:read	nil	:timeout
+1	:invoke	:cas	[4 3]
+3	:invoke	:write	2
+12	:invoke	:write	2
+4	:ok	:read	3
+3	:ok	:write	2
+5	:ok	:write	3
+12	:ok	:write	2
+1	:fail	:cas	[4 3]
+3	:invoke	:cas	[2 3]
+3	:ok	:cas	[2 3]
+3	:invoke	:cas	[4 4]
+1	:invoke	:read	nil
+3	:fail	:cas	[4 4]
+1	:ok	:read	3
+12	:invoke	:read	nil
+12	:ok	:read	3
+4	:invoke	:read	nil
+4	:ok	:read	3
+5	:invoke	:write	3
+5	:ok	:write	3
+12	:invoke	:cas	[3 1]
+12	:ok	:cas	[3 1]
+5	:invoke	:read	nil
+5	:ok	:read	1
+3	:invoke	:read	nil
+3	:ok	:read	1
+1	:invoke	:write	2
+1	:ok	:write	2
+:nemesis	:info	:start	nil
+:nemesis	:info	:start	[:isolated {"ec2-107-23-238-236.compute-1.amazonaws.com" #{"ec2-18-234-71-213.compute-1.amazonaws.com" "ec2-35-174-16-155.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}, "ec2-18-232-141-137.compute-1.amazonaws.com" #{"ec2-18-234-71-213.compute-1.amazonaws.com" "ec2-35-174-16-155.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}, "ec2-18-234-71-213.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-232-141-137.compute-1.amazonaws.com"}, "ec2-35-174-16-155.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-232-141-137.compute-1.amazonaws.com"}, "ec2-18-212-141-207.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-232-141-137.compute-1.amazonaws.com"}}]
+5	:invoke	:cas	[4 3]
+5	:fail	:cas	[4 3]
+12	:invoke	:read	nil
+4	:invoke	:write	3
+4	:ok	:write	3
+1	:invoke	:read	nil
+1	:ok	:read	3
+5	:invoke	:read	nil
+5	:ok	:read	3
+3	:invoke	:write	0
+5	:invoke	:read	nil
+5	:ok	:read	3
+1	:invoke	:write	1
+1	:ok	:write	1
+4	:invoke	:cas	[4 1]
+4	:fail	:cas	[4 1]
+4	:invoke	:read	nil
+4	:ok	:read	1
+5	:invoke	:cas	[2 4]
+5	:fail	:cas	[2 4]
+4	:invoke	:read	nil
+4	:ok	:read	1
+1	:invoke	:cas	[4 2]
+1	:fail	:cas	[4 2]
+1	:invoke	:cas	[2 2]
+1	:fail	:cas	[2 2]
+5	:invoke	:read	nil
+5	:ok	:read	1
+1	:invoke	:cas	[3 0]
+1	:fail	:cas	[3 0]
+:nemesis	:info	:stop	nil
+4	:invoke	:cas	[0 1]
+4	:fail	:cas	[0 1]
+4	:invoke	:read	nil
+4	:ok	:read	1
+:nemesis	:info	:stop	:network-healed
+12	:fail	:read	nil	:timeout
+1	:invoke	:read	nil
+1	:ok	:read	1
+5	:invoke	:cas	[2 4]
+5	:fail	:cas	[2 4]
+1	:invoke	:write	3
+1	:ok	:write	3
+12	:invoke	:read	nil
+4	:invoke	:cas	[2 4]
+1	:invoke	:cas	[4 4]
+3	:info	:write	0	:timeout
+5	:invoke	:read	nil
+1	:fail	:cas	[4 4]
+5	:ok	:read	3
+4	:fail	:cas	[2 4]
+12	:ok	:read	3
+4	:invoke	:read	nil
+8	:invoke	:cas	[2 2]
+4	:ok	:read	3
+8	:fail	:cas	[2 2]
+12	:invoke	:write	1
+12	:ok	:write	1
+1	:invoke	:read	nil
+1	:ok	:read	1
+1	:invoke	:write	0
+1	:ok	:write	0
+5	:invoke	:write	2
+5	:ok	:write	2
+:nemesis	:info	:start	nil
+12	:invoke	:cas	[2 2]
+8	:invoke	:read	nil
+4	:invoke	:cas	[2 2]
+:nemesis	:info	:start	[:isolated {"ec2-18-234-71-213.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-232-141-137.compute-1.amazonaws.com" "ec2-35-174-16-155.compute-1.amazonaws.com"}, "ec2-18-212-141-207.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-232-141-137.compute-1.amazonaws.com" "ec2-35-174-16-155.compute-1.amazonaws.com"}, "ec2-107-23-238-236.compute-1.amazonaws.com" #{"ec2-18-234-71-213.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}, "ec2-18-232-141-137.compute-1.amazonaws.com" #{"ec2-18-234-71-213.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}, "ec2-35-174-16-155.compute-1.amazonaws.com" #{"ec2-18-234-71-213.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}}]
+5	:invoke	:cas	[2 0]
+1	:invoke	:write	1
+12	:info	:cas	[2 2]	:timeout
+8	:fail	:read	nil	:timeout
+4	:info	:cas	[2 2]	:timeout
+:nemesis	:info	:stop	nil
+:nemesis	:info	:stop	:network-healed
+5	:info	:cas	[2 0]	:timeout
+10	:invoke	:cas	[1 3]
+1	:info	:write	1	:timeout
+9	:invoke	:cas	[3 3]
+17	:invoke	:cas	[0 2]
+8	:invoke	:read	nil
+17	:fail	:cas	[0 2]
+8	:ok	:read	2
+10	:fail	:cas	[1 3]
+9	:fail	:cas	[3 3]
+6	:invoke	:read	nil
+6	:ok	:read	2
+10	:invoke	:read	nil
+10	:ok	:read	2
+10	:invoke	:cas	[4 3]
+10	:fail	:cas	[4 3]
+8	:invoke	:cas	[0 1]
+8	:fail	:cas	[0 1]
+9	:invoke	:write	3
+9	:ok	:write	3
+17	:invoke	:cas	[3 4]
+17	:ok	:cas	[3 4]
+6	:invoke	:cas	[2 0]
+6	:fail	:cas	[2 0]
+9	:invoke	:read	nil
+9	:ok	:read	4
+10	:invoke	:read	nil
+10	:ok	:read	4
+10	:invoke	:cas	[2 2]
+10	:fail	:cas	[2 2]
+:nemesis	:info	:start	nil
+6	:invoke	:read	nil
+6	:ok	:read	4
+:nemesis	:info	:start	[:isolated {"ec2-107-23-238-236.compute-1.amazonaws.com" #{"ec2-18-232-141-137.compute-1.amazonaws.com" "ec2-35-174-16-155.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}, "ec2-18-234-71-213.compute-1.amazonaws.com" #{"ec2-18-232-141-137.compute-1.amazonaws.com" "ec2-35-174-16-155.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}, "ec2-18-232-141-137.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-234-71-213.compute-1.amazonaws.com"}, "ec2-35-174-16-155.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-234-71-213.compute-1.amazonaws.com"}, "ec2-18-212-141-207.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-234-71-213.compute-1.amazonaws.com"}}]
+10	:invoke	:cas	[3 1]
+10	:fail	:cas	[3 1]
+8	:invoke	:write	1
+17	:invoke	:cas	[3 3]
+17	:fail	:cas	[3 3]
+17	:invoke	:write	1
+17	:ok	:write	1
+9	:invoke	:write	0
+17	:invoke	:cas	[1 2]
+17	:ok	:cas	[1 2]
+10	:invoke	:write	1
+10	:ok	:write	1
+6	:invoke	:read	nil
+6	:ok	:read	1
+6	:invoke	:read	nil
+6	:ok	:read	1
+10	:invoke	:write	1
+10	:ok	:write	1
+17	:invoke	:read	nil
+17	:ok	:read	1
+10	:invoke	:read	nil
+10	:ok	:read	1
+17	:invoke	:write	2
+17	:ok	:write	2
+17	:invoke	:cas	[1 2]
+17	:fail	:cas	[1 2]
+6	:invoke	:cas	[2 2]
+6	:ok	:cas	[2 2]
+6	:invoke	:read	nil
+6	:ok	:read	2
+17	:invoke	:read	nil
+17	:ok	:read	2
+10	:invoke	:write	3
+10	:ok	:write	3
+10	:invoke	:cas	[2 1]
+10	:fail	:cas	[2 1]
+:nemesis	:info	:stop	nil
+17	:invoke	:read	nil
+17	:ok	:read	3
+:nemesis	:info	:stop	:network-healed
+10	:invoke	:cas	[0 4]
+10	:fail	:cas	[0 4]
+10	:invoke	:cas	[1 1]
+10	:fail	:cas	[1 1]
+6	:invoke	:read	nil
+6	:ok	:read	3
+8	:info	:write	1	:timeout
+17	:invoke	:write	1
+17	:ok	:write	1
+6	:invoke	:write	2
+6	:ok	:write	2
+13	:invoke	:read	nil
+9	:info	:write	0	:timeout
+10	:invoke	:read	nil
+10	:ok	:read	2
+13	:ok	:read	2
+13	:invoke	:read	nil
+13	:ok	:read	2
+17	:invoke	:cas	[1 0]
+17	:fail	:cas	[1 0]
+6	:invoke	:write	0
+6	:ok	:write	0
+10	:invoke	:read	nil
+10	:ok	:read	0
+14	:invoke	:write	2
+14	:ok	:write	2
+17	:invoke	:read	nil
+17	:ok	:read	2
+17	:invoke	:cas	[0 2]
+17	:fail	:cas	[0 2]
+6	:invoke	:cas	[1 0]
+6	:fail	:cas	[1 0]
+10	:invoke	:read	nil
+10	:ok	:read	2
+10	:invoke	:cas	[4 4]
+10	:fail	:cas	[4 4]
+13	:invoke	:cas	[3 3]
+13	:fail	:cas	[3 3]
+17	:invoke	:cas	[4 3]
+17	:fail	:cas	[4 3]
+13	:invoke	:read	nil
+13	:ok	:read	2
+6	:invoke	:cas	[3 2]
+6	:fail	:cas	[3 2]
+17	:invoke	:cas	[2 3]
+17	:ok	:cas	[2 3]
+14	:invoke	:write	1
+14	:ok	:write	1
+13	:invoke	:write	2
+13	:ok	:write	2
+10	:invoke	:read	nil
+10	:ok	:read	2
+:nemesis	:info	:start	nil
+:nemesis	:info	:start	[:isolated {"ec2-18-234-71-213.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-232-141-137.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}, "ec2-35-174-16-155.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-232-141-137.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}, "ec2-107-23-238-236.compute-1.amazonaws.com" #{"ec2-18-234-71-213.compute-1.amazonaws.com" "ec2-35-174-16-155.compute-1.amazonaws.com"}, "ec2-18-232-141-137.compute-1.amazonaws.com" #{"ec2-18-234-71-213.compute-1.amazonaws.com" "ec2-35-174-16-155.compute-1.amazonaws.com"}, "ec2-18-212-141-207.compute-1.amazonaws.com" #{"ec2-18-234-71-213.compute-1.amazonaws.com" "ec2-35-174-16-155.compute-1.amazonaws.com"}}]
+17	:invoke	:write	0
+17	:ok	:write	0
+17	:invoke	:read	nil
+17	:ok	:read	0
+17	:invoke	:read	nil
+17	:ok	:read	0
+6	:invoke	:cas	[3 1]
+6	:fail	:cas	[3 1]
+13	:invoke	:cas	[2 3]
+13	:fail	:cas	[2 3]
+10	:invoke	:read	nil
+14	:invoke	:read	nil
+6	:invoke	:read	nil
+6	:ok	:read	0
+17	:invoke	:read	nil
+17	:ok	:read	0
+13	:invoke	:cas	[2 3]
+13	:fail	:cas	[2 3]
+6	:invoke	:write	2
+6	:ok	:write	2
+10	:ok	:read	2
+14	:ok	:read	2

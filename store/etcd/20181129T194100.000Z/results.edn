@@ -1,0 +1,62 @@
+{:linear
+ {:valid? false,
+  :configs
+  ({:model {:value 1},
+    :last-op
+    {:process 4,
+     :type :ok,
+     :f :write,
+     :value 1,
+     :index 67,
+     :time 5982227767},
+    :pending
+    [{:process 2,
+      :type :invoke,
+      :f :read,
+      :value 2,
+      :index 68,
+      :time 6083323065}]}),
+  :final-paths
+  ([{:op
+     {:process 4,
+      :type :ok,
+      :f :write,
+      :value 1,
+      :index 67,
+      :time 5982227767},
+     :model {:value 1}}
+    {:op
+     {:process 2,
+      :type :ok,
+      :f :read,
+      :value 2,
+      :index 69,
+      :time 6088236121},
+     :model {:msg "can't read 2 from register 1"}}]),
+  :previous-ok
+  {:process 4,
+   :type :ok,
+   :f :write,
+   :value 1,
+   :index 67,
+   :time 5982227767},
+  :last-op
+  {:process 4,
+   :type :ok,
+   :f :write,
+   :value 1,
+   :index 67,
+   :time 5982227767},
+  :op
+  {:process 2,
+   :type :ok,
+   :f :read,
+   :value 2,
+   :index 69,
+   :time 6088236121}},
+ :perf
+ {:latency-graph {:valid? true},
+  :rate-graph {:valid? true},
+  :valid? true},
+ :timeline {:valid? true},
+ :valid? false}

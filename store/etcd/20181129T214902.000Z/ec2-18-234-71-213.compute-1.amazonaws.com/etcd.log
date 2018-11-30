@@ -1,0 +1,510 @@
+2018-11-29 21:49:06 Jepsen starting etcd :--log-output :stderr :--name ec2-18-234-71-213.compute-1.amazonaws.com :--listen-peer-urls http://ec2-18-234-71-213.compute-1.amazonaws.com:2380 :--listen-client-urls http://ec2-18-234-71-213.compute-1.amazonaws.com:2379 :--advertise-client-urls http://ec2-18-234-71-213.compute-1.amazonaws.com:2379 :--initial-cluster-state :new :--initial-advertise-peer-urls http://ec2-18-234-71-213.compute-1.amazonaws.com:2380 :--initial-cluster ec2-35-174-16-155.compute-1.amazonaws.com=http://ec2-35-174-16-155.compute-1.amazonaws.com:2380,ec2-18-212-141-207.compute-1.amazonaws.com=http://ec2-18-212-141-207.compute-1.amazonaws.com:2380,ec2-18-232-141-137.compute-1.amazonaws.com=http://ec2-18-232-141-137.compute-1.amazonaws.com:2380,ec2-107-23-238-236.compute-1.amazonaws.com=http://ec2-107-23-238-236.compute-1.amazonaws.com:2380,ec2-18-234-71-213.compute-1.amazonaws.com=http://ec2-18-234-71-213.compute-1.amazonaws.com:2380
+2018-11-29 21:49:06.996240 I | etcdmain: etcd Version: 3.1.5
+2018-11-29 21:49:06.996325 I | etcdmain: Git SHA: 20490ca
+2018-11-29 21:49:06.996334 I | etcdmain: Go Version: go1.7.5
+2018-11-29 21:49:06.996339 I | etcdmain: Go OS/Arch: linux/amd64
+2018-11-29 21:49:06.996345 I | etcdmain: setting maximum number of CPUs to 2, total number of available CPUs is 2
+2018-11-29 21:49:06.996353 W | etcdmain: no data-dir provided, using default data-dir ./ec2-18-234-71-213.compute-1.amazonaws.com.etcd
+2018-11-29 21:49:06.996367 W | embed: expected IP in URL for binding (http://ec2-18-234-71-213.compute-1.amazonaws.com:2380)
+2018-11-29 21:49:06.996380 W | embed: expected IP in URL for binding (http://ec2-18-234-71-213.compute-1.amazonaws.com:2379)
+2018-11-29 21:49:06.998772 I | embed: listening for peers on http://ec2-18-234-71-213.compute-1.amazonaws.com:2380
+2018-11-29 21:49:06.999236 I | embed: listening for client requests on ec2-18-234-71-213.compute-1.amazonaws.com:2379
+2018-11-29 21:49:07.003573 I | pkg/netutil: resolving ec2-18-234-71-213.compute-1.amazonaws.com:2380 to 172.31.20.192:2380
+2018-11-29 21:49:07.003970 I | pkg/netutil: resolving ec2-18-234-71-213.compute-1.amazonaws.com:2380 to 172.31.20.192:2380
+2018-11-29 21:49:11.004893 I | etcdserver: name = ec2-18-234-71-213.compute-1.amazonaws.com
+2018-11-29 21:49:11.004948 I | etcdserver: data dir = ec2-18-234-71-213.compute-1.amazonaws.com.etcd
+2018-11-29 21:49:11.004961 I | etcdserver: member dir = ec2-18-234-71-213.compute-1.amazonaws.com.etcd/member
+2018-11-29 21:49:11.004967 I | etcdserver: heartbeat = 100ms
+2018-11-29 21:49:11.004972 I | etcdserver: election = 1000ms
+2018-11-29 21:49:11.004979 I | etcdserver: snapshot count = 10000
+2018-11-29 21:49:11.004991 I | etcdserver: advertise client URLs = http://ec2-18-234-71-213.compute-1.amazonaws.com:2379
+2018-11-29 21:49:11.004999 I | etcdserver: initial advertise peer URLs = http://ec2-18-234-71-213.compute-1.amazonaws.com:2380
+2018-11-29 21:49:11.005021 I | etcdserver: initial cluster = ec2-107-23-238-236.compute-1.amazonaws.com=http://ec2-107-23-238-236.compute-1.amazonaws.com:2380,ec2-18-212-141-207.compute-1.amazonaws.com=http://ec2-18-212-141-207.compute-1.amazonaws.com:2380,ec2-18-232-141-137.compute-1.amazonaws.com=http://ec2-18-232-141-137.compute-1.amazonaws.com:2380,ec2-18-234-71-213.compute-1.amazonaws.com=http://ec2-18-234-71-213.compute-1.amazonaws.com:2380,ec2-35-174-16-155.compute-1.amazonaws.com=http://ec2-35-174-16-155.compute-1.amazonaws.com:2380
+2018-11-29 21:49:11.009199 I | etcdserver: starting member b230326f6c733c35 in cluster d4e906640f16da25
+2018-11-29 21:49:11.009223 I | raft: b230326f6c733c35 became follower at term 0
+2018-11-29 21:49:11.009234 I | raft: newRaft b230326f6c733c35 [peers: [], term: 0, commit: 0, applied: 0, lastindex: 0, lastterm: 0]
+2018-11-29 21:49:11.009240 I | raft: b230326f6c733c35 became follower at term 1
+2018-11-29 21:49:11.020930 I | rafthttp: starting peer 2d508dd0aa9ee691...
+2018-11-29 21:49:11.020980 I | rafthttp: started HTTP pipelining with peer 2d508dd0aa9ee691
+2018-11-29 21:49:11.022391 I | rafthttp: started streaming with peer 2d508dd0aa9ee691 (writer)
+2018-11-29 21:49:11.025488 I | rafthttp: started streaming with peer 2d508dd0aa9ee691 (writer)
+2018-11-29 21:49:11.025518 I | rafthttp: started peer 2d508dd0aa9ee691
+2018-11-29 21:49:11.025546 I | rafthttp: added peer 2d508dd0aa9ee691
+2018-11-29 21:49:11.025565 I | rafthttp: starting peer 3474e3739df12d31...
+2018-11-29 21:49:11.025581 I | rafthttp: started streaming with peer 2d508dd0aa9ee691 (stream Message reader)
+2018-11-29 21:49:11.025618 I | rafthttp: started streaming with peer 2d508dd0aa9ee691 (stream MsgApp v2 reader)
+2018-11-29 21:49:11.025727 I | rafthttp: started HTTP pipelining with peer 3474e3739df12d31
+2018-11-29 21:49:11.028124 I | rafthttp: started streaming with peer 3474e3739df12d31 (writer)
+2018-11-29 21:49:11.029901 I | rafthttp: started peer 3474e3739df12d31
+2018-11-29 21:49:11.029923 I | rafthttp: added peer 3474e3739df12d31
+2018-11-29 21:49:11.029939 I | rafthttp: starting peer a00c92baa5af8639...
+2018-11-29 21:49:11.029971 I | rafthttp: started HTTP pipelining with peer a00c92baa5af8639
+2018-11-29 21:49:11.030646 I | rafthttp: started streaming with peer 3474e3739df12d31 (writer)
+2018-11-29 21:49:11.030699 I | rafthttp: started streaming with peer 3474e3739df12d31 (stream MsgApp v2 reader)
+2018-11-29 21:49:11.030911 I | rafthttp: started streaming with peer 3474e3739df12d31 (stream Message reader)
+2018-11-29 21:49:11.031281 I | rafthttp: started streaming with peer a00c92baa5af8639 (writer)
+2018-11-29 21:49:11.032006 I | rafthttp: started streaming with peer a00c92baa5af8639 (writer)
+2018-11-29 21:49:11.032885 I | rafthttp: started peer a00c92baa5af8639
+2018-11-29 21:49:11.032905 I | rafthttp: added peer a00c92baa5af8639
+2018-11-29 21:49:11.032922 I | rafthttp: starting peer cecac79a73f45067...
+2018-11-29 21:49:11.033646 I | rafthttp: started HTTP pipelining with peer cecac79a73f45067
+2018-11-29 21:49:11.034929 I | rafthttp: started peer cecac79a73f45067
+2018-11-29 21:49:11.034969 I | rafthttp: added peer cecac79a73f45067
+2018-11-29 21:49:11.034986 I | etcdserver: starting server... [version: 3.1.5, cluster version: to_be_decided]
+2018-11-29 21:49:11.035300 I | rafthttp: started streaming with peer a00c92baa5af8639 (stream MsgApp v2 reader)
+2018-11-29 21:49:11.035493 I | rafthttp: started streaming with peer a00c92baa5af8639 (stream Message reader)
+2018-11-29 21:49:11.035653 I | rafthttp: started streaming with peer cecac79a73f45067 (writer)
+2018-11-29 21:49:11.035675 I | rafthttp: started streaming with peer cecac79a73f45067 (writer)
+2018-11-29 21:49:11.035733 I | rafthttp: started streaming with peer cecac79a73f45067 (stream MsgApp v2 reader)
+2018-11-29 21:49:11.035916 I | rafthttp: started streaming with peer cecac79a73f45067 (stream Message reader)
+2018-11-29 21:49:11.036639 I | rafthttp: peer cecac79a73f45067 became active
+2018-11-29 21:49:11.036657 I | rafthttp: established a TCP streaming connection with peer cecac79a73f45067 (stream Message writer)
+2018-11-29 21:49:11.037984 I | rafthttp: established a TCP streaming connection with peer cecac79a73f45067 (stream MsgApp v2 writer)
+2018-11-29 21:49:11.038173 I | etcdserver/membership: added member 2d508dd0aa9ee691 [http://ec2-107-23-238-236.compute-1.amazonaws.com:2380] to cluster d4e906640f16da25
+2018-11-29 21:49:11.038259 I | rafthttp: peer 2d508dd0aa9ee691 became active
+2018-11-29 21:49:11.038279 I | rafthttp: established a TCP streaming connection with peer 2d508dd0aa9ee691 (stream Message reader)
+2018-11-29 21:49:11.038310 I | etcdserver/membership: added member 3474e3739df12d31 [http://ec2-35-174-16-155.compute-1.amazonaws.com:2380] to cluster d4e906640f16da25
+2018-11-29 21:49:11.038446 I | etcdserver/membership: added member a00c92baa5af8639 [http://ec2-18-212-141-207.compute-1.amazonaws.com:2380] to cluster d4e906640f16da25
+2018-11-29 21:49:11.038575 I | etcdserver/membership: added member b230326f6c733c35 [http://ec2-18-234-71-213.compute-1.amazonaws.com:2380] to cluster d4e906640f16da25
+2018-11-29 21:49:11.038691 I | etcdserver/membership: added member cecac79a73f45067 [http://ec2-18-232-141-137.compute-1.amazonaws.com:2380] to cluster d4e906640f16da25
+2018-11-29 21:49:11.044041 I | rafthttp: peer a00c92baa5af8639 became active
+2018-11-29 21:49:11.044063 I | rafthttp: established a TCP streaming connection with peer a00c92baa5af8639 (stream MsgApp v2 writer)
+2018-11-29 21:49:11.044126 I | rafthttp: peer 3474e3739df12d31 became active
+2018-11-29 21:49:11.044140 I | rafthttp: established a TCP streaming connection with peer 3474e3739df12d31 (stream Message reader)
+2018-11-29 21:49:11.044192 I | rafthttp: established a TCP streaming connection with peer 2d508dd0aa9ee691 (stream MsgApp v2 reader)
+2018-11-29 21:49:11.044293 I | rafthttp: established a TCP streaming connection with peer cecac79a73f45067 (stream Message reader)
+2018-11-29 21:49:11.044340 I | rafthttp: established a TCP streaming connection with peer cecac79a73f45067 (stream MsgApp v2 reader)
+2018-11-29 21:49:11.044412 I | rafthttp: established a TCP streaming connection with peer a00c92baa5af8639 (stream Message reader)
+2018-11-29 21:49:11.044455 I | rafthttp: established a TCP streaming connection with peer 3474e3739df12d31 (stream MsgApp v2 reader)
+2018-11-29 21:49:11.044703 I | rafthttp: established a TCP streaming connection with peer 3474e3739df12d31 (stream MsgApp v2 writer)
+2018-11-29 21:49:11.044816 I | rafthttp: established a TCP streaming connection with peer a00c92baa5af8639 (stream Message writer)
+2018-11-29 21:49:11.044966 I | rafthttp: established a TCP streaming connection with peer 2d508dd0aa9ee691 (stream MsgApp v2 writer)
+2018-11-29 21:49:11.045091 I | rafthttp: established a TCP streaming connection with peer 2d508dd0aa9ee691 (stream Message writer)
+2018-11-29 21:49:11.045187 I | rafthttp: established a TCP streaming connection with peer a00c92baa5af8639 (stream MsgApp v2 reader)
+2018-11-29 21:49:11.045683 I | rafthttp: established a TCP streaming connection with peer 3474e3739df12d31 (stream Message writer)
+2018-11-29 21:49:11.209566 I | raft: b230326f6c733c35 is starting a new election at term 1
+2018-11-29 21:49:11.209606 I | raft: b230326f6c733c35 became candidate at term 2
+2018-11-29 21:49:11.209623 I | raft: b230326f6c733c35 received MsgVoteResp from b230326f6c733c35 at term 2
+2018-11-29 21:49:11.209635 I | raft: b230326f6c733c35 [logterm: 1, index: 5] sent MsgVote request to cecac79a73f45067 at term 2
+2018-11-29 21:49:11.209645 I | raft: b230326f6c733c35 [logterm: 1, index: 5] sent MsgVote request to 2d508dd0aa9ee691 at term 2
+2018-11-29 21:49:11.209654 I | raft: b230326f6c733c35 [logterm: 1, index: 5] sent MsgVote request to 3474e3739df12d31 at term 2
+2018-11-29 21:49:11.209663 I | raft: b230326f6c733c35 [logterm: 1, index: 5] sent MsgVote request to a00c92baa5af8639 at term 2
+2018-11-29 21:49:11.211787 I | raft: b230326f6c733c35 received MsgVoteResp from cecac79a73f45067 at term 2
+2018-11-29 21:49:11.211801 I | raft: b230326f6c733c35 [quorum:3] has received 2 MsgVoteResp votes and 0 vote rejections
+2018-11-29 21:49:11.211894 I | raft: b230326f6c733c35 received MsgVoteResp from 2d508dd0aa9ee691 at term 2
+2018-11-29 21:49:11.211914 I | raft: b230326f6c733c35 [quorum:3] has received 3 MsgVoteResp votes and 0 vote rejections
+2018-11-29 21:49:11.211943 I | raft: b230326f6c733c35 became leader at term 2
+2018-11-29 21:49:11.211959 I | raft: raft.node: b230326f6c733c35 elected leader b230326f6c733c35 at term 2
+2018-11-29 21:49:11.215771 I | embed: ready to serve client requests
+2018-11-29 21:49:11.215816 E | etcdmain: forgot to set Type=notify in systemd service file?
+2018-11-29 21:49:11.215835 I | etcdserver: published {Name:ec2-18-234-71-213.compute-1.amazonaws.com ClientURLs:[http://ec2-18-234-71-213.compute-1.amazonaws.com:2379]} to cluster d4e906640f16da25
+2018-11-29 21:49:11.216051 N | embed: serving insecure client requests on 172.31.20.192:2379, this is strongly discouraged!
+2018-11-29 21:49:11.221695 I | etcdserver: setting up the initial cluster version to 3.1
+2018-11-29 21:49:11.222951 N | etcdserver/membership: set the initial cluster version to 3.1
+2018-11-29 21:49:11.222993 I | etcdserver/api: enabled capabilities for version 3.1
+2018-11-29 21:49:24.209499 W | raft: b230326f6c733c35 stepped down to follower since quorum is not active
+2018-11-29 21:49:24.209542 I | raft: b230326f6c733c35 became follower at term 2
+2018-11-29 21:49:24.209551 I | raft: raft.node: b230326f6c733c35 lost leader b230326f6c733c35 at term 2
+2018-11-29 21:49:25.709509 I | raft: b230326f6c733c35 is starting a new election at term 2
+2018-11-29 21:49:25.709561 I | raft: b230326f6c733c35 became candidate at term 3
+2018-11-29 21:49:25.709573 I | raft: b230326f6c733c35 received MsgVoteResp from b230326f6c733c35 at term 3
+2018-11-29 21:49:25.709584 I | raft: b230326f6c733c35 [logterm: 2, index: 49] sent MsgVote request to cecac79a73f45067 at term 3
+2018-11-29 21:49:25.709594 I | raft: b230326f6c733c35 [logterm: 2, index: 49] sent MsgVote request to 2d508dd0aa9ee691 at term 3
+2018-11-29 21:49:25.709605 I | raft: b230326f6c733c35 [logterm: 2, index: 49] sent MsgVote request to 3474e3739df12d31 at term 3
+2018-11-29 21:49:25.709614 I | raft: b230326f6c733c35 [logterm: 2, index: 49] sent MsgVote request to a00c92baa5af8639 at term 3
+2018-11-29 21:49:25.712056 I | raft: b230326f6c733c35 received MsgVoteResp from 2d508dd0aa9ee691 at term 3
+2018-11-29 21:49:25.712074 I | raft: b230326f6c733c35 [quorum:3] has received 2 MsgVoteResp votes and 0 vote rejections
+2018-11-29 21:49:26.031187 W | rafthttp: lost the TCP streaming connection with peer cecac79a73f45067 (stream MsgApp v2 reader)
+2018-11-29 21:49:26.031222 E | rafthttp: failed to read cecac79a73f45067 on stream MsgApp v2 (read tcp 172.31.20.192:44515->172.31.22.103:2380: i/o timeout)
+2018-11-29 21:49:26.031229 I | rafthttp: peer cecac79a73f45067 became inactive
+2018-11-29 21:49:26.033376 W | rafthttp: lost the TCP streaming connection with peer a00c92baa5af8639 (stream MsgApp v2 reader)
+2018-11-29 21:49:26.033393 E | rafthttp: failed to read a00c92baa5af8639 on stream MsgApp v2 (read tcp 172.31.20.192:41201->172.31.16.109:2380: i/o timeout)
+2018-11-29 21:49:26.033399 I | rafthttp: peer a00c92baa5af8639 became inactive
+2018-11-29 21:49:26.034500 W | rafthttp: lost the TCP streaming connection with peer 3474e3739df12d31 (stream MsgApp v2 reader)
+2018-11-29 21:49:26.034522 E | rafthttp: failed to read 3474e3739df12d31 on stream MsgApp v2 (read tcp 172.31.20.192:37331->172.31.21.73:2380: i/o timeout)
+2018-11-29 21:49:26.034528 I | rafthttp: peer 3474e3739df12d31 became inactive
+2018-11-29 21:49:27.314570 I | raft: b230326f6c733c35 [term: 3] received a MsgVote message with higher term from 2d508dd0aa9ee691 [term: 4]
+2018-11-29 21:49:27.314608 I | raft: b230326f6c733c35 became follower at term 4
+2018-11-29 21:49:27.314621 I | raft: b230326f6c733c35 [logterm: 2, index: 49, vote: 0] cast MsgVote for 2d508dd0aa9ee691 [logterm: 2, index: 49] at term 4
+2018-11-29 21:49:27.510262 W | rafthttp: lost the TCP streaming connection with peer 3474e3739df12d31 (stream Message reader)
+2018-11-29 21:49:27.510326 W | rafthttp: lost the TCP streaming connection with peer cecac79a73f45067 (stream Message reader)
+2018-11-29 21:49:27.510452 W | rafthttp: lost the TCP streaming connection with peer a00c92baa5af8639 (stream Message reader)
+2018-11-29 21:49:28.314647 I | raft: b230326f6c733c35 [term: 4] received a MsgVote message with higher term from 2d508dd0aa9ee691 [term: 5]
+2018-11-29 21:49:28.314685 I | raft: b230326f6c733c35 became follower at term 5
+2018-11-29 21:49:28.314697 I | raft: b230326f6c733c35 [logterm: 2, index: 49, vote: 0] cast MsgVote for 2d508dd0aa9ee691 [logterm: 2, index: 49] at term 5
+2018-11-29 21:49:28.432147 I | rafthttp: peer cecac79a73f45067 became active
+2018-11-29 21:49:28.432168 I | rafthttp: established a TCP streaming connection with peer cecac79a73f45067 (stream MsgApp v2 reader)
+2018-11-29 21:49:28.435101 I | rafthttp: peer 3474e3739df12d31 became active
+2018-11-29 21:49:28.435117 I | rafthttp: established a TCP streaming connection with peer 3474e3739df12d31 (stream MsgApp v2 reader)
+2018-11-29 21:49:28.435173 I | rafthttp: peer a00c92baa5af8639 became active
+2018-11-29 21:49:28.435189 I | rafthttp: established a TCP streaming connection with peer a00c92baa5af8639 (stream MsgApp v2 reader)
+2018-11-29 21:49:28.583607 W | rafthttp: closed an existing TCP streaming connection with peer a00c92baa5af8639 (stream MsgApp v2 writer)
+2018-11-29 21:49:28.583632 I | rafthttp: established a TCP streaming connection with peer a00c92baa5af8639 (stream MsgApp v2 writer)
+2018-11-29 21:49:28.587847 W | rafthttp: closed an existing TCP streaming connection with peer 3474e3739df12d31 (stream MsgApp v2 writer)
+2018-11-29 21:49:28.587867 I | rafthttp: established a TCP streaming connection with peer 3474e3739df12d31 (stream MsgApp v2 writer)
+2018-11-29 21:49:28.589287 W | rafthttp: closed an existing TCP streaming connection with peer cecac79a73f45067 (stream MsgApp v2 writer)
+2018-11-29 21:49:28.589303 I | rafthttp: established a TCP streaming connection with peer cecac79a73f45067 (stream MsgApp v2 writer)
+2018-11-29 21:49:28.609243 W | rafthttp: closed an existing TCP streaming connection with peer cecac79a73f45067 (stream Message writer)
+2018-11-29 21:49:28.609260 I | rafthttp: established a TCP streaming connection with peer cecac79a73f45067 (stream Message writer)
+2018-11-29 21:49:28.611156 I | rafthttp: established a TCP streaming connection with peer 3474e3739df12d31 (stream Message reader)
+2018-11-29 21:49:28.611178 I | rafthttp: established a TCP streaming connection with peer cecac79a73f45067 (stream Message reader)
+2018-11-29 21:49:28.611585 I | rafthttp: established a TCP streaming connection with peer a00c92baa5af8639 (stream Message reader)
+2018-11-29 21:49:28.612207 W | rafthttp: closed an existing TCP streaming connection with peer a00c92baa5af8639 (stream Message writer)
+2018-11-29 21:49:28.612220 I | rafthttp: established a TCP streaming connection with peer a00c92baa5af8639 (stream Message writer)
+2018-11-29 21:49:28.617276 W | rafthttp: closed an existing TCP streaming connection with peer 3474e3739df12d31 (stream Message writer)
+2018-11-29 21:49:28.617289 I | rafthttp: established a TCP streaming connection with peer 3474e3739df12d31 (stream Message writer)
+2018-11-29 21:49:29.411758 I | raft: b230326f6c733c35 [term: 5] ignored a MsgVote message with lower term from a00c92baa5af8639 [term: 4]
+2018-11-29 21:49:29.814515 I | raft: b230326f6c733c35 [term: 5] received a MsgVote message with higher term from 2d508dd0aa9ee691 [term: 6]
+2018-11-29 21:49:29.814549 I | raft: b230326f6c733c35 became follower at term 6
+2018-11-29 21:49:29.814561 I | raft: b230326f6c733c35 [logterm: 2, index: 49, vote: 0] cast MsgVote for 2d508dd0aa9ee691 [logterm: 2, index: 49] at term 6
+2018-11-29 21:49:30.430990 E | etcdserver/api/v2http: got unexpected response error (etcdserver: request timed out)
+2018-11-29 21:49:31.114540 I | raft: b230326f6c733c35 [term: 6] received a MsgVote message with higher term from 2d508dd0aa9ee691 [term: 7]
+2018-11-29 21:49:31.114584 I | raft: b230326f6c733c35 became follower at term 7
+2018-11-29 21:49:31.115591 I | raft: b230326f6c733c35 [logterm: 2, index: 49, vote: 0] cast MsgVote for 2d508dd0aa9ee691 [logterm: 2, index: 49] at term 7
+2018-11-29 21:49:32.209501 I | raft: b230326f6c733c35 is starting a new election at term 7
+2018-11-29 21:49:32.209545 I | raft: b230326f6c733c35 became candidate at term 8
+2018-11-29 21:49:32.209557 I | raft: b230326f6c733c35 received MsgVoteResp from b230326f6c733c35 at term 8
+2018-11-29 21:49:32.209567 I | raft: b230326f6c733c35 [logterm: 2, index: 49] sent MsgVote request to 2d508dd0aa9ee691 at term 8
+2018-11-29 21:49:32.209577 I | raft: b230326f6c733c35 [logterm: 2, index: 49] sent MsgVote request to 3474e3739df12d31 at term 8
+2018-11-29 21:49:32.209586 I | raft: b230326f6c733c35 [logterm: 2, index: 49] sent MsgVote request to a00c92baa5af8639 at term 8
+2018-11-29 21:49:32.209596 I | raft: b230326f6c733c35 [logterm: 2, index: 49] sent MsgVote request to cecac79a73f45067 at term 8
+2018-11-29 21:49:32.212042 I | raft: b230326f6c733c35 received MsgVoteResp rejection from a00c92baa5af8639 at term 8
+2018-11-29 21:49:32.212061 I | raft: b230326f6c733c35 [quorum:3] has received 1 MsgVoteResp votes and 1 vote rejections
+2018-11-29 21:49:32.212161 I | raft: b230326f6c733c35 received MsgVoteResp rejection from cecac79a73f45067 at term 8
+2018-11-29 21:49:32.212175 I | raft: b230326f6c733c35 [quorum:3] has received 1 MsgVoteResp votes and 2 vote rejections
+2018-11-29 21:49:32.212254 I | raft: b230326f6c733c35 received MsgVoteResp from 2d508dd0aa9ee691 at term 8
+2018-11-29 21:49:32.212267 I | raft: b230326f6c733c35 [quorum:3] has received 2 MsgVoteResp votes and 2 vote rejections
+2018-11-29 21:49:32.212283 I | raft: b230326f6c733c35 received MsgVoteResp rejection from 3474e3739df12d31 at term 8
+2018-11-29 21:49:32.212291 I | raft: b230326f6c733c35 [quorum:3] has received 2 MsgVoteResp votes and 3 vote rejections
+2018-11-29 21:49:32.212302 I | raft: b230326f6c733c35 became follower at term 8
+2018-11-29 21:49:33.314484 I | raft: b230326f6c733c35 [term: 8] received a MsgVote message with higher term from 2d508dd0aa9ee691 [term: 9]
+2018-11-29 21:49:33.314523 I | raft: b230326f6c733c35 became follower at term 9
+2018-11-29 21:49:33.314536 I | raft: b230326f6c733c35 [logterm: 2, index: 49, vote: 0] cast MsgVote for 2d508dd0aa9ee691 [logterm: 2, index: 49] at term 9
+2018-11-29 21:49:34.514484 I | raft: b230326f6c733c35 [term: 9] received a MsgVote message with higher term from 2d508dd0aa9ee691 [term: 10]
+2018-11-29 21:49:34.514524 I | raft: b230326f6c733c35 became follower at term 10
+2018-11-29 21:49:34.514537 I | raft: b230326f6c733c35 [logterm: 2, index: 49, vote: 0] cast MsgVote for 2d508dd0aa9ee691 [logterm: 2, index: 49] at term 10
+2018-11-29 21:49:35.523986 E | etcdserver/api/v2http: got unexpected response error (etcdserver: request timed out)
+2018-11-29 21:49:35.611786 I | raft: b230326f6c733c35 [term: 10] received a MsgVote message with higher term from a00c92baa5af8639 [term: 11]
+2018-11-29 21:49:35.611818 I | raft: b230326f6c733c35 became follower at term 11
+2018-11-29 21:49:35.611830 I | raft: b230326f6c733c35 [logterm: 2, index: 49, vote: 0] cast MsgVote for a00c92baa5af8639 [logterm: 3, index: 49] at term 11
+2018-11-29 21:49:35.613446 I | raft: raft.node: b230326f6c733c35 elected leader a00c92baa5af8639 at term 11
+2018-11-29 21:49:35.615321 I | raft: found conflict at index 48 [existing term: 2, conflicting term: 3]
+2018-11-29 21:49:35.615339 I | raft: replace the unstable entries from index 48
+2018-11-29 21:49:37.697852 W | rafthttp: lost the TCP streaming connection with peer cecac79a73f45067 (stream Message reader)
+2018-11-29 21:49:37.697891 E | rafthttp: failed to read cecac79a73f45067 on stream Message (read tcp 172.31.20.192:44537->172.31.22.103:2380: i/o timeout)
+2018-11-29 21:49:37.697898 I | rafthttp: peer cecac79a73f45067 became inactive
+2018-11-29 21:49:37.697912 W | rafthttp: lost the TCP streaming connection with peer cecac79a73f45067 (stream MsgApp v2 reader)
+2018-11-29 21:49:37.701130 W | rafthttp: lost the TCP streaming connection with peer 3474e3739df12d31 (stream MsgApp v2 reader)
+2018-11-29 21:49:37.701154 E | rafthttp: failed to read 3474e3739df12d31 on stream MsgApp v2 (read tcp 172.31.20.192:37355->172.31.21.73:2380: i/o timeout)
+2018-11-29 21:49:37.701161 I | rafthttp: peer 3474e3739df12d31 became inactive
+2018-11-29 21:49:37.701939 W | rafthttp: lost the TCP streaming connection with peer 3474e3739df12d31 (stream Message reader)
+2018-11-29 21:49:38.796590 I | rafthttp: peer 3474e3739df12d31 became active
+2018-11-29 21:49:38.796623 W | rafthttp: closed an existing TCP streaming connection with peer 3474e3739df12d31 (stream MsgApp v2 writer)
+2018-11-29 21:49:38.796630 I | rafthttp: established a TCP streaming connection with peer 3474e3739df12d31 (stream MsgApp v2 writer)
+2018-11-29 21:49:38.799125 I | rafthttp: established a TCP streaming connection with peer 3474e3739df12d31 (stream MsgApp v2 reader)
+2018-11-29 21:49:38.799553 I | rafthttp: peer cecac79a73f45067 became active
+2018-11-29 21:49:38.799574 I | rafthttp: established a TCP streaming connection with peer cecac79a73f45067 (stream MsgApp v2 reader)
+2018-11-29 21:49:38.799624 I | rafthttp: established a TCP streaming connection with peer cecac79a73f45067 (stream Message reader)
+2018-11-29 21:49:38.801065 W | rafthttp: closed an existing TCP streaming connection with peer cecac79a73f45067 (stream MsgApp v2 writer)
+2018-11-29 21:49:38.801079 I | rafthttp: established a TCP streaming connection with peer cecac79a73f45067 (stream MsgApp v2 writer)
+2018-11-29 21:49:38.801331 W | rafthttp: closed an existing TCP streaming connection with peer cecac79a73f45067 (stream Message writer)
+2018-11-29 21:49:38.801344 I | rafthttp: established a TCP streaming connection with peer cecac79a73f45067 (stream Message writer)
+2018-11-29 21:49:38.802979 I | rafthttp: established a TCP streaming connection with peer 3474e3739df12d31 (stream Message reader)
+2018-11-29 21:49:38.803452 W | rafthttp: closed an existing TCP streaming connection with peer 3474e3739df12d31 (stream Message writer)
+2018-11-29 21:49:38.803465 I | rafthttp: established a TCP streaming connection with peer 3474e3739df12d31 (stream Message writer)
+2018-11-29 21:49:39.312722 I | raft: b230326f6c733c35 [logterm: 11, index: 63, vote: a00c92baa5af8639] ignored MsgVote from 3474e3739df12d31 [logterm: 3, index: 49] at term 11: lease is not expired (remaining ticks: 5)
+2018-11-29 21:49:40.114501 I | raft: b230326f6c733c35 [term: 11] received a MsgVote message with higher term from 2d508dd0aa9ee691 [term: 12]
+2018-11-29 21:49:40.114542 I | raft: b230326f6c733c35 became follower at term 12
+2018-11-29 21:49:40.114555 I | raft: b230326f6c733c35 [logterm: 11, index: 63, vote: 0] cast MsgVote for 2d508dd0aa9ee691 [logterm: 11, index: 63] at term 12
+2018-11-29 21:49:40.114563 I | raft: raft.node: b230326f6c733c35 lost leader a00c92baa5af8639 at term 12
+2018-11-29 21:49:40.116113 I | raft: raft.node: b230326f6c733c35 elected leader 2d508dd0aa9ee691 at term 12
+2018-11-29 21:49:40.512633 I | raft: b230326f6c733c35 [logterm: 12, index: 64, vote: 2d508dd0aa9ee691] ignored MsgVote from 3474e3739df12d31 [logterm: 3, index: 49] at term 12: lease is not expired (remaining ticks: 6)
+2018-11-29 21:49:41.409533 I | raft: b230326f6c733c35 is starting a new election at term 12
+2018-11-29 21:49:41.409576 I | raft: b230326f6c733c35 became candidate at term 13
+2018-11-29 21:49:41.409587 I | raft: b230326f6c733c35 received MsgVoteResp from b230326f6c733c35 at term 13
+2018-11-29 21:49:41.409597 I | raft: b230326f6c733c35 [logterm: 12, index: 64] sent MsgVote request to 2d508dd0aa9ee691 at term 13
+2018-11-29 21:49:41.409607 I | raft: b230326f6c733c35 [logterm: 12, index: 64] sent MsgVote request to 3474e3739df12d31 at term 13
+2018-11-29 21:49:41.409616 I | raft: b230326f6c733c35 [logterm: 12, index: 64] sent MsgVote request to a00c92baa5af8639 at term 13
+2018-11-29 21:49:41.409627 I | raft: b230326f6c733c35 [logterm: 12, index: 64] sent MsgVote request to cecac79a73f45067 at term 13
+2018-11-29 21:49:41.409634 I | raft: raft.node: b230326f6c733c35 lost leader 2d508dd0aa9ee691 at term 13
+2018-11-29 21:49:41.412065 I | raft: b230326f6c733c35 received MsgVoteResp from a00c92baa5af8639 at term 13
+2018-11-29 21:49:41.412085 I | raft: b230326f6c733c35 [quorum:3] has received 2 MsgVoteResp votes and 0 vote rejections
+2018-11-29 21:49:41.412103 I | raft: b230326f6c733c35 received MsgVoteResp from 2d508dd0aa9ee691 at term 13
+2018-11-29 21:49:41.412113 I | raft: b230326f6c733c35 [quorum:3] has received 3 MsgVoteResp votes and 0 vote rejections
+2018-11-29 21:49:41.412131 I | raft: b230326f6c733c35 became leader at term 13
+2018-11-29 21:49:41.412144 I | raft: raft.node: b230326f6c733c35 elected leader b230326f6c733c35 at term 13
+2018-11-29 21:49:41.412864 I | raft: b230326f6c733c35 [term: 13] received a MsgAppResp message with higher term from 3474e3739df12d31 [term: 14]
+2018-11-29 21:49:41.412881 I | raft: b230326f6c733c35 became follower at term 14
+2018-11-29 21:49:41.412888 I | raft: raft.node: b230326f6c733c35 changed leader from b230326f6c733c35 to 3474e3739df12d31 at term 14
+2018-11-29 21:49:41.413411 I | raft: b230326f6c733c35 [term: 14] ignored a MsgAppResp message with lower term from 2d508dd0aa9ee691 [term: 13]
+2018-11-29 21:49:41.413586 I | raft: b230326f6c733c35 [term: 14] ignored a MsgAppResp message with lower term from a00c92baa5af8639 [term: 13]
+2018-11-29 21:49:41.712646 I | raft: b230326f6c733c35 [logterm: 13, index: 65, vote: 0] ignored MsgVote from 3474e3739df12d31 [logterm: 3, index: 49] at term 14: lease is not expired (remaining ticks: 7)
+2018-11-29 21:49:42.715157 I | raft: b230326f6c733c35 [logterm: 13, index: 65, vote: 0] cast MsgVote for 2d508dd0aa9ee691 [logterm: 13, index: 65] at term 14
+2018-11-29 21:49:42.718216 I | raft: raft.node: b230326f6c733c35 changed leader from 3474e3739df12d31 to 2d508dd0aa9ee691 at term 14
+2018-11-29 21:49:43.312572 I | raft: b230326f6c733c35 [logterm: 14, index: 66, vote: 2d508dd0aa9ee691] ignored MsgVote from 3474e3739df12d31 [logterm: 3, index: 49] at term 14: lease is not expired (remaining ticks: 4)
+2018-11-29 21:49:44.309520 I | raft: b230326f6c733c35 is starting a new election at term 14
+2018-11-29 21:49:44.309567 I | raft: b230326f6c733c35 became candidate at term 15
+2018-11-29 21:49:44.309580 I | raft: b230326f6c733c35 received MsgVoteResp from b230326f6c733c35 at term 15
+2018-11-29 21:49:44.309591 I | raft: b230326f6c733c35 [logterm: 14, index: 66] sent MsgVote request to 3474e3739df12d31 at term 15
+2018-11-29 21:49:44.309601 I | raft: b230326f6c733c35 [logterm: 14, index: 66] sent MsgVote request to a00c92baa5af8639 at term 15
+2018-11-29 21:49:44.309609 I | raft: b230326f6c733c35 [logterm: 14, index: 66] sent MsgVote request to cecac79a73f45067 at term 15
+2018-11-29 21:49:44.309618 I | raft: b230326f6c733c35 [logterm: 14, index: 66] sent MsgVote request to 2d508dd0aa9ee691 at term 15
+2018-11-29 21:49:44.309626 I | raft: raft.node: b230326f6c733c35 lost leader 2d508dd0aa9ee691 at term 15
+2018-11-29 21:49:44.311939 I | raft: b230326f6c733c35 received MsgVoteResp from 2d508dd0aa9ee691 at term 15
+2018-11-29 21:49:44.311958 I | raft: b230326f6c733c35 [quorum:3] has received 2 MsgVoteResp votes and 0 vote rejections
+2018-11-29 21:49:45.012421 I | raft: b230326f6c733c35 [term: 15] received a MsgVote message with higher term from 3474e3739df12d31 [term: 17]
+2018-11-29 21:49:45.012461 I | raft: b230326f6c733c35 became follower at term 17
+2018-11-29 21:49:45.012473 I | raft: b230326f6c733c35 [logterm: 14, index: 66, vote: 0] rejected MsgVote from 3474e3739df12d31 [logterm: 3, index: 49] at term 17
+2018-11-29 21:49:45.714390 I | raft: b230326f6c733c35 [term: 17] ignored a MsgVote message with lower term from 2d508dd0aa9ee691 [term: 16]
+2018-11-29 21:49:46.109484 I | raft: b230326f6c733c35 is starting a new election at term 17
+2018-11-29 21:49:46.109521 I | raft: b230326f6c733c35 became candidate at term 18
+2018-11-29 21:49:46.109532 I | raft: b230326f6c733c35 received MsgVoteResp from b230326f6c733c35 at term 18
+2018-11-29 21:49:46.109544 I | raft: b230326f6c733c35 [logterm: 14, index: 66] sent MsgVote request to cecac79a73f45067 at term 18
+2018-11-29 21:49:46.109554 I | raft: b230326f6c733c35 [logterm: 14, index: 66] sent MsgVote request to 2d508dd0aa9ee691 at term 18
+2018-11-29 21:49:46.109563 I | raft: b230326f6c733c35 [logterm: 14, index: 66] sent MsgVote request to 3474e3739df12d31 at term 18
+2018-11-29 21:49:46.109571 I | raft: b230326f6c733c35 [logterm: 14, index: 66] sent MsgVote request to a00c92baa5af8639 at term 18
+2018-11-29 21:49:46.111850 I | raft: b230326f6c733c35 received MsgVoteResp from 2d508dd0aa9ee691 at term 18
+2018-11-29 21:49:46.111864 I | raft: b230326f6c733c35 [quorum:3] has received 2 MsgVoteResp votes and 0 vote rejections
+2018-11-29 21:49:46.111949 I | raft: b230326f6c733c35 received MsgVoteResp from 3474e3739df12d31 at term 18
+2018-11-29 21:49:46.111967 I | raft: b230326f6c733c35 [quorum:3] has received 3 MsgVoteResp votes and 0 vote rejections
+2018-11-29 21:49:46.112000 I | raft: b230326f6c733c35 became leader at term 18
+2018-11-29 21:49:46.112015 I | raft: raft.node: b230326f6c733c35 elected leader b230326f6c733c35 at term 18
+2018-11-29 21:49:46.152417 E | etcdserver/api/v2http: got unexpected response error (etcdserver: request timed out)
+2018-11-29 21:49:47.320964 W | etcdserver: failed to reach the peerURL(http://ec2-18-212-141-207.compute-1.amazonaws.com:2380) of member a00c92baa5af8639 (Get http://ec2-18-212-141-207.compute-1.amazonaws.com:2380/version: dial tcp 172.31.16.109:2380: i/o timeout)
+2018-11-29 21:49:47.321002 W | etcdserver: cannot get the version of member a00c92baa5af8639 (Get http://ec2-18-212-141-207.compute-1.amazonaws.com:2380/version: dial tcp 172.31.16.109:2380: i/o timeout)
+2018-11-29 21:49:47.697884 W | rafthttp: lost the TCP streaming connection with peer cecac79a73f45067 (stream MsgApp v2 reader)
+2018-11-29 21:49:47.697921 E | rafthttp: failed to read cecac79a73f45067 on stream MsgApp v2 (read tcp 172.31.20.192:44546->172.31.22.103:2380: i/o timeout)
+2018-11-29 21:49:47.697929 I | rafthttp: peer cecac79a73f45067 became inactive
+2018-11-29 21:49:47.697993 W | rafthttp: lost the TCP streaming connection with peer cecac79a73f45067 (stream Message reader)
+2018-11-29 21:49:47.699952 W | rafthttp: lost the TCP streaming connection with peer a00c92baa5af8639 (stream MsgApp v2 reader)
+2018-11-29 21:49:47.699970 E | rafthttp: failed to read a00c92baa5af8639 on stream MsgApp v2 (read tcp 172.31.20.192:41220->172.31.16.109:2380: i/o timeout)
+2018-11-29 21:49:47.699976 I | rafthttp: peer a00c92baa5af8639 became inactive
+2018-11-29 21:49:47.699984 W | rafthttp: lost the TCP streaming connection with peer a00c92baa5af8639 (stream Message reader)
+2018-11-29 21:49:48.521257 W | etcdserver: failed to reach the peerURL(http://ec2-18-232-141-137.compute-1.amazonaws.com:2380) of member cecac79a73f45067 (Get http://ec2-18-232-141-137.compute-1.amazonaws.com:2380/version: dial tcp 172.31.22.103:2380: i/o timeout)
+2018-11-29 21:49:48.521278 W | etcdserver: cannot get the version of member cecac79a73f45067 (Get http://ec2-18-232-141-137.compute-1.amazonaws.com:2380/version: dial tcp 172.31.22.103:2380: i/o timeout)
+2018-11-29 21:49:48.799469 I | rafthttp: peer a00c92baa5af8639 became active
+2018-11-29 21:49:48.799508 W | rafthttp: closed an existing TCP streaming connection with peer a00c92baa5af8639 (stream Message writer)
+2018-11-29 21:49:48.799515 I | rafthttp: established a TCP streaming connection with peer a00c92baa5af8639 (stream Message writer)
+2018-11-29 21:49:48.799524 W | rafthttp: closed an existing TCP streaming connection with peer a00c92baa5af8639 (stream MsgApp v2 writer)
+2018-11-29 21:49:48.799530 I | rafthttp: established a TCP streaming connection with peer a00c92baa5af8639 (stream MsgApp v2 writer)
+2018-11-29 21:49:48.799566 I | rafthttp: established a TCP streaming connection with peer a00c92baa5af8639 (stream Message reader)
+2018-11-29 21:49:48.799611 I | rafthttp: established a TCP streaming connection with peer a00c92baa5af8639 (stream MsgApp v2 reader)
+2018-11-29 21:49:48.799776 I | rafthttp: peer cecac79a73f45067 became active
+2018-11-29 21:49:48.799789 I | rafthttp: established a TCP streaming connection with peer cecac79a73f45067 (stream Message reader)
+2018-11-29 21:49:48.800214 I | rafthttp: established a TCP streaming connection with peer cecac79a73f45067 (stream MsgApp v2 reader)
+2018-11-29 21:49:48.804227 W | rafthttp: closed an existing TCP streaming connection with peer cecac79a73f45067 (stream Message writer)
+2018-11-29 21:49:48.804246 I | rafthttp: established a TCP streaming connection with peer cecac79a73f45067 (stream Message writer)
+2018-11-29 21:49:48.804339 W | rafthttp: closed an existing TCP streaming connection with peer cecac79a73f45067 (stream MsgApp v2 writer)
+2018-11-29 21:49:48.804353 I | rafthttp: established a TCP streaming connection with peer cecac79a73f45067 (stream MsgApp v2 writer)
+2018-11-29 21:49:48.810021 I | raft: b230326f6c733c35 [term: 18] received a MsgAppResp message with higher term from cecac79a73f45067 [term: 20]
+2018-11-29 21:49:48.810041 I | raft: b230326f6c733c35 became follower at term 20
+2018-11-29 21:49:48.810050 I | raft: raft.node: b230326f6c733c35 changed leader from b230326f6c733c35 to cecac79a73f45067 at term 20
+2018-11-29 21:49:48.810398 I | raft: b230326f6c733c35 [term: 20] ignored a MsgHeartbeatResp message with lower term from 2d508dd0aa9ee691 [term: 18]
+2018-11-29 21:49:48.810473 I | raft: b230326f6c733c35 [term: 20] ignored a MsgHeartbeatResp message with lower term from 3474e3739df12d31 [term: 18]
+2018-11-29 21:49:49.010919 I | raft: b230326f6c733c35 [logterm: 18, index: 76, vote: 0] ignored MsgVote from cecac79a73f45067 [logterm: 3, index: 49] at term 20: lease is not expired (remaining ticks: 8)
+2018-11-29 21:49:49.809497 I | raft: b230326f6c733c35 is starting a new election at term 20
+2018-11-29 21:49:49.809534 I | raft: b230326f6c733c35 became candidate at term 21
+2018-11-29 21:49:49.809546 I | raft: b230326f6c733c35 received MsgVoteResp from b230326f6c733c35 at term 21
+2018-11-29 21:49:49.809556 I | raft: b230326f6c733c35 [logterm: 18, index: 76] sent MsgVote request to 2d508dd0aa9ee691 at term 21
+2018-11-29 21:49:49.809566 I | raft: b230326f6c733c35 [logterm: 18, index: 76] sent MsgVote request to 3474e3739df12d31 at term 21
+2018-11-29 21:49:49.809576 I | raft: b230326f6c733c35 [logterm: 18, index: 76] sent MsgVote request to a00c92baa5af8639 at term 21
+2018-11-29 21:49:49.809585 I | raft: b230326f6c733c35 [logterm: 18, index: 76] sent MsgVote request to cecac79a73f45067 at term 21
+2018-11-29 21:49:49.809593 I | raft: raft.node: b230326f6c733c35 lost leader cecac79a73f45067 at term 21
+2018-11-29 21:49:49.811176 I | raft: b230326f6c733c35 received MsgVoteResp rejection from cecac79a73f45067 at term 21
+2018-11-29 21:49:49.811194 I | raft: b230326f6c733c35 [quorum:3] has received 1 MsgVoteResp votes and 1 vote rejections
+2018-11-29 21:49:49.811864 I | raft: b230326f6c733c35 received MsgVoteResp from a00c92baa5af8639 at term 21
+2018-11-29 21:49:49.811878 I | raft: b230326f6c733c35 [quorum:3] has received 2 MsgVoteResp votes and 1 vote rejections
+2018-11-29 21:49:49.811890 I | raft: b230326f6c733c35 received MsgVoteResp from 2d508dd0aa9ee691 at term 21
+2018-11-29 21:49:49.811897 I | raft: b230326f6c733c35 [quorum:3] has received 3 MsgVoteResp votes and 1 vote rejections
+2018-11-29 21:49:49.811913 I | raft: b230326f6c733c35 became leader at term 21
+2018-11-29 21:49:49.811928 I | raft: raft.node: b230326f6c733c35 elected leader b230326f6c733c35 at term 21
+2018-11-29 21:49:54.809493 W | raft: b230326f6c733c35 stepped down to follower since quorum is not active
+2018-11-29 21:49:54.809539 I | raft: b230326f6c733c35 became follower at term 21
+2018-11-29 21:49:54.809548 I | raft: raft.node: b230326f6c733c35 lost leader b230326f6c733c35 at term 21
+2018-11-29 21:49:55.809497 I | raft: b230326f6c733c35 is starting a new election at term 21
+2018-11-29 21:49:55.809545 I | raft: b230326f6c733c35 became candidate at term 22
+2018-11-29 21:49:55.809558 I | raft: b230326f6c733c35 received MsgVoteResp from b230326f6c733c35 at term 22
+2018-11-29 21:49:55.809568 I | raft: b230326f6c733c35 [logterm: 21, index: 101] sent MsgVote request to a00c92baa5af8639 at term 22
+2018-11-29 21:49:55.809578 I | raft: b230326f6c733c35 [logterm: 21, index: 101] sent MsgVote request to cecac79a73f45067 at term 22
+2018-11-29 21:49:55.809587 I | raft: b230326f6c733c35 [logterm: 21, index: 101] sent MsgVote request to 2d508dd0aa9ee691 at term 22
+2018-11-29 21:49:55.809596 I | raft: b230326f6c733c35 [logterm: 21, index: 101] sent MsgVote request to 3474e3739df12d31 at term 22
+2018-11-29 21:49:55.812009 I | raft: b230326f6c733c35 received MsgVoteResp from a00c92baa5af8639 at term 22
+2018-11-29 21:49:55.812025 I | raft: b230326f6c733c35 [quorum:3] has received 2 MsgVoteResp votes and 0 vote rejections
+2018-11-29 21:49:57.309485 I | raft: b230326f6c733c35 is starting a new election at term 22
+2018-11-29 21:49:57.309527 I | raft: b230326f6c733c35 became candidate at term 23
+2018-11-29 21:49:57.309539 I | raft: b230326f6c733c35 received MsgVoteResp from b230326f6c733c35 at term 23
+2018-11-29 21:49:57.309549 I | raft: b230326f6c733c35 [logterm: 21, index: 101] sent MsgVote request to 2d508dd0aa9ee691 at term 23
+2018-11-29 21:49:57.309562 I | raft: b230326f6c733c35 [logterm: 21, index: 101] sent MsgVote request to 3474e3739df12d31 at term 23
+2018-11-29 21:49:57.309571 I | raft: b230326f6c733c35 [logterm: 21, index: 101] sent MsgVote request to a00c92baa5af8639 at term 23
+2018-11-29 21:49:57.309592 I | raft: b230326f6c733c35 [logterm: 21, index: 101] sent MsgVote request to cecac79a73f45067 at term 23
+2018-11-29 21:49:57.311845 I | raft: b230326f6c733c35 received MsgVoteResp from a00c92baa5af8639 at term 23
+2018-11-29 21:49:57.311863 I | raft: b230326f6c733c35 [quorum:3] has received 2 MsgVoteResp votes and 0 vote rejections
+2018-11-29 21:49:57.697737 W | rafthttp: lost the TCP streaming connection with peer cecac79a73f45067 (stream MsgApp v2 reader)
+2018-11-29 21:49:57.697773 E | rafthttp: failed to read cecac79a73f45067 on stream MsgApp v2 (read tcp 172.31.20.192:44557->172.31.22.103:2380: i/o timeout)
+2018-11-29 21:49:57.697780 I | rafthttp: peer cecac79a73f45067 became inactive
+2018-11-29 21:49:57.700878 W | rafthttp: lost the TCP streaming connection with peer 3474e3739df12d31 (stream MsgApp v2 reader)
+2018-11-29 21:49:57.700902 E | rafthttp: failed to read 3474e3739df12d31 on stream MsgApp v2 (read tcp 172.31.20.192:37367->172.31.21.73:2380: i/o timeout)
+2018-11-29 21:49:57.700909 I | rafthttp: peer 3474e3739df12d31 became inactive
+2018-11-29 21:49:57.702485 W | rafthttp: lost the TCP streaming connection with peer 2d508dd0aa9ee691 (stream MsgApp v2 reader)
+2018-11-29 21:49:57.702503 E | rafthttp: failed to read 2d508dd0aa9ee691 on stream MsgApp v2 (read tcp 172.31.20.192:13630->172.31.24.89:2380: i/o timeout)
+2018-11-29 21:49:57.702509 I | rafthttp: peer 2d508dd0aa9ee691 became inactive
+2018-11-29 21:49:58.510324 W | rafthttp: lost the TCP streaming connection with peer cecac79a73f45067 (stream Message reader)
+2018-11-29 21:49:58.510407 W | rafthttp: lost the TCP streaming connection with peer 3474e3739df12d31 (stream Message reader)
+2018-11-29 21:49:58.511360 W | rafthttp: lost the TCP streaming connection with peer 2d508dd0aa9ee691 (stream Message reader)
+2018-11-29 21:49:58.799177 I | rafthttp: peer cecac79a73f45067 became active
+2018-11-29 21:49:58.799204 I | rafthttp: established a TCP streaming connection with peer cecac79a73f45067 (stream MsgApp v2 reader)
+2018-11-29 21:49:58.803133 I | rafthttp: peer 2d508dd0aa9ee691 became active
+2018-11-29 21:49:58.803159 I | rafthttp: established a TCP streaming connection with peer 2d508dd0aa9ee691 (stream MsgApp v2 reader)
+2018-11-29 21:49:58.803334 I | rafthttp: peer 3474e3739df12d31 became active
+2018-11-29 21:49:58.803351 I | rafthttp: established a TCP streaming connection with peer 3474e3739df12d31 (stream MsgApp v2 reader)
+2018-11-29 21:49:58.809474 I | raft: b230326f6c733c35 is starting a new election at term 23
+2018-11-29 21:49:58.809496 I | raft: b230326f6c733c35 became candidate at term 24
+2018-11-29 21:49:58.809505 I | raft: b230326f6c733c35 received MsgVoteResp from b230326f6c733c35 at term 24
+2018-11-29 21:49:58.809515 I | raft: b230326f6c733c35 [logterm: 21, index: 101] sent MsgVote request to 3474e3739df12d31 at term 24
+2018-11-29 21:49:58.809524 I | raft: b230326f6c733c35 [logterm: 21, index: 101] sent MsgVote request to a00c92baa5af8639 at term 24
+2018-11-29 21:49:58.809533 I | raft: b230326f6c733c35 [logterm: 21, index: 101] sent MsgVote request to cecac79a73f45067 at term 24
+2018-11-29 21:49:58.809541 I | raft: b230326f6c733c35 [logterm: 21, index: 101] sent MsgVote request to 2d508dd0aa9ee691 at term 24
+2018-11-29 21:49:58.811570 I | raft: b230326f6c733c35 [logterm: 21, index: 101, vote: b230326f6c733c35] rejected MsgVote from a00c92baa5af8639 [logterm: 21, index: 101] at term 24
+2018-11-29 21:49:58.811588 I | raft: b230326f6c733c35 received MsgVoteResp rejection from a00c92baa5af8639 at term 24
+2018-11-29 21:49:58.811596 I | raft: b230326f6c733c35 [quorum:3] has received 1 MsgVoteResp votes and 1 vote rejections
+2018-11-29 21:49:59.518086 W | rafthttp: closed an existing TCP streaming connection with peer cecac79a73f45067 (stream MsgApp v2 writer)
+2018-11-29 21:49:59.518130 I | rafthttp: established a TCP streaming connection with peer cecac79a73f45067 (stream MsgApp v2 writer)
+2018-11-29 21:49:59.520642 W | rafthttp: closed an existing TCP streaming connection with peer 3474e3739df12d31 (stream MsgApp v2 writer)
+2018-11-29 21:49:59.520687 I | rafthttp: established a TCP streaming connection with peer 3474e3739df12d31 (stream MsgApp v2 writer)
+2018-11-29 21:49:59.521419 W | rafthttp: closed an existing TCP streaming connection with peer 2d508dd0aa9ee691 (stream MsgApp v2 writer)
+2018-11-29 21:49:59.521436 I | rafthttp: established a TCP streaming connection with peer 2d508dd0aa9ee691 (stream MsgApp v2 writer)
+2018-11-29 21:49:59.610591 W | rafthttp: closed an existing TCP streaming connection with peer cecac79a73f45067 (stream Message writer)
+2018-11-29 21:49:59.610616 I | rafthttp: established a TCP streaming connection with peer cecac79a73f45067 (stream Message writer)
+2018-11-29 21:49:59.611207 I | rafthttp: established a TCP streaming connection with peer 3474e3739df12d31 (stream Message reader)
+2018-11-29 21:49:59.611355 I | rafthttp: established a TCP streaming connection with peer cecac79a73f45067 (stream Message reader)
+2018-11-29 21:49:59.613886 W | rafthttp: closed an existing TCP streaming connection with peer 2d508dd0aa9ee691 (stream Message writer)
+2018-11-29 21:49:59.613903 I | rafthttp: established a TCP streaming connection with peer 2d508dd0aa9ee691 (stream Message writer)
+2018-11-29 21:49:59.613911 W | rafthttp: closed an existing TCP streaming connection with peer 3474e3739df12d31 (stream Message writer)
+2018-11-29 21:49:59.613917 I | rafthttp: established a TCP streaming connection with peer 3474e3739df12d31 (stream Message writer)
+2018-11-29 21:49:59.613957 I | rafthttp: established a TCP streaming connection with peer 2d508dd0aa9ee691 (stream Message reader)
+2018-11-29 21:50:00.009488 I | raft: b230326f6c733c35 is starting a new election at term 24
+2018-11-29 21:50:00.009532 I | raft: b230326f6c733c35 became candidate at term 25
+2018-11-29 21:50:00.009546 I | raft: b230326f6c733c35 received MsgVoteResp from b230326f6c733c35 at term 25
+2018-11-29 21:50:00.009556 I | raft: b230326f6c733c35 [logterm: 21, index: 101] sent MsgVote request to 2d508dd0aa9ee691 at term 25
+2018-11-29 21:50:00.009566 I | raft: b230326f6c733c35 [logterm: 21, index: 101] sent MsgVote request to 3474e3739df12d31 at term 25
+2018-11-29 21:50:00.009575 I | raft: b230326f6c733c35 [logterm: 21, index: 101] sent MsgVote request to a00c92baa5af8639 at term 25
+2018-11-29 21:50:00.009589 I | raft: b230326f6c733c35 [logterm: 21, index: 101] sent MsgVote request to cecac79a73f45067 at term 25
+2018-11-29 21:50:00.011982 I | raft: b230326f6c733c35 received MsgVoteResp rejection from 2d508dd0aa9ee691 at term 25
+2018-11-29 21:50:00.012001 I | raft: b230326f6c733c35 [quorum:3] has received 1 MsgVoteResp votes and 1 vote rejections
+2018-11-29 21:50:00.012020 I | raft: b230326f6c733c35 received MsgVoteResp from a00c92baa5af8639 at term 25
+2018-11-29 21:50:00.012028 I | raft: b230326f6c733c35 [quorum:3] has received 2 MsgVoteResp votes and 1 vote rejections
+2018-11-29 21:50:00.012116 I | raft: b230326f6c733c35 received MsgVoteResp rejection from 3474e3739df12d31 at term 25
+2018-11-29 21:50:00.012129 I | raft: b230326f6c733c35 [quorum:3] has received 2 MsgVoteResp votes and 2 vote rejections
+2018-11-29 21:50:00.013209 I | raft: b230326f6c733c35 received MsgVoteResp rejection from cecac79a73f45067 at term 25
+2018-11-29 21:50:00.013221 I | raft: b230326f6c733c35 [quorum:3] has received 2 MsgVoteResp votes and 3 vote rejections
+2018-11-29 21:50:00.013232 I | raft: b230326f6c733c35 became follower at term 25
+2018-11-29 21:50:00.922288 E | etcdserver/api/v2http: got unexpected response error (etcdserver: request timed out)
+2018-11-29 21:50:01.011887 I | raft: b230326f6c733c35 [term: 25] received a MsgVote message with higher term from a00c92baa5af8639 [term: 26]
+2018-11-29 21:50:01.011928 I | raft: b230326f6c733c35 became follower at term 26
+2018-11-29 21:50:01.011942 I | raft: b230326f6c733c35 [logterm: 21, index: 101, vote: 0] cast MsgVote for a00c92baa5af8639 [logterm: 21, index: 101] at term 26
+2018-11-29 21:50:02.112466 I | raft: b230326f6c733c35 [term: 26] received a MsgVote message with higher term from 3474e3739df12d31 [term: 27]
+2018-11-29 21:50:02.112516 I | raft: b230326f6c733c35 became follower at term 27
+2018-11-29 21:50:02.112528 I | raft: b230326f6c733c35 [logterm: 21, index: 101, vote: 0] cast MsgVote for 3474e3739df12d31 [logterm: 22, index: 103] at term 27
+2018-11-29 21:50:02.113850 I | raft: raft.node: b230326f6c733c35 elected leader 3474e3739df12d31 at term 27
+2018-11-29 21:50:02.116094 I | raft: found conflict at index 100 [existing term: 21, conflicting term: 22]
+2018-11-29 21:50:02.116109 I | raft: replace the unstable entries from index 100
+2018-11-29 21:50:05.509516 I | raft: b230326f6c733c35 is starting a new election at term 27
+2018-11-29 21:50:05.509562 I | raft: b230326f6c733c35 became candidate at term 28
+2018-11-29 21:50:05.509575 I | raft: b230326f6c733c35 received MsgVoteResp from b230326f6c733c35 at term 28
+2018-11-29 21:50:05.509585 I | raft: b230326f6c733c35 [logterm: 27, index: 117] sent MsgVote request to 2d508dd0aa9ee691 at term 28
+2018-11-29 21:50:05.509595 I | raft: b230326f6c733c35 [logterm: 27, index: 117] sent MsgVote request to 3474e3739df12d31 at term 28
+2018-11-29 21:50:05.509604 I | raft: b230326f6c733c35 [logterm: 27, index: 117] sent MsgVote request to a00c92baa5af8639 at term 28
+2018-11-29 21:50:05.509612 I | raft: b230326f6c733c35 [logterm: 27, index: 117] sent MsgVote request to cecac79a73f45067 at term 28
+2018-11-29 21:50:05.509621 I | raft: raft.node: b230326f6c733c35 lost leader 3474e3739df12d31 at term 28
+2018-11-29 21:50:05.511853 I | raft: b230326f6c733c35 received MsgVoteResp from a00c92baa5af8639 at term 28
+2018-11-29 21:50:05.511872 I | raft: b230326f6c733c35 [quorum:3] has received 2 MsgVoteResp votes and 0 vote rejections
+2018-11-29 21:50:07.409533 I | raft: b230326f6c733c35 is starting a new election at term 28
+2018-11-29 21:50:07.409575 I | raft: b230326f6c733c35 became candidate at term 29
+2018-11-29 21:50:07.409589 I | raft: b230326f6c733c35 received MsgVoteResp from b230326f6c733c35 at term 29
+2018-11-29 21:50:07.409600 I | raft: b230326f6c733c35 [logterm: 27, index: 117] sent MsgVote request to 2d508dd0aa9ee691 at term 29
+2018-11-29 21:50:07.409610 I | raft: b230326f6c733c35 [logterm: 27, index: 117] sent MsgVote request to 3474e3739df12d31 at term 29
+2018-11-29 21:50:07.409619 I | raft: b230326f6c733c35 [logterm: 27, index: 117] sent MsgVote request to a00c92baa5af8639 at term 29
+2018-11-29 21:50:07.409628 I | raft: b230326f6c733c35 [logterm: 27, index: 117] sent MsgVote request to cecac79a73f45067 at term 29
+2018-11-29 21:50:07.411837 I | raft: b230326f6c733c35 [logterm: 27, index: 117, vote: b230326f6c733c35] rejected MsgVote from a00c92baa5af8639 [logterm: 27, index: 117] at term 29
+2018-11-29 21:50:07.411854 I | raft: b230326f6c733c35 received MsgVoteResp rejection from a00c92baa5af8639 at term 29
+2018-11-29 21:50:07.411862 I | raft: b230326f6c733c35 [quorum:3] has received 1 MsgVoteResp votes and 1 vote rejections
+2018-11-29 21:50:07.697906 W | rafthttp: lost the TCP streaming connection with peer cecac79a73f45067 (stream MsgApp v2 reader)
+2018-11-29 21:50:07.697944 E | rafthttp: failed to read cecac79a73f45067 on stream MsgApp v2 (read tcp 172.31.20.192:44564->172.31.22.103:2380: i/o timeout)
+2018-11-29 21:50:07.697951 I | rafthttp: peer cecac79a73f45067 became inactive
+2018-11-29 21:50:07.698020 W | rafthttp: lost the TCP streaming connection with peer cecac79a73f45067 (stream Message reader)
+2018-11-29 21:50:07.702421 W | rafthttp: lost the TCP streaming connection with peer 2d508dd0aa9ee691 (stream MsgApp v2 reader)
+2018-11-29 21:50:07.702440 E | rafthttp: failed to read 2d508dd0aa9ee691 on stream MsgApp v2 (read tcp 172.31.20.192:13686->172.31.24.89:2380: i/o timeout)
+2018-11-29 21:50:07.702447 I | rafthttp: peer 2d508dd0aa9ee691 became inactive
+2018-11-29 21:50:07.702457 W | rafthttp: lost the TCP streaming connection with peer 2d508dd0aa9ee691 (stream Message reader)
+2018-11-29 21:50:08.511867 I | raft: b230326f6c733c35 [term: 29] received a MsgVote message with higher term from a00c92baa5af8639 [term: 30]
+2018-11-29 21:50:08.511918 I | raft: b230326f6c733c35 became follower at term 30
+2018-11-29 21:50:08.511931 I | raft: b230326f6c733c35 [logterm: 27, index: 117, vote: 0] cast MsgVote for a00c92baa5af8639 [logterm: 27, index: 117] at term 30
+2018-11-29 21:50:08.788484 W | rafthttp: lost the TCP streaming connection with peer 3474e3739df12d31 (stream MsgApp v2 reader)
+2018-11-29 21:50:08.788532 E | rafthttp: failed to read 3474e3739df12d31 on stream MsgApp v2 (read tcp 172.31.20.192:37384->172.31.21.73:2380: i/o timeout)
+2018-11-29 21:50:08.788549 I | rafthttp: peer 3474e3739df12d31 became inactive
+2018-11-29 21:50:08.811468 W | rafthttp: lost the TCP streaming connection with peer 3474e3739df12d31 (stream Message reader)
+2018-11-29 21:50:09.095416 I | rafthttp: peer 2d508dd0aa9ee691 became active
+2018-11-29 21:50:09.095448 W | rafthttp: closed an existing TCP streaming connection with peer 2d508dd0aa9ee691 (stream Message writer)
+2018-11-29 21:50:09.095456 I | rafthttp: established a TCP streaming connection with peer 2d508dd0aa9ee691 (stream Message writer)
+2018-11-29 21:50:09.099127 W | rafthttp: closed an existing TCP streaming connection with peer 2d508dd0aa9ee691 (stream MsgApp v2 writer)
+2018-11-29 21:50:09.099150 I | rafthttp: established a TCP streaming connection with peer 2d508dd0aa9ee691 (stream MsgApp v2 writer)
+2018-11-29 21:50:09.100184 I | rafthttp: peer 3474e3739df12d31 became active
+2018-11-29 21:50:09.100200 W | rafthttp: closed an existing TCP streaming connection with peer 3474e3739df12d31 (stream MsgApp v2 writer)
+2018-11-29 21:50:09.100207 I | rafthttp: established a TCP streaming connection with peer 3474e3739df12d31 (stream MsgApp v2 writer)
+2018-11-29 21:50:09.103221 I | rafthttp: peer cecac79a73f45067 became active
+2018-11-29 21:50:09.103238 I | rafthttp: established a TCP streaming connection with peer cecac79a73f45067 (stream MsgApp v2 reader)
+2018-11-29 21:50:09.103728 I | rafthttp: established a TCP streaming connection with peer cecac79a73f45067 (stream Message reader)
+2018-11-29 21:50:09.105256 I | rafthttp: established a TCP streaming connection with peer 2d508dd0aa9ee691 (stream MsgApp v2 reader)
+2018-11-29 21:50:09.105302 I | rafthttp: established a TCP streaming connection with peer 2d508dd0aa9ee691 (stream Message reader)
+2018-11-29 21:50:09.112777 W | rafthttp: closed an existing TCP streaming connection with peer cecac79a73f45067 (stream Message writer)
+2018-11-29 21:50:09.112798 I | rafthttp: established a TCP streaming connection with peer cecac79a73f45067 (stream Message writer)
+2018-11-29 21:50:09.114742 W | rafthttp: closed an existing TCP streaming connection with peer cecac79a73f45067 (stream MsgApp v2 writer)
+2018-11-29 21:50:09.114762 I | rafthttp: established a TCP streaming connection with peer cecac79a73f45067 (stream MsgApp v2 writer)
+2018-11-29 21:50:09.811829 I | raft: b230326f6c733c35 [term: 30] received a MsgVote message with higher term from a00c92baa5af8639 [term: 31]
+2018-11-29 21:50:09.811868 I | raft: b230326f6c733c35 became follower at term 31
+2018-11-29 21:50:09.811882 I | raft: b230326f6c733c35 [logterm: 27, index: 117, vote: 0] cast MsgVote for a00c92baa5af8639 [logterm: 27, index: 117] at term 31
+2018-11-29 21:50:09.887442 I | rafthttp: established a TCP streaming connection with peer 3474e3739df12d31 (stream MsgApp v2 reader)
+2018-11-29 21:50:09.911327 I | rafthttp: established a TCP streaming connection with peer 3474e3739df12d31 (stream Message reader)
+2018-11-29 21:50:09.911639 W | rafthttp: closed an existing TCP streaming connection with peer 3474e3739df12d31 (stream Message writer)
+2018-11-29 21:50:09.911658 I | rafthttp: established a TCP streaming connection with peer 3474e3739df12d31 (stream Message writer)
+2018-11-29 21:50:11.009513 I | raft: b230326f6c733c35 is starting a new election at term 31
+2018-11-29 21:50:11.009556 I | raft: b230326f6c733c35 became candidate at term 32
+2018-11-29 21:50:11.009567 I | raft: b230326f6c733c35 received MsgVoteResp from b230326f6c733c35 at term 32
+2018-11-29 21:50:11.009578 I | raft: b230326f6c733c35 [logterm: 27, index: 117] sent MsgVote request to 3474e3739df12d31 at term 32
+2018-11-29 21:50:11.009599 I | raft: b230326f6c733c35 [logterm: 27, index: 117] sent MsgVote request to a00c92baa5af8639 at term 32
+2018-11-29 21:50:11.009610 I | raft: b230326f6c733c35 [logterm: 27, index: 117] sent MsgVote request to cecac79a73f45067 at term 32
+2018-11-29 21:50:11.009620 I | raft: b230326f6c733c35 [logterm: 27, index: 117] sent MsgVote request to 2d508dd0aa9ee691 at term 32
+2018-11-29 21:50:11.010959 I | raft: b230326f6c733c35 [term: 32] ignored a MsgVote message with lower term from cecac79a73f45067 [term: 28]
+2018-11-29 21:50:11.011601 I | raft: b230326f6c733c35 received MsgVoteResp rejection from cecac79a73f45067 at term 32
+2018-11-29 21:50:11.011619 I | raft: b230326f6c733c35 [quorum:3] has received 1 MsgVoteResp votes and 1 vote rejections
+2018-11-29 21:50:11.012022 I | raft: b230326f6c733c35 received MsgVoteResp from a00c92baa5af8639 at term 32
+2018-11-29 21:50:11.012036 I | raft: b230326f6c733c35 [quorum:3] has received 2 MsgVoteResp votes and 1 vote rejections
+2018-11-29 21:50:11.012117 I | raft: b230326f6c733c35 received MsgVoteResp rejection from 3474e3739df12d31 at term 32
+2018-11-29 21:50:11.012130 I | raft: b230326f6c733c35 [quorum:3] has received 2 MsgVoteResp votes and 2 vote rejections
+2018-11-29 21:50:11.013596 I | raft: b230326f6c733c35 received MsgVoteResp rejection from 2d508dd0aa9ee691 at term 32
+2018-11-29 21:50:11.013609 I | raft: b230326f6c733c35 [quorum:3] has received 2 MsgVoteResp votes and 3 vote rejections
+2018-11-29 21:50:11.013619 I | raft: b230326f6c733c35 became follower at term 32
+2018-11-29 21:50:12.511324 I | raft: b230326f6c733c35 [term: 32] received a MsgVote message with higher term from cecac79a73f45067 [term: 33]
+2018-11-29 21:50:12.511364 I | raft: b230326f6c733c35 became follower at term 33
+2018-11-29 21:50:12.511376 I | raft: b230326f6c733c35 [logterm: 27, index: 117, vote: 0] cast MsgVote for cecac79a73f45067 [logterm: 27, index: 134] at term 33
+2018-11-29 21:50:12.513343 I | raft: raft.node: b230326f6c733c35 elected leader cecac79a73f45067 at term 33
+2018-11-29 21:50:15.512192 I | raft: b230326f6c733c35 [term: 33] received a MsgVote message with higher term from a00c92baa5af8639 [term: 34]
+2018-11-29 21:50:15.512232 I | raft: b230326f6c733c35 became follower at term 34
+2018-11-29 21:50:15.512245 I | raft: b230326f6c733c35 [logterm: 33, index: 152, vote: 0] cast MsgVote for a00c92baa5af8639 [logterm: 33, index: 152] at term 34
+2018-11-29 21:50:15.512253 I | raft: raft.node: b230326f6c733c35 lost leader cecac79a73f45067 at term 34
+2018-11-29 21:50:17.309498 I | raft: b230326f6c733c35 is starting a new election at term 34
+2018-11-29 21:50:17.309541 I | raft: b230326f6c733c35 became candidate at term 35
+2018-11-29 21:50:17.309554 I | raft: b230326f6c733c35 received MsgVoteResp from b230326f6c733c35 at term 35
+2018-11-29 21:50:17.309566 I | raft: b230326f6c733c35 [logterm: 33, index: 152] sent MsgVote request to 2d508dd0aa9ee691 at term 35
+2018-11-29 21:50:17.309577 I | raft: b230326f6c733c35 [logterm: 33, index: 152] sent MsgVote request to 3474e3739df12d31 at term 35
+2018-11-29 21:50:17.309586 I | raft: b230326f6c733c35 [logterm: 33, index: 152] sent MsgVote request to a00c92baa5af8639 at term 35
+2018-11-29 21:50:17.309595 I | raft: b230326f6c733c35 [logterm: 33, index: 152] sent MsgVote request to cecac79a73f45067 at term 35
+2018-11-29 21:50:17.311826 I | raft: b230326f6c733c35 [logterm: 33, index: 152, vote: b230326f6c733c35] rejected MsgVote from a00c92baa5af8639 [logterm: 33, index: 152] at term 35
+2018-11-29 21:50:17.311845 I | raft: b230326f6c733c35 received MsgVoteResp rejection from a00c92baa5af8639 at term 35
+2018-11-29 21:50:17.311853 I | raft: b230326f6c733c35 [quorum:3] has received 1 MsgVoteResp votes and 1 vote rejections
+2018-11-29 21:50:18.611867 I | raft: b230326f6c733c35 [term: 35] received a MsgVote message with higher term from a00c92baa5af8639 [term: 36]
+2018-11-29 21:50:18.611910 I | raft: b230326f6c733c35 became follower at term 36
+2018-11-29 21:50:18.611923 I | raft: b230326f6c733c35 [logterm: 33, index: 152, vote: 0] cast MsgVote for a00c92baa5af8639 [logterm: 33, index: 152] at term 36
+2018-11-29 21:50:18.714161 I | raft: b230326f6c733c35 [term: 36] ignored a MsgVote message with lower term from 2d508dd0aa9ee691 [term: 34]
+2018-11-29 21:50:19.211073 I | raft: b230326f6c733c35 [logterm: 33, index: 152, vote: a00c92baa5af8639] rejected MsgVote from cecac79a73f45067 [logterm: 33, index: 162] at term 36
+2018-11-29 21:50:19.212873 I | raft: raft.node: b230326f6c733c35 elected leader cecac79a73f45067 at term 36

@@ -1,0 +1,1724 @@
+2018-11-29 20:53:49,249{GMT}	INFO	[jepsen test runner] jepsen.core: Running test:
+ {:concurrency 5,
+ :db
+ #object[jepsen.etcdemo$db$reify__2292 0x5dae5a70 "jepsen.etcdemo$db$reify__2292@5dae5a70"],
+ :name "etcd",
+ :start-time
+ #object[org.joda.time.DateTime 0x72324965 "2018-11-29T20:53:49.000Z"],
+ :net
+ #object[jepsen.net$reify__4286 0x45297e7 "jepsen.net$reify__4286@45297e7"],
+ :client {:conn nil},
+ :barrier
+ #object[java.util.concurrent.CyclicBarrier 0x4afdfc0f "java.util.concurrent.CyclicBarrier@4afdfc0f"],
+ :ssh
+ {:username "admin",
+  :password "root",
+  :strict-host-key-checking false,
+  :private-key-path nil},
+ :checker
+ #object[jepsen.checker$compose$reify__3953 0x58cda03f "jepsen.checker$compose$reify__3953@58cda03f"],
+ :nemesis
+ #object[jepsen.nemesis$partitioner$reify__4389 0x67d5ac2f "jepsen.nemesis$partitioner$reify__4389@67d5ac2f"],
+ :active-histories #<Atom@443af394: #{}>,
+ :nodes
+ ["ec2-35-174-16-155.compute-1.amazonaws.com"
+  "ec2-18-212-141-207.compute-1.amazonaws.com"
+  "ec2-18-232-141-137.compute-1.amazonaws.com"
+  "ec2-107-23-238-236.compute-1.amazonaws.com"
+  "ec2-18-234-71-213.compute-1.amazonaws.com"],
+ :test-count 1,
+ :generator
+ (gen/timelimit 60 (gen/concat [(gen/on #{:nemesis} (gen/seq ((gen/delayfn #object[clojure.core$constantly$fn__4614 0x15e8c040 "clojure.core$constantly$fn__4614@15e8c040"] (gen/gvoid)) {:type :info, :f :start, :value nil} (gen/delayfn #object[clojure.core$constantly$fn__4614 0x60ed0b9d "clojure.core$constantly$fn__4614@60ed0b9d"] (gen/gvoid)) {:type :info, :f :stop, :value nil} (gen/delayfn #object[clojure.core$constantly$fn__4614 0x15e8c040 "clojure.core$constantly$fn__4614@15e8c040"] (gen/gvoid)) {:type :info, :f :start, :value nil} (gen/delayfn #object[clojure.core$constantly$fn__4614 0x60ed0b9d "clojure.core$constantly$fn__4614@60ed0b9d"] (gen/gvoid)) {:type :info, :f :stop, :value nil}))) (gen/on #object[clojure.core$complement$fn__4611 0x2c674d58 "clojure.core$complement$fn__4611@2c674d58"] (gen/delayfn #object[clojure.core$partial$fn__4759 0x34beadce "clojure.core$partial$fn__4759@34beadce"] (gen/mix [#object[jepsen.etcdemo$r 0x2eb6d34a "jepsen.etcdemo$r@2eb6d34a"] #object[jepsen.etcdemo$w 0x6ce2e079 "jepsen.etcdemo$w@6ce2e079"] #object[jepsen.etcdemo$cas 0x260d48f5 "jepsen.etcdemo$cas@260d48f5"]])))])),
+ :os
+ #object[jepsen.os.debian$reify__2276 0x6f106af8 "jepsen.os.debian$reify__2276@6f106af8"],
+ :time-limit 60,
+ :model {:value nil}}
+
+2018-11-29 20:53:49,862{GMT}	INFO	[jepsen node ec2-18-232-141-137.compute-1.amazonaws.com] jepsen.os.debian: ec2-18-232-141-137.compute-1.amazonaws.com setting up debian
+2018-11-29 20:53:49,862{GMT}	INFO	[jepsen node ec2-107-23-238-236.compute-1.amazonaws.com] jepsen.os.debian: ec2-107-23-238-236.compute-1.amazonaws.com setting up debian
+2018-11-29 20:53:49,862{GMT}	INFO	[jepsen node ec2-18-234-71-213.compute-1.amazonaws.com] jepsen.os.debian: ec2-18-234-71-213.compute-1.amazonaws.com setting up debian
+2018-11-29 20:53:49,863{GMT}	INFO	[jepsen node ec2-18-212-141-207.compute-1.amazonaws.com] jepsen.os.debian: ec2-18-212-141-207.compute-1.amazonaws.com setting up debian
+2018-11-29 20:53:49,864{GMT}	INFO	[jepsen node ec2-35-174-16-155.compute-1.amazonaws.com] jepsen.os.debian: ec2-35-174-16-155.compute-1.amazonaws.com setting up debian
+2018-11-29 20:53:50,505{GMT}	WARN	[jepsen node ec2-18-212-141-207.compute-1.amazonaws.com] jepsen.control: Encountered error with conn [:control "ec2-18-212-141-207.compute-1.amazonaws.com"]; reopening
+2018-11-29 20:53:50,512{GMT}	WARN	[jepsen node ec2-107-23-238-236.compute-1.amazonaws.com] jepsen.control: Encountered error with conn [:control "ec2-107-23-238-236.compute-1.amazonaws.com"]; reopening
+2018-11-29 20:53:52,733{GMT}	INFO	[jepsen test runner] jepsen.db: Tearing down DB
+2018-11-29 20:53:52,734{GMT}	INFO	[jepsen node ec2-107-23-238-236.compute-1.amazonaws.com] jepsen.etcdemo: Tearing down db
+2018-11-29 20:53:52,734{GMT}	INFO	[jepsen node ec2-18-232-141-137.compute-1.amazonaws.com] jepsen.etcdemo: Tearing down db
+2018-11-29 20:53:52,734{GMT}	INFO	[jepsen node ec2-18-234-71-213.compute-1.amazonaws.com] jepsen.etcdemo: Tearing down db
+2018-11-29 20:53:52,735{GMT}	INFO	[jepsen node ec2-18-232-141-137.compute-1.amazonaws.com] jepsen.control.util: Stopping etcd
+2018-11-29 20:53:52,735{GMT}	INFO	[jepsen node ec2-107-23-238-236.compute-1.amazonaws.com] jepsen.control.util: Stopping etcd
+2018-11-29 20:53:52,735{GMT}	INFO	[jepsen node ec2-18-234-71-213.compute-1.amazonaws.com] jepsen.control.util: Stopping etcd
+2018-11-29 20:53:52,736{GMT}	INFO	[jepsen node ec2-35-174-16-155.compute-1.amazonaws.com] jepsen.etcdemo: Tearing down db
+2018-11-29 20:53:52,736{GMT}	INFO	[jepsen node ec2-18-212-141-207.compute-1.amazonaws.com] jepsen.etcdemo: Tearing down db
+2018-11-29 20:53:52,737{GMT}	INFO	[jepsen node ec2-18-212-141-207.compute-1.amazonaws.com] jepsen.control.util: Stopping etcd
+2018-11-29 20:53:52,737{GMT}	INFO	[jepsen node ec2-35-174-16-155.compute-1.amazonaws.com] jepsen.control.util: Stopping etcd
+2018-11-29 20:53:53,045{GMT}	INFO	[jepsen test runner] jepsen.db: Setting up DB
+2018-11-29 20:53:53,046{GMT}	INFO	[jepsen node ec2-35-174-16-155.compute-1.amazonaws.com] jepsen.etcdemo: Setting up db
+2018-11-29 20:53:53,046{GMT}	INFO	[jepsen node ec2-18-232-141-137.compute-1.amazonaws.com] jepsen.etcdemo: Setting up db
+2018-11-29 20:53:53,046{GMT}	INFO	[jepsen node ec2-18-212-141-207.compute-1.amazonaws.com] jepsen.etcdemo: Setting up db
+2018-11-29 20:53:53,047{GMT}	INFO	[jepsen node ec2-107-23-238-236.compute-1.amazonaws.com] jepsen.etcdemo: Setting up db
+2018-11-29 20:53:53,048{GMT}	INFO	[jepsen node ec2-18-234-71-213.compute-1.amazonaws.com] jepsen.etcdemo: Setting up db
+2018-11-29 20:53:54,374{GMT}	INFO	[jepsen node ec2-107-23-238-236.compute-1.amazonaws.com] jepsen.control.util: starting etcd
+2018-11-29 20:53:54,375{GMT}	INFO	[jepsen node ec2-18-234-71-213.compute-1.amazonaws.com] jepsen.control.util: starting etcd
+2018-11-29 20:53:54,375{GMT}	INFO	[jepsen node ec2-18-232-141-137.compute-1.amazonaws.com] jepsen.control.util: starting etcd
+2018-11-29 20:53:54,375{GMT}	INFO	[jepsen node ec2-18-212-141-207.compute-1.amazonaws.com] jepsen.control.util: starting etcd
+2018-11-29 20:53:54,375{GMT}	INFO	[jepsen node ec2-35-174-16-155.compute-1.amazonaws.com] jepsen.control.util: starting etcd
+2018-11-29 20:54:04,585{GMT}	INFO	[jepsen nemesis] jepsen.core: Starting nemesis
+2018-11-29 20:54:04,585{GMT}	INFO	[jepsen worker 0] jepsen.core: Starting worker 0
+2018-11-29 20:54:04,586{GMT}	INFO	[jepsen worker 1] jepsen.core: Starting worker 1
+2018-11-29 20:54:04,586{GMT}	INFO	[jepsen worker 2] jepsen.core: Starting worker 2
+2018-11-29 20:54:04,587{GMT}	INFO	[jepsen worker 0] jepsen.core: Running worker 0
+2018-11-29 20:54:04,587{GMT}	INFO	[jepsen worker 1] jepsen.core: Running worker 1
+2018-11-29 20:54:04,588{GMT}	INFO	[jepsen worker 2] jepsen.core: Running worker 2
+2018-11-29 20:54:04,592{GMT}	INFO	[jepsen worker 3] jepsen.core: Starting worker 3
+2018-11-29 20:54:04,593{GMT}	INFO	[jepsen worker 3] jepsen.core: Running worker 3
+2018-11-29 20:54:04,598{GMT}	INFO	[jepsen worker 4] jepsen.core: Starting worker 4
+2018-11-29 20:54:04,598{GMT}	INFO	[jepsen worker 4] jepsen.core: Running worker 4
+2018-11-29 20:54:04,768{GMT}	WARN	[jepsen node ec2-18-232-141-137.compute-1.amazonaws.com] jepsen.control: Encountered error with conn [:control "ec2-18-232-141-137.compute-1.amazonaws.com"]; reopening
+2018-11-29 20:54:05,122{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:invoke	:read	nil
+2018-11-29 20:54:05,218{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:ok	:read	nil
+2018-11-29 20:54:05,928{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:write	2
+2018-11-29 20:54:05,941{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:write	2
+2018-11-29 20:54:06,345{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:invoke	:read	nil
+2018-11-29 20:54:06,350{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:ok	:read	2
+2018-11-29 20:54:06,438{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:invoke	:cas	[0 3]
+2018-11-29 20:54:06,448{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:fail	:cas	[0 3]
+2018-11-29 20:54:06,459{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:write	2
+2018-11-29 20:54:06,466{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:write	2
+2018-11-29 20:54:06,512{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:invoke	:write	3
+2018-11-29 20:54:06,515{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:read	nil
+2018-11-29 20:54:06,519{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:ok	:write	3
+2018-11-29 20:54:06,520{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:read	3
+2018-11-29 20:54:06,612{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:invoke	:write	4
+2018-11-29 20:54:06,619{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:ok	:write	4
+2018-11-29 20:54:06,630{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:invoke	:write	2
+2018-11-29 20:54:06,635{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:ok	:write	2
+2018-11-29 20:54:06,686{GMT}	INFO	[jepsen nemesis] jepsen.core: Running nemesis
+2018-11-29 20:54:07,068{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:write	3
+2018-11-29 20:54:07,077{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:write	3
+2018-11-29 20:54:07,337{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:invoke	:read	nil
+2018-11-29 20:54:07,343{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:ok	:read	3
+2018-11-29 20:54:07,572{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:invoke	:write	3
+2018-11-29 20:54:07,581{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:ok	:write	3
+2018-11-29 20:54:08,020{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:read	nil
+2018-11-29 20:54:08,026{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:read	3
+2018-11-29 20:54:08,089{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:invoke	:read	nil
+2018-11-29 20:54:08,095{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:ok	:read	3
+2018-11-29 20:54:08,347{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:cas	[1 2]
+2018-11-29 20:54:08,357{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:fail	:cas	[1 2]
+2018-11-29 20:54:08,706{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:invoke	:cas	[2 1]
+2018-11-29 20:54:08,716{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:fail	:cas	[2 1]
+2018-11-29 20:54:09,254{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:invoke	:cas	[3 3]
+2018-11-29 20:54:09,263{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:ok	:cas	[3 3]
+2018-11-29 20:54:09,533{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:write	0
+2018-11-29 20:54:09,542{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:write	0
+2018-11-29 20:54:09,703{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:invoke	:write	2
+2018-11-29 20:54:09,712{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:ok	:write	2
+2018-11-29 20:54:09,754{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:invoke	:cas	[2 3]
+2018-11-29 20:54:09,765{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:ok	:cas	[2 3]
+2018-11-29 20:54:09,788{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:invoke	:cas	[1 1]
+2018-11-29 20:54:09,799{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:fail	:cas	[1 1]
+2018-11-29 20:54:09,852{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:cas	[2 1]
+2018-11-29 20:54:09,863{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:fail	:cas	[2 1]
+2018-11-29 20:54:10,318{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:invoke	:read	nil
+2018-11-29 20:54:10,329{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:ok	:read	3
+2018-11-29 20:54:10,448{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:write	1
+2018-11-29 20:54:10,456{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:write	1
+2018-11-29 20:54:10,771{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:read	nil
+2018-11-29 20:54:10,780{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:read	1
+2018-11-29 20:54:10,862{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:invoke	:read	nil
+2018-11-29 20:54:10,869{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:ok	:read	1
+2018-11-29 20:54:10,938{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:read	nil
+2018-11-29 20:54:10,946{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:read	1
+2018-11-29 20:54:11,074{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:invoke	:cas	[3 2]
+2018-11-29 20:54:11,083{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:fail	:cas	[3 2]
+2018-11-29 20:54:11,150{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:read	nil
+2018-11-29 20:54:11,156{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:read	1
+2018-11-29 20:54:11,586{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:write	3
+2018-11-29 20:54:11,600{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:write	3
+2018-11-29 20:54:11,631{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:read	nil
+2018-11-29 20:54:11,636{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:read	3
+2018-11-29 20:54:11,687{GMT}	INFO	[jepsen nemesis] jepsen.util: :nemesis	:info	:start	nil
+2018-11-29 20:54:11,931{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:cas	[2 1]
+2018-11-29 20:54:11,943{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:fail	:cas	[2 1]
+2018-11-29 20:54:11,991{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:cas	[3 4]
+2018-11-29 20:54:11,999{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:cas	[3 4]
+2018-11-29 20:54:12,109{GMT}	INFO	[jepsen nemesis] jepsen.util: :nemesis	:info	:start	[:isolated {"ec2-35-174-16-155.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-234-71-213.compute-1.amazonaws.com" "ec2-18-232-141-137.compute-1.amazonaws.com"}, "ec2-18-212-141-207.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-234-71-213.compute-1.amazonaws.com" "ec2-18-232-141-137.compute-1.amazonaws.com"}, "ec2-107-23-238-236.compute-1.amazonaws.com" #{"ec2-35-174-16-155.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}, "ec2-18-234-71-213.compute-1.amazonaws.com" #{"ec2-35-174-16-155.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}, "ec2-18-232-141-137.compute-1.amazonaws.com" #{"ec2-35-174-16-155.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}}]
+2018-11-29 20:54:12,130{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:invoke	:read	nil
+2018-11-29 20:54:12,139{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:ok	:read	4
+2018-11-29 20:54:12,261{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:invoke	:write	4
+2018-11-29 20:54:13,053{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:read	nil
+2018-11-29 20:54:13,055{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:invoke	:read	nil
+2018-11-29 20:54:13,060{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:ok	:read	4
+2018-11-29 20:54:13,063{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:read	4
+2018-11-29 20:54:13,209{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:invoke	:write	2
+2018-11-29 20:54:13,219{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:ok	:write	2
+2018-11-29 20:54:13,309{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:cas	[1 0]
+2018-11-29 20:54:13,762{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:invoke	:write	1
+2018-11-29 20:54:13,769{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:ok	:write	1
+2018-11-29 20:54:13,840{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:invoke	:write	3
+2018-11-29 20:54:13,847{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:ok	:write	3
+2018-11-29 20:54:13,971{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:write	1
+2018-11-29 20:54:13,979{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:write	1
+2018-11-29 20:54:15,043{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:invoke	:write	4
+2018-11-29 20:54:15,051{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:ok	:write	4
+2018-11-29 20:54:15,285{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:invoke	:cas	[2 0]
+2018-11-29 20:54:15,293{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:fail	:cas	[2 0]
+2018-11-29 20:54:15,386{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:write	2
+2018-11-29 20:54:15,393{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:write	2
+2018-11-29 20:54:16,052{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:cas	[1 3]
+2018-11-29 20:54:16,060{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:fail	:cas	[1 3]
+2018-11-29 20:54:16,252{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:invoke	:cas	[2 0]
+2018-11-29 20:54:16,258{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:ok	:cas	[2 0]
+2018-11-29 20:54:16,265{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:invoke	:cas	[2 1]
+2018-11-29 20:54:16,273{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:fail	:cas	[2 1]
+2018-11-29 20:54:17,110{GMT}	INFO	[jepsen nemesis] jepsen.util: :nemesis	:info	:stop	nil
+2018-11-29 20:54:17,280{GMT}	WARN	[jepsen worker 1] jepsen.core: Process 1 crashed
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.8.0_171]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[na:1.8.0_171]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[na:1.8.0_171]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[na:1.8.0_171]
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.fillBuffer(AbstractSessionInputBuffer.java:160) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.io.SocketInputBuffer.fillBuffer(SocketInputBuffer.java:84) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.readLine(AbstractSessionInputBuffer.java:273) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:261) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.AbstractHttpClientConnection.receiveResponseHeader(AbstractHttpClientConnection.java:283) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.conn.DefaultClientConnection.receiveResponseHeader(DefaultClientConnection.java:251) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.receiveResponseHeader(ManagedClientConnectionImpl.java:197) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:272) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:124) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.client.DefaultRequestDirector.tryExecute(DefaultRequestDirector.java:685) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:487) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:882) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107) ~[httpclient-4.5.1.jar:4.5.1]
+	at clj_http.core$request.invokeStatic(core.clj:304) ~[na:na]
+	at clj_http.core$request.invoke(core.clj:208) ~[na:na]
+	at clojure.lang.Var.invoke(Var.java:379) ~[clojure-1.8.0.jar:na]
+	at clj_http.client$wrap_request_timing$fn__1897.invoke(client.clj:831) ~[na:na]
+	at clj_http.headers$wrap_header_map$fn__296.invoke(headers.clj:143) ~[na:na]
+	at clj_http.client$wrap_query_params$fn__1803.invoke(client.clj:645) ~[na:na]
+	at clj_http.client$wrap_basic_auth$fn__1810.invoke(client.clj:670) ~[na:na]
+	at clj_http.client$wrap_oauth$fn__1814.invoke(client.clj:680) ~[na:na]
+	at clj_http.client$wrap_user_info$fn__1819.invoke(client.clj:693) ~[na:na]
+	at clj_http.client$wrap_url$fn__1883.invoke(client.clj:797) ~[na:na]
+	at clj_http.client$wrap_redirects$fn__1587.invoke(client.clj:267) ~[na:na]
+	at clj_http.client$wrap_decompression$fn__1612.invoke(client.clj:339) ~[na:na]
+	at clj_http.client$wrap_input_coercion$fn__1742.invoke(client.clj:518) ~[na:na]
+	at clj_http.client$wrap_additional_header_parsing$fn__1763.invoke(client.clj:552) ~[na:na]
+	at clj_http.client$wrap_output_coercion$fn__1733.invoke(client.clj:468) ~[na:na]
+	at clj_http.client$wrap_exceptions$fn__1573.invoke(client.clj:219) ~[na:na]
+	at clj_http.client$wrap_accept$fn__1777.invoke(client.clj:595) ~[na:na]
+	at clj_http.client$wrap_accept_encoding$fn__1783.invoke(client.clj:609) ~[na:na]
+	at clj_http.client$wrap_content_type$fn__1772.invoke(client.clj:585) ~[na:na]
+	at clj_http.client$wrap_form_params$fn__1864.invoke(client.clj:756) ~[na:na]
+	at clj_http.client$wrap_nested_params$fn__1878.invoke(client.clj:786) ~[na:na]
+	at clj_http.client$wrap_method$fn__1824.invoke(client.clj:700) ~[na:na]
+	at clj_http.cookies$wrap_cookies$fn__211.invoke(cookies.clj:124) ~[na:na]
+	at clj_http.links$wrap_links$fn__533.invoke(links.clj:51) ~[na:na]
+	at clj_http.client$wrap_unknown_host$fn__1887.invoke(client.clj:806) ~[na:na]
+	at clj_http.client$put.invokeStatic(client.clj:927) ~[na:na]
+	at clj_http.client$put.doInvoke(client.clj:923) ~[na:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:423) [clojure-1.8.0.jar:na]
+	at verschlimmbesserung.core$reset_BANG_.invokeStatic(core.clj:305) ~[na:na]
+	at verschlimmbesserung.core$reset_BANG_.invoke(core.clj:295) ~[na:na]
+	at verschlimmbesserung.core$reset_BANG_.invokeStatic(core.clj:301) ~[na:na]
+	at verschlimmbesserung.core$reset_BANG_.invoke(core.clj:295) ~[na:na]
+	at jepsen.etcdemo.Client.invoke_BANG_(etcdemo.clj:102) ~[na:na]
+	at jepsen.core$invoke_op_BANG_$fn__4612.invoke(core.clj:272) ~[jepsen-0.1.10.jar:na]
+	at jepsen.core$invoke_op_BANG_.invokeStatic(core.clj:272) [jepsen-0.1.10.jar:na]
+	at jepsen.core$invoke_op_BANG_.invoke(core.clj:267) [jepsen-0.1.10.jar:na]
+	at jepsen.core.ClientWorker.run_worker_BANG_(core.clj:403) [jepsen-0.1.10.jar:na]
+	at jepsen.core$do_worker_BANG_.invokeStatic(core.clj:187) [jepsen-0.1.10.jar:na]
+	at jepsen.core$do_worker_BANG_.invoke(core.clj:171) [jepsen-0.1.10.jar:na]
+	at jepsen.core$run_workers_BANG_$fn__4598$fn__4599.invoke(core.clj:240) [jepsen-0.1.10.jar:na]
+	at clojure.lang.AFn.applyToHelper(AFn.java:152) [clojure-1.8.0.jar:na]
+	at clojure.lang.AFn.applyTo(AFn.java:144) [clojure-1.8.0.jar:na]
+	at clojure.core$apply.invokeStatic(core.clj:646) [clojure-1.8.0.jar:na]
+	at clojure.core$with_bindings_STAR_.invokeStatic(core.clj:1881) [clojure-1.8.0.jar:na]
+	at clojure.core$with_bindings_STAR_.doInvoke(core.clj:1881) [clojure-1.8.0.jar:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:425) [clojure-1.8.0.jar:na]
+	at clojure.lang.AFn.applyToHelper(AFn.java:156) [clojure-1.8.0.jar:na]
+	at clojure.lang.RestFn.applyTo(RestFn.java:132) [clojure-1.8.0.jar:na]
+	at clojure.core$apply.invokeStatic(core.clj:650) [clojure-1.8.0.jar:na]
+	at clojure.core$bound_fn_STAR_$fn__4671.doInvoke(core.clj:1911) [clojure-1.8.0.jar:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:397) [clojure-1.8.0.jar:na]
+	at clojure.lang.AFn.run(AFn.java:22) [clojure-1.8.0.jar:na]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_171]
+2018-11-29 20:54:17,282{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:info	:write	4	indeterminate: Read timed out
+2018-11-29 20:54:17,315{GMT}	INFO	[jepsen nemesis] jepsen.util: :nemesis	:info	:stop	:network-healed
+2018-11-29 20:54:17,370{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:write	1
+2018-11-29 20:54:17,378{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:write	1
+2018-11-29 20:54:17,744{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:invoke	:write	2
+2018-11-29 20:54:17,753{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:ok	:write	2
+2018-11-29 20:54:17,793{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:invoke	:cas	[2 1]
+2018-11-29 20:54:17,800{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:ok	:cas	[2 1]
+2018-11-29 20:54:17,827{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:invoke	:read	nil
+2018-11-29 20:54:17,832{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:ok	:read	1
+2018-11-29 20:54:18,329{GMT}	WARN	[jepsen worker 0] jepsen.core: Process 0 crashed
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.8.0_171]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[na:1.8.0_171]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[na:1.8.0_171]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[na:1.8.0_171]
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.fillBuffer(AbstractSessionInputBuffer.java:160) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.io.SocketInputBuffer.fillBuffer(SocketInputBuffer.java:84) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.readLine(AbstractSessionInputBuffer.java:273) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:261) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.AbstractHttpClientConnection.receiveResponseHeader(AbstractHttpClientConnection.java:283) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.conn.DefaultClientConnection.receiveResponseHeader(DefaultClientConnection.java:251) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.receiveResponseHeader(ManagedClientConnectionImpl.java:197) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:272) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:124) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.client.DefaultRequestDirector.tryExecute(DefaultRequestDirector.java:685) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:487) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:882) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107) ~[httpclient-4.5.1.jar:4.5.1]
+	at clj_http.core$request.invokeStatic(core.clj:304) ~[na:na]
+	at clj_http.core$request.invoke(core.clj:208) ~[na:na]
+	at clojure.lang.Var.invoke(Var.java:379) ~[clojure-1.8.0.jar:na]
+	at clj_http.client$wrap_request_timing$fn__1897.invoke(client.clj:831) ~[na:na]
+	at clj_http.headers$wrap_header_map$fn__296.invoke(headers.clj:143) ~[na:na]
+	at clj_http.client$wrap_query_params$fn__1803.invoke(client.clj:645) ~[na:na]
+	at clj_http.client$wrap_basic_auth$fn__1810.invoke(client.clj:670) ~[na:na]
+	at clj_http.client$wrap_oauth$fn__1814.invoke(client.clj:680) ~[na:na]
+	at clj_http.client$wrap_user_info$fn__1819.invoke(client.clj:693) ~[na:na]
+	at clj_http.client$wrap_url$fn__1883.invoke(client.clj:797) ~[na:na]
+	at clj_http.client$wrap_redirects$fn__1587.invoke(client.clj:267) ~[na:na]
+	at clj_http.client$wrap_decompression$fn__1612.invoke(client.clj:339) ~[na:na]
+	at clj_http.client$wrap_input_coercion$fn__1742.invoke(client.clj:518) ~[na:na]
+	at clj_http.client$wrap_additional_header_parsing$fn__1763.invoke(client.clj:552) ~[na:na]
+	at clj_http.client$wrap_output_coercion$fn__1733.invoke(client.clj:468) ~[na:na]
+	at clj_http.client$wrap_exceptions$fn__1573.invoke(client.clj:219) ~[na:na]
+	at clj_http.client$wrap_accept$fn__1777.invoke(client.clj:595) ~[na:na]
+	at clj_http.client$wrap_accept_encoding$fn__1783.invoke(client.clj:609) ~[na:na]
+	at clj_http.client$wrap_content_type$fn__1772.invoke(client.clj:585) ~[na:na]
+	at clj_http.client$wrap_form_params$fn__1864.invoke(client.clj:756) ~[na:na]
+	at clj_http.client$wrap_nested_params$fn__1878.invoke(client.clj:786) ~[na:na]
+	at clj_http.client$wrap_method$fn__1824.invoke(client.clj:700) ~[na:na]
+	at clj_http.cookies$wrap_cookies$fn__211.invoke(cookies.clj:124) ~[na:na]
+	at clj_http.links$wrap_links$fn__533.invoke(links.clj:51) ~[na:na]
+	at clj_http.client$wrap_unknown_host$fn__1887.invoke(client.clj:806) ~[na:na]
+	at clj_http.client$put.invokeStatic(client.clj:927) ~[na:na]
+	at clj_http.client$put.doInvoke(client.clj:923) ~[na:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:423) [clojure-1.8.0.jar:na]
+	at verschlimmbesserung.core$cas_BANG_.invokeStatic(core.clj:384) ~[na:na]
+	at verschlimmbesserung.core$cas_BANG_.invoke(core.clj:363) ~[na:na]
+	at jepsen.etcdemo.Client.invoke_BANG_(etcdemo.clj:106) ~[na:na]
+	at jepsen.core$invoke_op_BANG_$fn__4612.invoke(core.clj:272) ~[jepsen-0.1.10.jar:na]
+	at jepsen.core$invoke_op_BANG_.invokeStatic(core.clj:272) [jepsen-0.1.10.jar:na]
+	at jepsen.core$invoke_op_BANG_.invoke(core.clj:267) [jepsen-0.1.10.jar:na]
+	at jepsen.core.ClientWorker.run_worker_BANG_(core.clj:403) [jepsen-0.1.10.jar:na]
+	at jepsen.core$do_worker_BANG_.invokeStatic(core.clj:187) [jepsen-0.1.10.jar:na]
+	at jepsen.core$do_worker_BANG_.invoke(core.clj:171) [jepsen-0.1.10.jar:na]
+	at jepsen.core$run_workers_BANG_$fn__4598$fn__4599.invoke(core.clj:240) [jepsen-0.1.10.jar:na]
+	at clojure.lang.AFn.applyToHelper(AFn.java:152) [clojure-1.8.0.jar:na]
+	at clojure.lang.AFn.applyTo(AFn.java:144) [clojure-1.8.0.jar:na]
+	at clojure.core$apply.invokeStatic(core.clj:646) [clojure-1.8.0.jar:na]
+	at clojure.core$with_bindings_STAR_.invokeStatic(core.clj:1881) [clojure-1.8.0.jar:na]
+	at clojure.core$with_bindings_STAR_.doInvoke(core.clj:1881) [clojure-1.8.0.jar:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:425) [clojure-1.8.0.jar:na]
+	at clojure.lang.AFn.applyToHelper(AFn.java:156) [clojure-1.8.0.jar:na]
+	at clojure.lang.RestFn.applyTo(RestFn.java:132) [clojure-1.8.0.jar:na]
+	at clojure.core$apply.invokeStatic(core.clj:650) [clojure-1.8.0.jar:na]
+	at clojure.core$bound_fn_STAR_$fn__4671.doInvoke(core.clj:1911) [clojure-1.8.0.jar:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:397) [clojure-1.8.0.jar:na]
+	at clojure.lang.AFn.run(AFn.java:22) [clojure-1.8.0.jar:na]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_171]
+2018-11-29 20:54:18,331{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:info	:cas	[1 0]	indeterminate: Read timed out
+2018-11-29 20:54:18,443{GMT}	INFO	[jepsen worker 1] jepsen.util: 6	:invoke	:write	1
+2018-11-29 20:54:18,690{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:invoke	:cas	[4 4]
+2018-11-29 20:54:18,927{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:invoke	:read	nil
+2018-11-29 20:54:18,932{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:ok	:read	1
+2018-11-29 20:54:19,285{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:write	2
+2018-11-29 20:54:19,316{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:write	2
+2018-11-29 20:54:19,317{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:fail	:cas	[4 4]
+2018-11-29 20:54:19,318{GMT}	INFO	[jepsen worker 1] jepsen.util: 6	:ok	:write	1
+2018-11-29 20:54:19,542{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:write	4
+2018-11-29 20:54:19,551{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:write	4
+2018-11-29 20:54:19,619{GMT}	INFO	[jepsen worker 1] jepsen.util: 6	:invoke	:write	2
+2018-11-29 20:54:19,625{GMT}	INFO	[jepsen worker 1] jepsen.util: 6	:ok	:write	2
+2018-11-29 20:54:19,810{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:write	3
+2018-11-29 20:54:19,819{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:write	3
+2018-11-29 20:54:20,086{GMT}	INFO	[jepsen worker 1] jepsen.util: 6	:invoke	:read	nil
+2018-11-29 20:54:20,091{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:write	2
+2018-11-29 20:54:20,093{GMT}	INFO	[jepsen worker 1] jepsen.util: 6	:ok	:read	3
+2018-11-29 20:54:20,098{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:write	2
+2018-11-29 20:54:20,144{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:invoke	:cas	[2 0]
+2018-11-29 20:54:20,153{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:ok	:cas	[2 0]
+2018-11-29 20:54:20,231{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:cas	[0 4]
+2018-11-29 20:54:20,238{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:cas	[0 4]
+2018-11-29 20:54:20,533{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:invoke	:write	3
+2018-11-29 20:54:20,540{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:ok	:write	3
+2018-11-29 20:54:20,749{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:read	nil
+2018-11-29 20:54:20,753{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:read	3
+2018-11-29 20:54:20,784{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:cas	[1 4]
+2018-11-29 20:54:20,792{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:fail	:cas	[1 4]
+2018-11-29 20:54:21,027{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:invoke	:cas	[4 4]
+2018-11-29 20:54:21,035{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:fail	:cas	[4 4]
+2018-11-29 20:54:21,058{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:invoke	:cas	[4 3]
+2018-11-29 20:54:21,066{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:fail	:cas	[4 3]
+2018-11-29 20:54:21,575{GMT}	INFO	[jepsen worker 1] jepsen.util: 6	:invoke	:write	0
+2018-11-29 20:54:21,582{GMT}	INFO	[jepsen worker 1] jepsen.util: 6	:ok	:write	0
+2018-11-29 20:54:21,869{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:invoke	:read	nil
+2018-11-29 20:54:21,875{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:ok	:read	0
+2018-11-29 20:54:22,132{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:read	nil
+2018-11-29 20:54:22,137{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:read	0
+2018-11-29 20:54:22,276{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:write	3
+2018-11-29 20:54:22,284{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:write	3
+2018-11-29 20:54:22,315{GMT}	INFO	[jepsen nemesis] jepsen.util: :nemesis	:info	:start	nil
+2018-11-29 20:54:22,419{GMT}	INFO	[jepsen nemesis] jepsen.util: :nemesis	:info	:start	[:isolated {"ec2-107-23-238-236.compute-1.amazonaws.com" #{"ec2-18-234-71-213.compute-1.amazonaws.com" "ec2-18-232-141-137.compute-1.amazonaws.com" "ec2-35-174-16-155.compute-1.amazonaws.com"}, "ec2-18-212-141-207.compute-1.amazonaws.com" #{"ec2-18-234-71-213.compute-1.amazonaws.com" "ec2-18-232-141-137.compute-1.amazonaws.com" "ec2-35-174-16-155.compute-1.amazonaws.com"}, "ec2-18-234-71-213.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}, "ec2-18-232-141-137.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}, "ec2-35-174-16-155.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}}]
+2018-11-29 20:54:22,558{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:invoke	:read	nil
+2018-11-29 20:54:22,563{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:ok	:read	3
+2018-11-29 20:54:22,774{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:invoke	:write	0
+2018-11-29 20:54:22,981{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:invoke	:cas	[2 2]
+2018-11-29 20:54:23,335{GMT}	INFO	[jepsen worker 1] jepsen.util: 6	:invoke	:read	nil
+2018-11-29 20:54:23,340{GMT}	INFO	[jepsen worker 1] jepsen.util: 6	:ok	:read	3
+2018-11-29 20:54:23,402{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:cas	[3 1]
+2018-11-29 20:54:23,656{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:write	1
+2018-11-29 20:54:24,737{GMT}	INFO	[jepsen worker 1] jepsen.util: 6	:invoke	:write	1
+2018-11-29 20:54:24,787{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:write	1
+2018-11-29 20:54:24,788{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:cas	[3 1]
+2018-11-29 20:54:25,166{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:cas	[3 3]
+2018-11-29 20:54:25,176{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:fail	:cas	[3 3]
+2018-11-29 20:54:25,827{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:read	nil
+2018-11-29 20:54:25,833{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:read	1
+2018-11-29 20:54:25,845{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:cas	[3 3]
+2018-11-29 20:54:25,853{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:fail	:cas	[3 3]
+2018-11-29 20:54:26,094{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:read	nil
+2018-11-29 20:54:26,098{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:read	1
+2018-11-29 20:54:26,244{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:read	nil
+2018-11-29 20:54:26,248{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:read	1
+2018-11-29 20:54:26,446{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:write	4
+2018-11-29 20:54:26,452{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:write	4
+2018-11-29 20:54:27,163{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:read	nil
+2018-11-29 20:54:27,167{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:read	4
+2018-11-29 20:54:27,194{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:cas	[1 2]
+2018-11-29 20:54:27,201{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:fail	:cas	[1 2]
+2018-11-29 20:54:27,342{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:read	nil
+2018-11-29 20:54:27,347{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:read	4
+2018-11-29 20:54:27,420{GMT}	INFO	[jepsen nemesis] jepsen.util: :nemesis	:info	:stop	nil
+2018-11-29 20:54:27,624{GMT}	INFO	[jepsen nemesis] jepsen.util: :nemesis	:info	:stop	:network-healed
+2018-11-29 20:54:27,625{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:read	nil
+2018-11-29 20:54:27,630{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:read	4
+2018-11-29 20:54:27,695{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:cas	[1 3]
+2018-11-29 20:54:27,702{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:fail	:cas	[1 3]
+2018-11-29 20:54:27,790{GMT}	WARN	[jepsen worker 3] jepsen.core: Process 3 crashed
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.8.0_171]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[na:1.8.0_171]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[na:1.8.0_171]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[na:1.8.0_171]
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.fillBuffer(AbstractSessionInputBuffer.java:160) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.io.SocketInputBuffer.fillBuffer(SocketInputBuffer.java:84) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.readLine(AbstractSessionInputBuffer.java:273) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:261) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.AbstractHttpClientConnection.receiveResponseHeader(AbstractHttpClientConnection.java:283) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.conn.DefaultClientConnection.receiveResponseHeader(DefaultClientConnection.java:251) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.receiveResponseHeader(ManagedClientConnectionImpl.java:197) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:272) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:124) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.client.DefaultRequestDirector.tryExecute(DefaultRequestDirector.java:685) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:487) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:882) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107) ~[httpclient-4.5.1.jar:4.5.1]
+	at clj_http.core$request.invokeStatic(core.clj:304) ~[na:na]
+	at clj_http.core$request.invoke(core.clj:208) ~[na:na]
+	at clojure.lang.Var.invoke(Var.java:379) ~[clojure-1.8.0.jar:na]
+	at clj_http.client$wrap_request_timing$fn__1897.invoke(client.clj:831) ~[na:na]
+	at clj_http.headers$wrap_header_map$fn__296.invoke(headers.clj:143) ~[na:na]
+	at clj_http.client$wrap_query_params$fn__1803.invoke(client.clj:645) ~[na:na]
+	at clj_http.client$wrap_basic_auth$fn__1810.invoke(client.clj:670) ~[na:na]
+	at clj_http.client$wrap_oauth$fn__1814.invoke(client.clj:680) ~[na:na]
+	at clj_http.client$wrap_user_info$fn__1819.invoke(client.clj:693) ~[na:na]
+	at clj_http.client$wrap_url$fn__1883.invoke(client.clj:797) ~[na:na]
+	at clj_http.client$wrap_redirects$fn__1587.invoke(client.clj:267) ~[na:na]
+	at clj_http.client$wrap_decompression$fn__1612.invoke(client.clj:339) ~[na:na]
+	at clj_http.client$wrap_input_coercion$fn__1742.invoke(client.clj:518) ~[na:na]
+	at clj_http.client$wrap_additional_header_parsing$fn__1763.invoke(client.clj:552) ~[na:na]
+	at clj_http.client$wrap_output_coercion$fn__1733.invoke(client.clj:468) ~[na:na]
+	at clj_http.client$wrap_exceptions$fn__1573.invoke(client.clj:219) ~[na:na]
+	at clj_http.client$wrap_accept$fn__1777.invoke(client.clj:595) ~[na:na]
+	at clj_http.client$wrap_accept_encoding$fn__1783.invoke(client.clj:609) ~[na:na]
+	at clj_http.client$wrap_content_type$fn__1772.invoke(client.clj:585) ~[na:na]
+	at clj_http.client$wrap_form_params$fn__1864.invoke(client.clj:756) ~[na:na]
+	at clj_http.client$wrap_nested_params$fn__1878.invoke(client.clj:786) ~[na:na]
+	at clj_http.client$wrap_method$fn__1824.invoke(client.clj:700) ~[na:na]
+	at clj_http.cookies$wrap_cookies$fn__211.invoke(cookies.clj:124) ~[na:na]
+	at clj_http.links$wrap_links$fn__533.invoke(links.clj:51) ~[na:na]
+	at clj_http.client$wrap_unknown_host$fn__1887.invoke(client.clj:806) ~[na:na]
+	at clj_http.client$put.invokeStatic(client.clj:927) ~[na:na]
+	at clj_http.client$put.doInvoke(client.clj:923) ~[na:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:423) [clojure-1.8.0.jar:na]
+	at verschlimmbesserung.core$reset_BANG_.invokeStatic(core.clj:305) ~[na:na]
+	at verschlimmbesserung.core$reset_BANG_.invoke(core.clj:295) ~[na:na]
+	at verschlimmbesserung.core$reset_BANG_.invokeStatic(core.clj:301) ~[na:na]
+	at verschlimmbesserung.core$reset_BANG_.invoke(core.clj:295) ~[na:na]
+	at jepsen.etcdemo.Client.invoke_BANG_(etcdemo.clj:102) ~[na:na]
+	at jepsen.core$invoke_op_BANG_$fn__4612.invoke(core.clj:272) ~[jepsen-0.1.10.jar:na]
+	at jepsen.core$invoke_op_BANG_.invokeStatic(core.clj:272) [jepsen-0.1.10.jar:na]
+	at jepsen.core$invoke_op_BANG_.invoke(core.clj:267) [jepsen-0.1.10.jar:na]
+	at jepsen.core.ClientWorker.run_worker_BANG_(core.clj:403) [jepsen-0.1.10.jar:na]
+	at jepsen.core$do_worker_BANG_.invokeStatic(core.clj:187) [jepsen-0.1.10.jar:na]
+	at jepsen.core$do_worker_BANG_.invoke(core.clj:171) [jepsen-0.1.10.jar:na]
+	at jepsen.core$run_workers_BANG_$fn__4598$fn__4599.invoke(core.clj:240) [jepsen-0.1.10.jar:na]
+	at clojure.lang.AFn.applyToHelper(AFn.java:152) [clojure-1.8.0.jar:na]
+	at clojure.lang.AFn.applyTo(AFn.java:144) [clojure-1.8.0.jar:na]
+	at clojure.core$apply.invokeStatic(core.clj:646) [clojure-1.8.0.jar:na]
+	at clojure.core$with_bindings_STAR_.invokeStatic(core.clj:1881) [clojure-1.8.0.jar:na]
+	at clojure.core$with_bindings_STAR_.doInvoke(core.clj:1881) [clojure-1.8.0.jar:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:425) [clojure-1.8.0.jar:na]
+	at clojure.lang.AFn.applyToHelper(AFn.java:156) [clojure-1.8.0.jar:na]
+	at clojure.lang.RestFn.applyTo(RestFn.java:132) [clojure-1.8.0.jar:na]
+	at clojure.core$apply.invokeStatic(core.clj:650) [clojure-1.8.0.jar:na]
+	at clojure.core$bound_fn_STAR_$fn__4671.doInvoke(core.clj:1911) [clojure-1.8.0.jar:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:397) [clojure-1.8.0.jar:na]
+	at clojure.lang.AFn.run(AFn.java:22) [clojure-1.8.0.jar:na]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_171]
+2018-11-29 20:54:27,791{GMT}	INFO	[jepsen worker 3] jepsen.util: 3	:info	:write	0	indeterminate: Read timed out
+2018-11-29 20:54:27,795{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:read	nil
+2018-11-29 20:54:27,800{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:read	4
+2018-11-29 20:54:27,871{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:write	3
+2018-11-29 20:54:27,878{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:write	3
+2018-11-29 20:54:27,995{GMT}	WARN	[jepsen worker 2] jepsen.core: Process 2 crashed
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.8.0_171]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[na:1.8.0_171]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[na:1.8.0_171]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[na:1.8.0_171]
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.fillBuffer(AbstractSessionInputBuffer.java:160) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.io.SocketInputBuffer.fillBuffer(SocketInputBuffer.java:84) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.readLine(AbstractSessionInputBuffer.java:273) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:261) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.AbstractHttpClientConnection.receiveResponseHeader(AbstractHttpClientConnection.java:283) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.conn.DefaultClientConnection.receiveResponseHeader(DefaultClientConnection.java:251) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.receiveResponseHeader(ManagedClientConnectionImpl.java:197) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:272) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:124) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.client.DefaultRequestDirector.tryExecute(DefaultRequestDirector.java:685) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:487) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:882) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107) ~[httpclient-4.5.1.jar:4.5.1]
+	at clj_http.core$request.invokeStatic(core.clj:304) ~[na:na]
+	at clj_http.core$request.invoke(core.clj:208) ~[na:na]
+	at clojure.lang.Var.invoke(Var.java:379) ~[clojure-1.8.0.jar:na]
+	at clj_http.client$wrap_request_timing$fn__1897.invoke(client.clj:831) ~[na:na]
+	at clj_http.headers$wrap_header_map$fn__296.invoke(headers.clj:143) ~[na:na]
+	at clj_http.client$wrap_query_params$fn__1803.invoke(client.clj:645) ~[na:na]
+	at clj_http.client$wrap_basic_auth$fn__1810.invoke(client.clj:670) ~[na:na]
+	at clj_http.client$wrap_oauth$fn__1814.invoke(client.clj:680) ~[na:na]
+	at clj_http.client$wrap_user_info$fn__1819.invoke(client.clj:693) ~[na:na]
+	at clj_http.client$wrap_url$fn__1883.invoke(client.clj:797) ~[na:na]
+	at clj_http.client$wrap_redirects$fn__1587.invoke(client.clj:267) ~[na:na]
+	at clj_http.client$wrap_decompression$fn__1612.invoke(client.clj:339) ~[na:na]
+	at clj_http.client$wrap_input_coercion$fn__1742.invoke(client.clj:518) ~[na:na]
+	at clj_http.client$wrap_additional_header_parsing$fn__1763.invoke(client.clj:552) ~[na:na]
+	at clj_http.client$wrap_output_coercion$fn__1733.invoke(client.clj:468) ~[na:na]
+	at clj_http.client$wrap_exceptions$fn__1573.invoke(client.clj:219) ~[na:na]
+	at clj_http.client$wrap_accept$fn__1777.invoke(client.clj:595) ~[na:na]
+	at clj_http.client$wrap_accept_encoding$fn__1783.invoke(client.clj:609) ~[na:na]
+	at clj_http.client$wrap_content_type$fn__1772.invoke(client.clj:585) ~[na:na]
+	at clj_http.client$wrap_form_params$fn__1864.invoke(client.clj:756) ~[na:na]
+	at clj_http.client$wrap_nested_params$fn__1878.invoke(client.clj:786) ~[na:na]
+	at clj_http.client$wrap_method$fn__1824.invoke(client.clj:700) ~[na:na]
+	at clj_http.cookies$wrap_cookies$fn__211.invoke(cookies.clj:124) ~[na:na]
+	at clj_http.links$wrap_links$fn__533.invoke(links.clj:51) ~[na:na]
+	at clj_http.client$wrap_unknown_host$fn__1887.invoke(client.clj:806) ~[na:na]
+	at clj_http.client$put.invokeStatic(client.clj:927) ~[na:na]
+	at clj_http.client$put.doInvoke(client.clj:923) ~[na:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:423) [clojure-1.8.0.jar:na]
+	at verschlimmbesserung.core$cas_BANG_.invokeStatic(core.clj:384) ~[na:na]
+	at verschlimmbesserung.core$cas_BANG_.invoke(core.clj:363) ~[na:na]
+	at jepsen.etcdemo.Client.invoke_BANG_(etcdemo.clj:106) ~[na:na]
+	at jepsen.core$invoke_op_BANG_$fn__4612.invoke(core.clj:272) ~[jepsen-0.1.10.jar:na]
+	at jepsen.core$invoke_op_BANG_.invokeStatic(core.clj:272) [jepsen-0.1.10.jar:na]
+	at jepsen.core$invoke_op_BANG_.invoke(core.clj:267) [jepsen-0.1.10.jar:na]
+	at jepsen.core.ClientWorker.run_worker_BANG_(core.clj:403) [jepsen-0.1.10.jar:na]
+	at jepsen.core$do_worker_BANG_.invokeStatic(core.clj:187) [jepsen-0.1.10.jar:na]
+	at jepsen.core$do_worker_BANG_.invoke(core.clj:171) [jepsen-0.1.10.jar:na]
+	at jepsen.core$run_workers_BANG_$fn__4598$fn__4599.invoke(core.clj:240) [jepsen-0.1.10.jar:na]
+	at clojure.lang.AFn.applyToHelper(AFn.java:152) [clojure-1.8.0.jar:na]
+	at clojure.lang.AFn.applyTo(AFn.java:144) [clojure-1.8.0.jar:na]
+	at clojure.core$apply.invokeStatic(core.clj:646) [clojure-1.8.0.jar:na]
+	at clojure.core$with_bindings_STAR_.invokeStatic(core.clj:1881) [clojure-1.8.0.jar:na]
+	at clojure.core$with_bindings_STAR_.doInvoke(core.clj:1881) [clojure-1.8.0.jar:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:425) [clojure-1.8.0.jar:na]
+	at clojure.lang.AFn.applyToHelper(AFn.java:156) [clojure-1.8.0.jar:na]
+	at clojure.lang.RestFn.applyTo(RestFn.java:132) [clojure-1.8.0.jar:na]
+	at clojure.core$apply.invokeStatic(core.clj:650) [clojure-1.8.0.jar:na]
+	at clojure.core$bound_fn_STAR_$fn__4671.doInvoke(core.clj:1911) [clojure-1.8.0.jar:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:397) [clojure-1.8.0.jar:na]
+	at clojure.lang.AFn.run(AFn.java:22) [clojure-1.8.0.jar:na]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_171]
+2018-11-29 20:54:27,997{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:info	:cas	[2 2]	indeterminate: Read timed out
+2018-11-29 20:54:28,108{GMT}	INFO	[jepsen worker 3] jepsen.util: 8	:invoke	:read	nil
+2018-11-29 20:54:28,113{GMT}	INFO	[jepsen worker 3] jepsen.util: 8	:ok	:read	3
+2018-11-29 20:54:28,370{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:cas	[1 1]
+2018-11-29 20:54:28,431{GMT}	INFO	[jepsen worker 3] jepsen.util: 8	:invoke	:read	nil
+2018-11-29 20:54:28,436{GMT}	INFO	[jepsen worker 3] jepsen.util: 8	:ok	:read	3
+2018-11-29 20:54:28,480{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:read	nil
+2018-11-29 20:54:28,484{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:read	3
+2018-11-29 20:54:28,722{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:cas	[1 1]
+2018-11-29 20:54:28,744{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:cas	[2 0]
+2018-11-29 20:54:29,424{GMT}	INFO	[jepsen worker 3] jepsen.util: 8	:invoke	:read	nil
+2018-11-29 20:54:29,429{GMT}	INFO	[jepsen worker 3] jepsen.util: 8	:ok	:read	3
+2018-11-29 20:54:29,750{GMT}	WARN	[jepsen worker 1] jepsen.core: Process 6 crashed
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.8.0_171]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[na:1.8.0_171]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[na:1.8.0_171]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[na:1.8.0_171]
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.fillBuffer(AbstractSessionInputBuffer.java:160) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.io.SocketInputBuffer.fillBuffer(SocketInputBuffer.java:84) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.readLine(AbstractSessionInputBuffer.java:273) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:261) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.AbstractHttpClientConnection.receiveResponseHeader(AbstractHttpClientConnection.java:283) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.conn.DefaultClientConnection.receiveResponseHeader(DefaultClientConnection.java:251) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.receiveResponseHeader(ManagedClientConnectionImpl.java:197) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:272) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:124) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.client.DefaultRequestDirector.tryExecute(DefaultRequestDirector.java:685) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:487) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:882) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107) ~[httpclient-4.5.1.jar:4.5.1]
+	at clj_http.core$request.invokeStatic(core.clj:304) ~[na:na]
+	at clj_http.core$request.invoke(core.clj:208) ~[na:na]
+	at clojure.lang.Var.invoke(Var.java:379) ~[clojure-1.8.0.jar:na]
+	at clj_http.client$wrap_request_timing$fn__1897.invoke(client.clj:831) ~[na:na]
+	at clj_http.headers$wrap_header_map$fn__296.invoke(headers.clj:143) ~[na:na]
+	at clj_http.client$wrap_query_params$fn__1803.invoke(client.clj:645) ~[na:na]
+	at clj_http.client$wrap_basic_auth$fn__1810.invoke(client.clj:670) ~[na:na]
+	at clj_http.client$wrap_oauth$fn__1814.invoke(client.clj:680) ~[na:na]
+	at clj_http.client$wrap_user_info$fn__1819.invoke(client.clj:693) ~[na:na]
+	at clj_http.client$wrap_url$fn__1883.invoke(client.clj:797) ~[na:na]
+	at clj_http.client$wrap_redirects$fn__1587.invoke(client.clj:267) ~[na:na]
+	at clj_http.client$wrap_decompression$fn__1612.invoke(client.clj:339) ~[na:na]
+	at clj_http.client$wrap_input_coercion$fn__1742.invoke(client.clj:518) ~[na:na]
+	at clj_http.client$wrap_additional_header_parsing$fn__1763.invoke(client.clj:552) ~[na:na]
+	at clj_http.client$wrap_output_coercion$fn__1733.invoke(client.clj:468) ~[na:na]
+	at clj_http.client$wrap_exceptions$fn__1573.invoke(client.clj:219) ~[na:na]
+	at clj_http.client$wrap_accept$fn__1777.invoke(client.clj:595) ~[na:na]
+	at clj_http.client$wrap_accept_encoding$fn__1783.invoke(client.clj:609) ~[na:na]
+	at clj_http.client$wrap_content_type$fn__1772.invoke(client.clj:585) ~[na:na]
+	at clj_http.client$wrap_form_params$fn__1864.invoke(client.clj:756) ~[na:na]
+	at clj_http.client$wrap_nested_params$fn__1878.invoke(client.clj:786) ~[na:na]
+	at clj_http.client$wrap_method$fn__1824.invoke(client.clj:700) ~[na:na]
+	at clj_http.cookies$wrap_cookies$fn__211.invoke(cookies.clj:124) ~[na:na]
+	at clj_http.links$wrap_links$fn__533.invoke(links.clj:51) ~[na:na]
+	at clj_http.client$wrap_unknown_host$fn__1887.invoke(client.clj:806) ~[na:na]
+	at clj_http.client$put.invokeStatic(client.clj:927) ~[na:na]
+	at clj_http.client$put.doInvoke(client.clj:923) ~[na:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:423) [clojure-1.8.0.jar:na]
+	at verschlimmbesserung.core$reset_BANG_.invokeStatic(core.clj:305) ~[na:na]
+	at verschlimmbesserung.core$reset_BANG_.invoke(core.clj:295) ~[na:na]
+	at verschlimmbesserung.core$reset_BANG_.invokeStatic(core.clj:301) ~[na:na]
+	at verschlimmbesserung.core$reset_BANG_.invoke(core.clj:295) ~[na:na]
+	at jepsen.etcdemo.Client.invoke_BANG_(etcdemo.clj:102) ~[na:na]
+	at jepsen.core$invoke_op_BANG_$fn__4612.invoke(core.clj:272) ~[jepsen-0.1.10.jar:na]
+	at jepsen.core$invoke_op_BANG_.invokeStatic(core.clj:272) [jepsen-0.1.10.jar:na]
+	at jepsen.core$invoke_op_BANG_.invoke(core.clj:267) [jepsen-0.1.10.jar:na]
+	at jepsen.core.ClientWorker.run_worker_BANG_(core.clj:403) [jepsen-0.1.10.jar:na]
+	at jepsen.core$do_worker_BANG_.invokeStatic(core.clj:187) [jepsen-0.1.10.jar:na]
+	at jepsen.core$do_worker_BANG_.invoke(core.clj:171) [jepsen-0.1.10.jar:na]
+	at jepsen.core$run_workers_BANG_$fn__4598$fn__4599.invoke(core.clj:240) [jepsen-0.1.10.jar:na]
+	at clojure.lang.AFn.applyToHelper(AFn.java:152) [clojure-1.8.0.jar:na]
+	at clojure.lang.AFn.applyTo(AFn.java:144) [clojure-1.8.0.jar:na]
+	at clojure.core$apply.invokeStatic(core.clj:646) [clojure-1.8.0.jar:na]
+	at clojure.core$with_bindings_STAR_.invokeStatic(core.clj:1881) [clojure-1.8.0.jar:na]
+	at clojure.core$with_bindings_STAR_.doInvoke(core.clj:1881) [clojure-1.8.0.jar:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:425) [clojure-1.8.0.jar:na]
+	at clojure.lang.AFn.applyToHelper(AFn.java:156) [clojure-1.8.0.jar:na]
+	at clojure.lang.RestFn.applyTo(RestFn.java:132) [clojure-1.8.0.jar:na]
+	at clojure.core$apply.invokeStatic(core.clj:650) [clojure-1.8.0.jar:na]
+	at clojure.core$bound_fn_STAR_$fn__4671.doInvoke(core.clj:1911) [clojure-1.8.0.jar:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:397) [clojure-1.8.0.jar:na]
+	at clojure.lang.AFn.run(AFn.java:22) [clojure-1.8.0.jar:na]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_171]
+2018-11-29 20:54:29,750{GMT}	INFO	[jepsen worker 1] jepsen.util: 6	:info	:write	1	indeterminate: Read timed out
+2018-11-29 20:54:30,729{GMT}	INFO	[jepsen worker 1] jepsen.util: 11	:invoke	:cas	[4 4]
+2018-11-29 20:54:31,021{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:cas	[1 1]
+2018-11-29 20:54:31,021{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:fail	:cas	[2 0]
+2018-11-29 20:54:31,022{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:ok	:cas	[1 1]
+2018-11-29 20:54:31,023{GMT}	INFO	[jepsen worker 1] jepsen.util: 11	:fail	:cas	[4 4]
+2018-11-29 20:54:31,191{GMT}	INFO	[jepsen worker 3] jepsen.util: 8	:invoke	:read	nil
+2018-11-29 20:54:31,196{GMT}	INFO	[jepsen worker 3] jepsen.util: 8	:ok	:read	1
+2018-11-29 20:54:31,579{GMT}	INFO	[jepsen worker 3] jepsen.util: 8	:invoke	:read	nil
+2018-11-29 20:54:31,584{GMT}	INFO	[jepsen worker 3] jepsen.util: 8	:ok	:read	1
+2018-11-29 20:54:31,737{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:cas	[1 3]
+2018-11-29 20:54:31,744{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:ok	:cas	[1 3]
+2018-11-29 20:54:32,083{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:cas	[4 4]
+2018-11-29 20:54:32,090{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:fail	:cas	[4 4]
+2018-11-29 20:54:32,105{GMT}	INFO	[jepsen worker 1] jepsen.util: 11	:invoke	:cas	[4 4]
+2018-11-29 20:54:32,112{GMT}	INFO	[jepsen worker 1] jepsen.util: 11	:fail	:cas	[4 4]
+2018-11-29 20:54:32,220{GMT}	INFO	[jepsen worker 3] jepsen.util: 8	:invoke	:read	nil
+2018-11-29 20:54:32,223{GMT}	INFO	[jepsen worker 3] jepsen.util: 8	:ok	:read	3
+2018-11-29 20:54:32,473{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:read	nil
+2018-11-29 20:54:32,477{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:read	3
+2018-11-29 20:54:32,625{GMT}	INFO	[jepsen nemesis] jepsen.util: :nemesis	:info	:start	nil
+2018-11-29 20:54:32,637{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:read	nil
+2018-11-29 20:54:32,642{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:ok	:read	3
+2018-11-29 20:54:32,654{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:cas	[1 4]
+2018-11-29 20:54:32,661{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:fail	:cas	[1 4]
+2018-11-29 20:54:32,724{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:cas	[4 3]
+2018-11-29 20:54:32,728{GMT}	INFO	[jepsen nemesis] jepsen.util: :nemesis	:info	:start	[:isolated {"ec2-107-23-238-236.compute-1.amazonaws.com" #{"ec2-18-232-141-137.compute-1.amazonaws.com" "ec2-35-174-16-155.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}, "ec2-18-234-71-213.compute-1.amazonaws.com" #{"ec2-18-232-141-137.compute-1.amazonaws.com" "ec2-35-174-16-155.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}, "ec2-18-232-141-137.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-234-71-213.compute-1.amazonaws.com"}, "ec2-35-174-16-155.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-234-71-213.compute-1.amazonaws.com"}, "ec2-18-212-141-207.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-234-71-213.compute-1.amazonaws.com"}}]
+2018-11-29 20:54:32,731{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:fail	:cas	[4 3]
+2018-11-29 20:54:32,922{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:write	0
+2018-11-29 20:54:32,929{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:write	0
+2018-11-29 20:54:32,939{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:read	nil
+2018-11-29 20:54:32,942{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:read	3
+2018-11-29 20:54:32,957{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:write	1
+2018-11-29 20:54:32,963{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:write	1
+2018-11-29 20:54:33,055{GMT}	INFO	[jepsen worker 1] jepsen.util: 11	:invoke	:write	0
+2018-11-29 20:54:33,062{GMT}	INFO	[jepsen worker 1] jepsen.util: 11	:ok	:write	0
+2018-11-29 20:54:33,158{GMT}	INFO	[jepsen worker 3] jepsen.util: 8	:invoke	:cas	[3 1]
+2018-11-29 20:54:33,280{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:read	nil
+2018-11-29 20:54:33,284{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:read	3
+2018-11-29 20:54:33,689{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:read	nil
+2018-11-29 20:54:33,694{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:read	3
+2018-11-29 20:54:33,780{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:write	4
+2018-11-29 20:54:33,786{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:write	4
+2018-11-29 20:54:33,853{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:read	nil
+2018-11-29 20:54:33,857{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:ok	:read	4
+2018-11-29 20:54:33,898{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:write	3
+2018-11-29 20:54:33,905{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:ok	:write	3
+2018-11-29 20:54:33,972{GMT}	INFO	[jepsen worker 1] jepsen.util: 11	:invoke	:read	nil
+2018-11-29 20:54:33,975{GMT}	INFO	[jepsen worker 1] jepsen.util: 11	:ok	:read	3
+2018-11-29 20:54:34,270{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:read	nil
+2018-11-29 20:54:34,275{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:read	3
+2018-11-29 20:54:35,007{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:write	0
+2018-11-29 20:54:35,014{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:ok	:write	0
+2018-11-29 20:54:35,135{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:write	2
+2018-11-29 20:54:35,142{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:write	2
+2018-11-29 20:54:35,708{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:cas	[3 1]
+2018-11-29 20:54:35,716{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:fail	:cas	[3 1]
+2018-11-29 20:54:35,811{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:write	2
+2018-11-29 20:54:35,817{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:write	2
+2018-11-29 20:54:35,822{GMT}	INFO	[jepsen worker 1] jepsen.util: 11	:invoke	:cas	[4 1]
+2018-11-29 20:54:35,829{GMT}	INFO	[jepsen worker 1] jepsen.util: 11	:fail	:cas	[4 1]
+2018-11-29 20:54:35,951{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:read	nil
+2018-11-29 20:54:35,957{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:ok	:read	2
+2018-11-29 20:54:36,080{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:write	4
+2018-11-29 20:54:36,220{GMT}	INFO	[jepsen worker 1] jepsen.util: 11	:invoke	:cas	[2 3]
+2018-11-29 20:54:36,227{GMT}	INFO	[jepsen worker 1] jepsen.util: 11	:ok	:cas	[2 3]
+2018-11-29 20:54:36,246{GMT}	INFO	[jepsen worker 1] jepsen.util: 11	:invoke	:read	nil
+2018-11-29 20:54:36,249{GMT}	INFO	[jepsen worker 1] jepsen.util: 11	:ok	:read	3
+2018-11-29 20:54:37,200{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:write	2
+2018-11-29 20:54:37,207{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:write	2
+2018-11-29 20:54:37,214{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:read	nil
+2018-11-29 20:54:37,218{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:read	2
+2018-11-29 20:54:37,513{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:cas	[4 3]
+2018-11-29 20:54:37,521{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:fail	:cas	[4 3]
+2018-11-29 20:54:37,729{GMT}	INFO	[jepsen nemesis] jepsen.util: :nemesis	:info	:stop	nil
+2018-11-29 20:54:37,933{GMT}	INFO	[jepsen nemesis] jepsen.util: :nemesis	:info	:stop	:network-healed
+2018-11-29 20:54:38,047{GMT}	INFO	[jepsen worker 1] jepsen.util: 11	:invoke	:write	2
+2018-11-29 20:54:38,055{GMT}	INFO	[jepsen worker 1] jepsen.util: 11	:ok	:write	2
+2018-11-29 20:54:38,072{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:write	1
+2018-11-29 20:54:38,078{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:ok	:write	1
+2018-11-29 20:54:38,169{GMT}	WARN	[jepsen worker 3] jepsen.core: Process 8 crashed
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.8.0_171]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[na:1.8.0_171]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[na:1.8.0_171]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[na:1.8.0_171]
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.fillBuffer(AbstractSessionInputBuffer.java:160) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.io.SocketInputBuffer.fillBuffer(SocketInputBuffer.java:84) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.readLine(AbstractSessionInputBuffer.java:273) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:261) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.AbstractHttpClientConnection.receiveResponseHeader(AbstractHttpClientConnection.java:283) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.conn.DefaultClientConnection.receiveResponseHeader(DefaultClientConnection.java:251) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.receiveResponseHeader(ManagedClientConnectionImpl.java:197) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:272) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:124) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.client.DefaultRequestDirector.tryExecute(DefaultRequestDirector.java:685) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:487) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:882) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107) ~[httpclient-4.5.1.jar:4.5.1]
+	at clj_http.core$request.invokeStatic(core.clj:304) ~[na:na]
+	at clj_http.core$request.invoke(core.clj:208) ~[na:na]
+	at clojure.lang.Var.invoke(Var.java:379) ~[clojure-1.8.0.jar:na]
+	at clj_http.client$wrap_request_timing$fn__1897.invoke(client.clj:831) ~[na:na]
+	at clj_http.headers$wrap_header_map$fn__296.invoke(headers.clj:143) ~[na:na]
+	at clj_http.client$wrap_query_params$fn__1803.invoke(client.clj:645) ~[na:na]
+	at clj_http.client$wrap_basic_auth$fn__1810.invoke(client.clj:670) ~[na:na]
+	at clj_http.client$wrap_oauth$fn__1814.invoke(client.clj:680) ~[na:na]
+	at clj_http.client$wrap_user_info$fn__1819.invoke(client.clj:693) ~[na:na]
+	at clj_http.client$wrap_url$fn__1883.invoke(client.clj:797) ~[na:na]
+	at clj_http.client$wrap_redirects$fn__1587.invoke(client.clj:267) ~[na:na]
+	at clj_http.client$wrap_decompression$fn__1612.invoke(client.clj:339) ~[na:na]
+	at clj_http.client$wrap_input_coercion$fn__1742.invoke(client.clj:518) ~[na:na]
+	at clj_http.client$wrap_additional_header_parsing$fn__1763.invoke(client.clj:552) ~[na:na]
+	at clj_http.client$wrap_output_coercion$fn__1733.invoke(client.clj:468) ~[na:na]
+	at clj_http.client$wrap_exceptions$fn__1573.invoke(client.clj:219) ~[na:na]
+	at clj_http.client$wrap_accept$fn__1777.invoke(client.clj:595) ~[na:na]
+	at clj_http.client$wrap_accept_encoding$fn__1783.invoke(client.clj:609) ~[na:na]
+	at clj_http.client$wrap_content_type$fn__1772.invoke(client.clj:585) ~[na:na]
+	at clj_http.client$wrap_form_params$fn__1864.invoke(client.clj:756) ~[na:na]
+	at clj_http.client$wrap_nested_params$fn__1878.invoke(client.clj:786) ~[na:na]
+	at clj_http.client$wrap_method$fn__1824.invoke(client.clj:700) ~[na:na]
+	at clj_http.cookies$wrap_cookies$fn__211.invoke(cookies.clj:124) ~[na:na]
+	at clj_http.links$wrap_links$fn__533.invoke(links.clj:51) ~[na:na]
+	at clj_http.client$wrap_unknown_host$fn__1887.invoke(client.clj:806) ~[na:na]
+	at clj_http.client$put.invokeStatic(client.clj:927) ~[na:na]
+	at clj_http.client$put.doInvoke(client.clj:923) ~[na:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:423) [clojure-1.8.0.jar:na]
+	at verschlimmbesserung.core$cas_BANG_.invokeStatic(core.clj:384) ~[na:na]
+	at verschlimmbesserung.core$cas_BANG_.invoke(core.clj:363) ~[na:na]
+	at jepsen.etcdemo.Client.invoke_BANG_(etcdemo.clj:106) ~[na:na]
+	at jepsen.core$invoke_op_BANG_$fn__4612.invoke(core.clj:272) ~[jepsen-0.1.10.jar:na]
+	at jepsen.core$invoke_op_BANG_.invokeStatic(core.clj:272) [jepsen-0.1.10.jar:na]
+	at jepsen.core$invoke_op_BANG_.invoke(core.clj:267) [jepsen-0.1.10.jar:na]
+	at jepsen.core.ClientWorker.run_worker_BANG_(core.clj:403) [jepsen-0.1.10.jar:na]
+	at jepsen.core$do_worker_BANG_.invokeStatic(core.clj:187) [jepsen-0.1.10.jar:na]
+	at jepsen.core$do_worker_BANG_.invoke(core.clj:171) [jepsen-0.1.10.jar:na]
+	at jepsen.core$run_workers_BANG_$fn__4598$fn__4599.invoke(core.clj:240) [jepsen-0.1.10.jar:na]
+	at clojure.lang.AFn.applyToHelper(AFn.java:152) [clojure-1.8.0.jar:na]
+	at clojure.lang.AFn.applyTo(AFn.java:144) [clojure-1.8.0.jar:na]
+	at clojure.core$apply.invokeStatic(core.clj:646) [clojure-1.8.0.jar:na]
+	at clojure.core$with_bindings_STAR_.invokeStatic(core.clj:1881) [clojure-1.8.0.jar:na]
+	at clojure.core$with_bindings_STAR_.doInvoke(core.clj:1881) [clojure-1.8.0.jar:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:425) [clojure-1.8.0.jar:na]
+	at clojure.lang.AFn.applyToHelper(AFn.java:156) [clojure-1.8.0.jar:na]
+	at clojure.lang.RestFn.applyTo(RestFn.java:132) [clojure-1.8.0.jar:na]
+	at clojure.core$apply.invokeStatic(core.clj:650) [clojure-1.8.0.jar:na]
+	at clojure.core$bound_fn_STAR_$fn__4671.doInvoke(core.clj:1911) [clojure-1.8.0.jar:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:397) [clojure-1.8.0.jar:na]
+	at clojure.lang.AFn.run(AFn.java:22) [clojure-1.8.0.jar:na]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_171]
+2018-11-29 20:54:38,170{GMT}	INFO	[jepsen worker 3] jepsen.util: 8	:info	:cas	[3 1]	indeterminate: Read timed out
+2018-11-29 20:54:38,288{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:read	nil
+2018-11-29 20:54:38,292{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:ok	:read	1
+2018-11-29 20:54:38,305{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:cas	[2 1]
+2018-11-29 20:54:38,311{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:fail	:cas	[2 1]
+2018-11-29 20:54:38,595{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:write	3
+2018-11-29 20:54:38,602{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:write	3
+2018-11-29 20:54:38,658{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:invoke	:cas	[2 0]
+2018-11-29 20:54:38,813{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:cas	[0 4]
+2018-11-29 20:54:38,967{GMT}	INFO	[jepsen worker 1] jepsen.util: 11	:invoke	:cas	[3 1]
+2018-11-29 20:54:40,204{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:read	nil
+2018-11-29 20:54:40,208{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:read	3
+2018-11-29 20:54:40,923{GMT}	INFO	[jepsen worker 1] jepsen.util: 11	:fail	:cas	[3 1]
+2018-11-29 20:54:40,923{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:fail	:cas	[0 4]
+2018-11-29 20:54:40,924{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:write	4
+2018-11-29 20:54:40,924{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:fail	:cas	[2 0]
+2018-11-29 20:54:41,106{GMT}	INFO	[jepsen worker 1] jepsen.util: 11	:invoke	:read	nil
+2018-11-29 20:54:41,110{GMT}	INFO	[jepsen worker 1] jepsen.util: 11	:ok	:read	4
+2018-11-29 20:54:41,641{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:cas	[1 2]
+2018-11-29 20:54:41,648{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:fail	:cas	[1 2]
+2018-11-29 20:54:41,720{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:invoke	:write	2
+2018-11-29 20:54:41,727{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:ok	:write	2
+2018-11-29 20:54:41,782{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:cas	[2 4]
+2018-11-29 20:54:41,789{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:ok	:cas	[2 4]
+2018-11-29 20:54:42,136{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:invoke	:cas	[3 3]
+2018-11-29 20:54:42,143{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:fail	:cas	[3 3]
+2018-11-29 20:54:42,535{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:cas	[4 1]
+2018-11-29 20:54:42,536{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:write	0
+2018-11-29 20:54:42,542{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:cas	[4 1]
+2018-11-29 20:54:42,542{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:ok	:write	0
+2018-11-29 20:54:42,675{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:invoke	:read	nil
+2018-11-29 20:54:42,679{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:ok	:read	0
+2018-11-29 20:54:42,693{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:cas	[1 2]
+2018-11-29 20:54:42,700{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:fail	:cas	[1 2]
+2018-11-29 20:54:42,914{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:read	nil
+2018-11-29 20:54:42,918{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:ok	:read	0
+2018-11-29 20:54:42,934{GMT}	INFO	[jepsen nemesis] jepsen.util: :nemesis	:info	:start	nil
+2018-11-29 20:54:43,036{GMT}	INFO	[jepsen worker 1] jepsen.util: 11	:invoke	:cas	[3 0]
+2018-11-29 20:54:43,038{GMT}	INFO	[jepsen nemesis] jepsen.util: :nemesis	:info	:start	[:isolated {"ec2-35-174-16-155.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-234-71-213.compute-1.amazonaws.com" "ec2-18-232-141-137.compute-1.amazonaws.com"}, "ec2-18-212-141-207.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-234-71-213.compute-1.amazonaws.com" "ec2-18-232-141-137.compute-1.amazonaws.com"}, "ec2-107-23-238-236.compute-1.amazonaws.com" #{"ec2-35-174-16-155.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}, "ec2-18-234-71-213.compute-1.amazonaws.com" #{"ec2-35-174-16-155.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}, "ec2-18-232-141-137.compute-1.amazonaws.com" #{"ec2-35-174-16-155.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}}]
+2018-11-29 20:54:43,104{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:read	nil
+2018-11-29 20:54:43,109{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:ok	:read	0
+2018-11-29 20:54:43,467{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:read	nil
+2018-11-29 20:54:43,471{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:read	0
+2018-11-29 20:54:44,010{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:invoke	:cas	[3 2]
+2018-11-29 20:54:44,490{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:read	nil
+2018-11-29 20:54:44,495{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:ok	:read	0
+2018-11-29 20:54:44,518{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:read	nil
+2018-11-29 20:54:44,522{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:read	0
+2018-11-29 20:54:44,832{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:cas	[0 1]
+2018-11-29 20:54:44,916{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:cas	[0 1]
+2018-11-29 20:54:44,916{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:fail	:cas	[3 2]
+2018-11-29 20:54:45,111{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:read	nil
+2018-11-29 20:54:45,116{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:ok	:read	1
+2018-11-29 20:54:45,723{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:invoke	:write	4
+2018-11-29 20:54:45,730{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:ok	:write	4
+2018-11-29 20:54:45,861{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:read	nil
+2018-11-29 20:54:45,865{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:read	0
+2018-11-29 20:54:46,062{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:write	4
+2018-11-29 20:54:46,068{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:write	4
+2018-11-29 20:54:46,630{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:read	nil
+2018-11-29 20:54:46,634{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:ok	:read	4
+2018-11-29 20:54:46,837{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:cas	[3 2]
+2018-11-29 20:54:46,844{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:fail	:cas	[3 2]
+2018-11-29 20:54:46,848{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:read	nil
+2018-11-29 20:54:46,852{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:read	4
+2018-11-29 20:54:46,948{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:cas	[4 0]
+2018-11-29 20:54:46,961{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:invoke	:cas	[4 1]
+2018-11-29 20:54:46,968{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:ok	:cas	[4 1]
+2018-11-29 20:54:47,727{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:invoke	:write	3
+2018-11-29 20:54:47,734{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:ok	:write	3
+2018-11-29 20:54:48,038{GMT}	INFO	[jepsen nemesis] jepsen.util: :nemesis	:info	:stop	nil
+2018-11-29 20:54:48,052{GMT}	WARN	[jepsen worker 1] jepsen.core: Process 11 crashed
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.8.0_171]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[na:1.8.0_171]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[na:1.8.0_171]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[na:1.8.0_171]
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.fillBuffer(AbstractSessionInputBuffer.java:160) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.io.SocketInputBuffer.fillBuffer(SocketInputBuffer.java:84) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.readLine(AbstractSessionInputBuffer.java:273) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:261) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.AbstractHttpClientConnection.receiveResponseHeader(AbstractHttpClientConnection.java:283) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.conn.DefaultClientConnection.receiveResponseHeader(DefaultClientConnection.java:251) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.receiveResponseHeader(ManagedClientConnectionImpl.java:197) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:272) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:124) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.client.DefaultRequestDirector.tryExecute(DefaultRequestDirector.java:685) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:487) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:882) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107) ~[httpclient-4.5.1.jar:4.5.1]
+	at clj_http.core$request.invokeStatic(core.clj:304) ~[na:na]
+	at clj_http.core$request.invoke(core.clj:208) ~[na:na]
+	at clojure.lang.Var.invoke(Var.java:379) ~[clojure-1.8.0.jar:na]
+	at clj_http.client$wrap_request_timing$fn__1897.invoke(client.clj:831) ~[na:na]
+	at clj_http.headers$wrap_header_map$fn__296.invoke(headers.clj:143) ~[na:na]
+	at clj_http.client$wrap_query_params$fn__1803.invoke(client.clj:645) ~[na:na]
+	at clj_http.client$wrap_basic_auth$fn__1810.invoke(client.clj:670) ~[na:na]
+	at clj_http.client$wrap_oauth$fn__1814.invoke(client.clj:680) ~[na:na]
+	at clj_http.client$wrap_user_info$fn__1819.invoke(client.clj:693) ~[na:na]
+	at clj_http.client$wrap_url$fn__1883.invoke(client.clj:797) ~[na:na]
+	at clj_http.client$wrap_redirects$fn__1587.invoke(client.clj:267) ~[na:na]
+	at clj_http.client$wrap_decompression$fn__1612.invoke(client.clj:339) ~[na:na]
+	at clj_http.client$wrap_input_coercion$fn__1742.invoke(client.clj:518) ~[na:na]
+	at clj_http.client$wrap_additional_header_parsing$fn__1763.invoke(client.clj:552) ~[na:na]
+	at clj_http.client$wrap_output_coercion$fn__1733.invoke(client.clj:468) ~[na:na]
+	at clj_http.client$wrap_exceptions$fn__1573.invoke(client.clj:219) ~[na:na]
+	at clj_http.client$wrap_accept$fn__1777.invoke(client.clj:595) ~[na:na]
+	at clj_http.client$wrap_accept_encoding$fn__1783.invoke(client.clj:609) ~[na:na]
+	at clj_http.client$wrap_content_type$fn__1772.invoke(client.clj:585) ~[na:na]
+	at clj_http.client$wrap_form_params$fn__1864.invoke(client.clj:756) ~[na:na]
+	at clj_http.client$wrap_nested_params$fn__1878.invoke(client.clj:786) ~[na:na]
+	at clj_http.client$wrap_method$fn__1824.invoke(client.clj:700) ~[na:na]
+	at clj_http.cookies$wrap_cookies$fn__211.invoke(cookies.clj:124) ~[na:na]
+	at clj_http.links$wrap_links$fn__533.invoke(links.clj:51) ~[na:na]
+	at clj_http.client$wrap_unknown_host$fn__1887.invoke(client.clj:806) ~[na:na]
+	at clj_http.client$put.invokeStatic(client.clj:927) ~[na:na]
+	at clj_http.client$put.doInvoke(client.clj:923) ~[na:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:423) [clojure-1.8.0.jar:na]
+	at verschlimmbesserung.core$cas_BANG_.invokeStatic(core.clj:384) ~[na:na]
+	at verschlimmbesserung.core$cas_BANG_.invoke(core.clj:363) ~[na:na]
+	at jepsen.etcdemo.Client.invoke_BANG_(etcdemo.clj:106) ~[na:na]
+	at jepsen.core$invoke_op_BANG_$fn__4612.invoke(core.clj:272) ~[jepsen-0.1.10.jar:na]
+	at jepsen.core$invoke_op_BANG_.invokeStatic(core.clj:272) [jepsen-0.1.10.jar:na]
+	at jepsen.core$invoke_op_BANG_.invoke(core.clj:267) [jepsen-0.1.10.jar:na]
+	at jepsen.core.ClientWorker.run_worker_BANG_(core.clj:403) [jepsen-0.1.10.jar:na]
+	at jepsen.core$do_worker_BANG_.invokeStatic(core.clj:187) [jepsen-0.1.10.jar:na]
+	at jepsen.core$do_worker_BANG_.invoke(core.clj:171) [jepsen-0.1.10.jar:na]
+	at jepsen.core$run_workers_BANG_$fn__4598$fn__4599.invoke(core.clj:240) [jepsen-0.1.10.jar:na]
+	at clojure.lang.AFn.applyToHelper(AFn.java:152) [clojure-1.8.0.jar:na]
+	at clojure.lang.AFn.applyTo(AFn.java:144) [clojure-1.8.0.jar:na]
+	at clojure.core$apply.invokeStatic(core.clj:646) [clojure-1.8.0.jar:na]
+	at clojure.core$with_bindings_STAR_.invokeStatic(core.clj:1881) [clojure-1.8.0.jar:na]
+	at clojure.core$with_bindings_STAR_.doInvoke(core.clj:1881) [clojure-1.8.0.jar:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:425) [clojure-1.8.0.jar:na]
+	at clojure.lang.AFn.applyToHelper(AFn.java:156) [clojure-1.8.0.jar:na]
+	at clojure.lang.RestFn.applyTo(RestFn.java:132) [clojure-1.8.0.jar:na]
+	at clojure.core$apply.invokeStatic(core.clj:650) [clojure-1.8.0.jar:na]
+	at clojure.core$bound_fn_STAR_$fn__4671.doInvoke(core.clj:1911) [clojure-1.8.0.jar:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:397) [clojure-1.8.0.jar:na]
+	at clojure.lang.AFn.run(AFn.java:22) [clojure-1.8.0.jar:na]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_171]
+2018-11-29 20:54:48,052{GMT}	INFO	[jepsen worker 1] jepsen.util: 11	:info	:cas	[3 0]	indeterminate: Read timed out
+2018-11-29 20:54:48,110{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:invoke	:read	nil
+2018-11-29 20:54:48,114{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:ok	:read	3
+2018-11-29 20:54:48,197{GMT}	INFO	[jepsen worker 1] jepsen.util: 16	:invoke	:cas	[0 4]
+2018-11-29 20:54:48,245{GMT}	INFO	[jepsen nemesis] jepsen.util: :nemesis	:info	:stop	:network-healed
+2018-11-29 20:54:48,313{GMT}	INFO	[jepsen worker 1] jepsen.util: 16	:fail	:cas	[0 4]
+2018-11-29 20:54:48,470{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:read	nil
+2018-11-29 20:54:48,474{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:read	3
+2018-11-29 20:54:48,630{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:write	0
+2018-11-29 20:54:48,635{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:ok	:write	0
+2018-11-29 20:54:48,809{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:invoke	:read	nil
+2018-11-29 20:54:48,812{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:ok	:read	0
+2018-11-29 20:54:49,113{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:fail	:cas	[4 0]
+2018-11-29 20:54:49,495{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:cas	[1 4]
+2018-11-29 20:54:49,503{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:fail	:cas	[1 4]
+2018-11-29 20:54:49,660{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:invoke	:write	4
+2018-11-29 20:54:49,666{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:ok	:write	4
+2018-11-29 20:54:49,694{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:cas	[1 3]
+2018-11-29 20:54:49,699{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:fail	:cas	[1 3]
+2018-11-29 20:54:49,974{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:write	3
+2018-11-29 20:54:49,983{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:write	3
+2018-11-29 20:54:49,997{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:invoke	:cas	[1 2]
+2018-11-29 20:54:50,004{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:fail	:cas	[1 2]
+2018-11-29 20:54:50,218{GMT}	INFO	[jepsen worker 1] jepsen.util: 16	:invoke	:write	0
+2018-11-29 20:54:50,236{GMT}	INFO	[jepsen worker 1] jepsen.util: 16	:ok	:write	0
+2018-11-29 20:54:50,246{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:write	1
+2018-11-29 20:54:50,255{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:write	1
+2018-11-29 20:54:50,336{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:write	2
+2018-11-29 20:54:50,343{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:write	2
+2018-11-29 20:54:50,438{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:invoke	:write	3
+2018-11-29 20:54:50,446{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:ok	:write	3
+2018-11-29 20:54:50,748{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:write	1
+2018-11-29 20:54:50,755{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:write	1
+2018-11-29 20:54:50,825{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:read	nil
+2018-11-29 20:54:50,829{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:read	1
+2018-11-29 20:54:51,056{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:write	4
+2018-11-29 20:54:51,063{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:write	4
+2018-11-29 20:54:51,067{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:read	nil
+2018-11-29 20:54:51,071{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:read	4
+2018-11-29 20:54:51,248{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:invoke	:cas	[4 4]
+2018-11-29 20:54:51,257{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:ok	:cas	[4 4]
+2018-11-29 20:54:51,601{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:write	2
+2018-11-29 20:54:51,609{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:ok	:write	2
+2018-11-29 20:54:51,941{GMT}	INFO	[jepsen worker 1] jepsen.util: 16	:invoke	:read	nil
+2018-11-29 20:54:51,945{GMT}	INFO	[jepsen worker 1] jepsen.util: 16	:ok	:read	2
+2018-11-29 20:54:52,031{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:invoke	:cas	[4 0]
+2018-11-29 20:54:52,039{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:fail	:cas	[4 0]
+2018-11-29 20:54:52,231{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:read	nil
+2018-11-29 20:54:52,236{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:write	3
+2018-11-29 20:54:52,237{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:ok	:read	2
+2018-11-29 20:54:52,242{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:write	3
+2018-11-29 20:54:52,387{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:read	nil
+2018-11-29 20:54:52,392{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:ok	:read	3
+2018-11-29 20:54:52,583{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:write	3
+2018-11-29 20:54:52,590{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:ok	:write	3
+2018-11-29 20:54:53,011{GMT}	INFO	[jepsen worker 1] jepsen.util: 16	:invoke	:write	3
+2018-11-29 20:54:53,018{GMT}	INFO	[jepsen worker 1] jepsen.util: 16	:ok	:write	3
+2018-11-29 20:54:53,157{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:invoke	:read	nil
+2018-11-29 20:54:53,161{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:ok	:read	3
+2018-11-29 20:54:53,181{GMT}	INFO	[jepsen worker 1] jepsen.util: 16	:invoke	:cas	[1 4]
+2018-11-29 20:54:53,189{GMT}	INFO	[jepsen worker 1] jepsen.util: 16	:fail	:cas	[1 4]
+2018-11-29 20:54:53,245{GMT}	INFO	[jepsen nemesis] jepsen.util: :nemesis	:info	:start	nil
+2018-11-29 20:54:53,349{GMT}	INFO	[jepsen nemesis] jepsen.util: :nemesis	:info	:start	[:isolated {"ec2-107-23-238-236.compute-1.amazonaws.com" #{"ec2-18-232-141-137.compute-1.amazonaws.com" "ec2-35-174-16-155.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}, "ec2-18-234-71-213.compute-1.amazonaws.com" #{"ec2-18-232-141-137.compute-1.amazonaws.com" "ec2-35-174-16-155.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}, "ec2-18-232-141-137.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-234-71-213.compute-1.amazonaws.com"}, "ec2-35-174-16-155.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-234-71-213.compute-1.amazonaws.com"}, "ec2-18-212-141-207.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-234-71-213.compute-1.amazonaws.com"}}]
+2018-11-29 20:54:53,843{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:write	3
+2018-11-29 20:54:53,851{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:write	3
+2018-11-29 20:54:53,886{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:invoke	:write	3
+2018-11-29 20:54:54,096{GMT}	INFO	[jepsen worker 1] jepsen.util: 16	:invoke	:read	nil
+2018-11-29 20:54:54,100{GMT}	INFO	[jepsen worker 1] jepsen.util: 16	:ok	:read	3
+2018-11-29 20:54:54,195{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:cas	[1 4]
+2018-11-29 20:54:54,203{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:fail	:cas	[1 4]
+2018-11-29 20:54:54,223{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:cas	[0 2]
+2018-11-29 20:54:54,229{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:fail	:cas	[0 2]
+2018-11-29 20:54:54,469{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:invoke	:read	nil
+2018-11-29 20:54:54,474{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:ok	:read	3
+2018-11-29 20:54:54,532{GMT}	INFO	[jepsen worker 1] jepsen.util: 16	:invoke	:read	nil
+2018-11-29 20:54:54,535{GMT}	INFO	[jepsen worker 1] jepsen.util: 16	:ok	:read	3
+2018-11-29 20:54:55,023{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:read	nil
+2018-11-29 20:54:55,028{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:ok	:read	3
+2018-11-29 20:54:55,650{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:cas	[2 0]
+2018-11-29 20:54:55,658{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:fail	:cas	[2 0]
+2018-11-29 20:54:55,825{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:write	2
+2018-11-29 20:54:55,832{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:write	2
+2018-11-29 20:54:55,864{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:invoke	:read	nil
+2018-11-29 20:54:55,868{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:ok	:read	3
+2018-11-29 20:54:56,035{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:read	nil
+2018-11-29 20:54:56,039{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:ok	:read	2
+2018-11-29 20:54:56,418{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:cas	[4 0]
+2018-11-29 20:54:56,426{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:fail	:cas	[4 0]
+2018-11-29 20:54:56,447{GMT}	INFO	[jepsen worker 1] jepsen.util: 16	:invoke	:write	1
+2018-11-29 20:54:56,454{GMT}	INFO	[jepsen worker 1] jepsen.util: 16	:ok	:write	1
+2018-11-29 20:54:56,638{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:read	nil
+2018-11-29 20:54:56,642{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:ok	:read	1
+2018-11-29 20:54:56,691{GMT}	INFO	[jepsen worker 1] jepsen.util: 16	:invoke	:cas	[0 0]
+2018-11-29 20:54:56,698{GMT}	INFO	[jepsen worker 1] jepsen.util: 16	:fail	:cas	[0 0]
+2018-11-29 20:54:56,873{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:read	nil
+2018-11-29 20:54:56,878{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:read	1
+2018-11-29 20:54:57,322{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:read	nil
+2018-11-29 20:54:57,326{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:ok	:read	1
+2018-11-29 20:54:57,659{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:invoke	:write	3
+2018-11-29 20:54:58,349{GMT}	INFO	[jepsen nemesis] jepsen.util: :nemesis	:info	:stop	nil
+2018-11-29 20:54:58,442{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:write	3
+2018-11-29 20:54:58,448{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:ok	:write	3
+2018-11-29 20:54:58,554{GMT}	INFO	[jepsen nemesis] jepsen.util: :nemesis	:info	:stop	:network-healed
+2018-11-29 20:54:58,630{GMT}	INFO	[jepsen worker 1] jepsen.util: 16	:invoke	:read	nil
+2018-11-29 20:54:58,635{GMT}	INFO	[jepsen worker 1] jepsen.util: 16	:ok	:read	3
+2018-11-29 20:54:58,663{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:write	4
+2018-11-29 20:54:58,670{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:write	4
+2018-11-29 20:54:58,897{GMT}	WARN	[jepsen worker 4] jepsen.core: Process 4 crashed
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.8.0_171]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[na:1.8.0_171]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[na:1.8.0_171]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[na:1.8.0_171]
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.fillBuffer(AbstractSessionInputBuffer.java:160) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.io.SocketInputBuffer.fillBuffer(SocketInputBuffer.java:84) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.readLine(AbstractSessionInputBuffer.java:273) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:261) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.AbstractHttpClientConnection.receiveResponseHeader(AbstractHttpClientConnection.java:283) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.conn.DefaultClientConnection.receiveResponseHeader(DefaultClientConnection.java:251) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.receiveResponseHeader(ManagedClientConnectionImpl.java:197) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:272) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:124) ~[httpcore-4.4.4.jar:4.4.4]
+	at org.apache.http.impl.client.DefaultRequestDirector.tryExecute(DefaultRequestDirector.java:685) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:487) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:882) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82) ~[httpclient-4.5.1.jar:4.5.1]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107) ~[httpclient-4.5.1.jar:4.5.1]
+	at clj_http.core$request.invokeStatic(core.clj:304) ~[na:na]
+	at clj_http.core$request.invoke(core.clj:208) ~[na:na]
+	at clojure.lang.Var.invoke(Var.java:379) ~[clojure-1.8.0.jar:na]
+	at clj_http.client$wrap_request_timing$fn__1897.invoke(client.clj:831) ~[na:na]
+	at clj_http.headers$wrap_header_map$fn__296.invoke(headers.clj:143) ~[na:na]
+	at clj_http.client$wrap_query_params$fn__1803.invoke(client.clj:645) ~[na:na]
+	at clj_http.client$wrap_basic_auth$fn__1810.invoke(client.clj:670) ~[na:na]
+	at clj_http.client$wrap_oauth$fn__1814.invoke(client.clj:680) ~[na:na]
+	at clj_http.client$wrap_user_info$fn__1819.invoke(client.clj:693) ~[na:na]
+	at clj_http.client$wrap_url$fn__1883.invoke(client.clj:797) ~[na:na]
+	at clj_http.client$wrap_redirects$fn__1587.invoke(client.clj:267) ~[na:na]
+	at clj_http.client$wrap_decompression$fn__1612.invoke(client.clj:339) ~[na:na]
+	at clj_http.client$wrap_input_coercion$fn__1742.invoke(client.clj:518) ~[na:na]
+	at clj_http.client$wrap_additional_header_parsing$fn__1763.invoke(client.clj:552) ~[na:na]
+	at clj_http.client$wrap_output_coercion$fn__1733.invoke(client.clj:468) ~[na:na]
+	at clj_http.client$wrap_exceptions$fn__1573.invoke(client.clj:219) ~[na:na]
+	at clj_http.client$wrap_accept$fn__1777.invoke(client.clj:595) ~[na:na]
+	at clj_http.client$wrap_accept_encoding$fn__1783.invoke(client.clj:609) ~[na:na]
+	at clj_http.client$wrap_content_type$fn__1772.invoke(client.clj:585) ~[na:na]
+	at clj_http.client$wrap_form_params$fn__1864.invoke(client.clj:756) ~[na:na]
+	at clj_http.client$wrap_nested_params$fn__1878.invoke(client.clj:786) ~[na:na]
+	at clj_http.client$wrap_method$fn__1824.invoke(client.clj:700) ~[na:na]
+	at clj_http.cookies$wrap_cookies$fn__211.invoke(cookies.clj:124) ~[na:na]
+	at clj_http.links$wrap_links$fn__533.invoke(links.clj:51) ~[na:na]
+	at clj_http.client$wrap_unknown_host$fn__1887.invoke(client.clj:806) ~[na:na]
+	at clj_http.client$put.invokeStatic(client.clj:927) ~[na:na]
+	at clj_http.client$put.doInvoke(client.clj:923) ~[na:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:423) [clojure-1.8.0.jar:na]
+	at verschlimmbesserung.core$reset_BANG_.invokeStatic(core.clj:305) ~[na:na]
+	at verschlimmbesserung.core$reset_BANG_.invoke(core.clj:295) ~[na:na]
+	at verschlimmbesserung.core$reset_BANG_.invokeStatic(core.clj:301) ~[na:na]
+	at verschlimmbesserung.core$reset_BANG_.invoke(core.clj:295) ~[na:na]
+	at jepsen.etcdemo.Client.invoke_BANG_(etcdemo.clj:102) ~[na:na]
+	at jepsen.core$invoke_op_BANG_$fn__4612.invoke(core.clj:272) ~[jepsen-0.1.10.jar:na]
+	at jepsen.core$invoke_op_BANG_.invokeStatic(core.clj:272) [jepsen-0.1.10.jar:na]
+	at jepsen.core$invoke_op_BANG_.invoke(core.clj:267) [jepsen-0.1.10.jar:na]
+	at jepsen.core.ClientWorker.run_worker_BANG_(core.clj:403) [jepsen-0.1.10.jar:na]
+	at jepsen.core$do_worker_BANG_.invokeStatic(core.clj:187) [jepsen-0.1.10.jar:na]
+	at jepsen.core$do_worker_BANG_.invoke(core.clj:171) [jepsen-0.1.10.jar:na]
+	at jepsen.core$run_workers_BANG_$fn__4598$fn__4599.invoke(core.clj:240) [jepsen-0.1.10.jar:na]
+	at clojure.lang.AFn.applyToHelper(AFn.java:152) [clojure-1.8.0.jar:na]
+	at clojure.lang.AFn.applyTo(AFn.java:144) [clojure-1.8.0.jar:na]
+	at clojure.core$apply.invokeStatic(core.clj:646) [clojure-1.8.0.jar:na]
+	at clojure.core$with_bindings_STAR_.invokeStatic(core.clj:1881) [clojure-1.8.0.jar:na]
+	at clojure.core$with_bindings_STAR_.doInvoke(core.clj:1881) [clojure-1.8.0.jar:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:425) [clojure-1.8.0.jar:na]
+	at clojure.lang.AFn.applyToHelper(AFn.java:156) [clojure-1.8.0.jar:na]
+	at clojure.lang.RestFn.applyTo(RestFn.java:132) [clojure-1.8.0.jar:na]
+	at clojure.core$apply.invokeStatic(core.clj:650) [clojure-1.8.0.jar:na]
+	at clojure.core$bound_fn_STAR_$fn__4671.doInvoke(core.clj:1911) [clojure-1.8.0.jar:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:397) [clojure-1.8.0.jar:na]
+	at clojure.lang.AFn.run(AFn.java:22) [clojure-1.8.0.jar:na]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_171]
+2018-11-29 20:54:58,898{GMT}	INFO	[jepsen worker 4] jepsen.util: 4	:info	:write	3	indeterminate: Read timed out
+2018-11-29 20:54:59,194{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:cas	[1 1]
+2018-11-29 20:54:59,202{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:fail	:cas	[1 1]
+2018-11-29 20:54:59,447{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:cas	[1 1]
+2018-11-29 20:54:59,544{GMT}	INFO	[jepsen worker 4] jepsen.util: 9	:invoke	:read	nil
+2018-11-29 20:54:59,548{GMT}	INFO	[jepsen worker 4] jepsen.util: 9	:ok	:read	3
+2018-11-29 20:54:59,769{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:read	nil
+2018-11-29 20:54:59,775{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:read	4
+2018-11-29 20:54:59,839{GMT}	INFO	[jepsen worker 1] jepsen.util: 16	:invoke	:cas	[4 2]
+2018-11-29 20:55:00,728{GMT}	INFO	[jepsen worker 4] jepsen.util: 9	:invoke	:read	nil
+2018-11-29 20:55:00,732{GMT}	INFO	[jepsen worker 4] jepsen.util: 9	:ok	:read	3
+2018-11-29 20:55:00,842{GMT}	INFO	[jepsen worker 4] jepsen.util: 9	:invoke	:read	nil
+2018-11-29 20:55:00,846{GMT}	INFO	[jepsen worker 4] jepsen.util: 9	:ok	:read	3
+2018-11-29 20:55:01,285{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:read	nil
+2018-11-29 20:55:01,290{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:read	4
+2018-11-29 20:55:01,515{GMT}	INFO	[jepsen worker 1] jepsen.util: 16	:fail	:cas	[4 2]
+2018-11-29 20:55:01,515{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:fail	:cas	[1 1]
+2018-11-29 20:55:01,516{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:ok	:write	3
+2018-11-29 20:55:01,517{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:cas	[3 4]
+2018-11-29 20:55:01,524{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:cas	[3 4]
+2018-11-29 20:55:01,706{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:read	nil
+2018-11-29 20:55:01,710{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:ok	:read	4
+2018-11-29 20:55:02,156{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:write	4
+2018-11-29 20:55:02,173{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:write	4
+2018-11-29 20:55:02,354{GMT}	INFO	[jepsen worker 4] jepsen.util: 9	:invoke	:write	2
+2018-11-29 20:55:02,362{GMT}	INFO	[jepsen worker 4] jepsen.util: 9	:ok	:write	2
+2018-11-29 20:55:02,770{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:cas	[2 3]
+2018-11-29 20:55:02,777{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:ok	:cas	[2 3]
+2018-11-29 20:55:03,145{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:invoke	:read	nil
+2018-11-29 20:55:03,149{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:ok	:read	3
+2018-11-29 20:55:03,264{GMT}	INFO	[jepsen worker 1] jepsen.util: 16	:invoke	:write	2
+2018-11-29 20:55:03,271{GMT}	INFO	[jepsen worker 1] jepsen.util: 16	:ok	:write	2
+2018-11-29 20:55:03,303{GMT}	INFO	[jepsen worker 1] jepsen.util: 16	:invoke	:read	nil
+2018-11-29 20:55:03,307{GMT}	INFO	[jepsen worker 1] jepsen.util: 16	:ok	:read	2
+2018-11-29 20:55:03,387{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:cas	[3 4]
+2018-11-29 20:55:03,394{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:fail	:cas	[3 4]
+2018-11-29 20:55:03,548{GMT}	INFO	[jepsen worker 4] jepsen.util: 9	:invoke	:read	nil
+2018-11-29 20:55:03,552{GMT}	INFO	[jepsen worker 4] jepsen.util: 9	:ok	:read	2
+2018-11-29 20:55:03,554{GMT}	INFO	[jepsen nemesis] jepsen.util: :nemesis	:info	:start	nil
+2018-11-29 20:55:03,658{GMT}	INFO	[jepsen nemesis] jepsen.util: :nemesis	:info	:start	[:isolated {"ec2-107-23-238-236.compute-1.amazonaws.com" #{"ec2-18-234-71-213.compute-1.amazonaws.com" "ec2-35-174-16-155.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}, "ec2-18-232-141-137.compute-1.amazonaws.com" #{"ec2-18-234-71-213.compute-1.amazonaws.com" "ec2-35-174-16-155.compute-1.amazonaws.com" "ec2-18-212-141-207.compute-1.amazonaws.com"}, "ec2-18-234-71-213.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-232-141-137.compute-1.amazonaws.com"}, "ec2-35-174-16-155.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-232-141-137.compute-1.amazonaws.com"}, "ec2-18-212-141-207.compute-1.amazonaws.com" #{"ec2-107-23-238-236.compute-1.amazonaws.com" "ec2-18-232-141-137.compute-1.amazonaws.com"}}]
+2018-11-29 20:55:03,687{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:invoke	:cas	[4 2]
+2018-11-29 20:55:04,261{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:invoke	:write	4
+2018-11-29 20:55:04,277{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:invoke	:write	3
+2018-11-29 20:55:04,590{GMT}	INFO	[jepsen nemesis] jepsen.core: Stopping nemesis
+2018-11-29 20:55:04,591{GMT}	INFO	[jepsen worker 1] jepsen.core: Stopping worker 1
+2018-11-29 20:55:04,592{GMT}	INFO	[jepsen worker 4] jepsen.core: Stopping worker 4
+2018-11-29 20:55:05,322{GMT}	INFO	[jepsen worker 2] jepsen.util: 7	:fail	:cas	[4 2]
+2018-11-29 20:55:05,322{GMT}	INFO	[jepsen worker 2] jepsen.core: Stopping worker 2
+2018-11-29 20:55:05,323{GMT}	INFO	[jepsen worker 0] jepsen.util: 5	:ok	:write	3
+2018-11-29 20:55:05,323{GMT}	INFO	[jepsen worker 0] jepsen.core: Stopping worker 0
+2018-11-29 20:55:05,326{GMT}	INFO	[jepsen worker 3] jepsen.util: 13	:ok	:write	4
+2018-11-29 20:55:05,326{GMT}	INFO	[jepsen worker 3] jepsen.core: Stopping worker 3
+2018-11-29 20:55:05,328{GMT}	INFO	[jepsen test runner] jepsen.core: Run complete, writing
+2018-11-29 20:55:05,391{GMT}	INFO	[jepsen test runner] jepsen.core: Analyzing...
+2018-11-29 20:55:06,625{GMT}	INFO	[jepsen test runner] jepsen.core: Analysis complete
+2018-11-29 20:55:06,851{GMT}	INFO	[jepsen results] jepsen.store: Wrote /home/admin/jepsen.etcdemo/store/etcd/20181129T205349.000Z/results.edn
+2018-11-29 20:55:06,852{GMT}	INFO	[jepsen test runner] jepsen.core: Snarfing log files
+2018-11-29 20:55:06,854{GMT}	INFO	[jepsen node ec2-18-234-71-213.compute-1.amazonaws.com] jepsen.core: downloading /opt/etcd/etcd.log to etcd.log
+2018-11-29 20:55:06,855{GMT}	INFO	[jepsen node ec2-35-174-16-155.compute-1.amazonaws.com] jepsen.core: downloading /opt/etcd/etcd.log to etcd.log
+2018-11-29 20:55:06,856{GMT}	INFO	[jepsen node ec2-107-23-238-236.compute-1.amazonaws.com] jepsen.core: downloading /opt/etcd/etcd.log to etcd.log
+2018-11-29 20:55:06,856{GMT}	INFO	[jepsen node ec2-18-232-141-137.compute-1.amazonaws.com] jepsen.core: downloading /opt/etcd/etcd.log to etcd.log
+2018-11-29 20:55:06,861{GMT}	INFO	[jepsen node ec2-18-212-141-207.compute-1.amazonaws.com] jepsen.core: downloading /opt/etcd/etcd.log to etcd.log
+2018-11-29 20:55:06,891{GMT}	INFO	[jepsen node ec2-35-174-16-155.compute-1.amazonaws.com] jepsen.etcdemo: Tearing down db
+2018-11-29 20:55:06,891{GMT}	INFO	[jepsen node ec2-18-212-141-207.compute-1.amazonaws.com] jepsen.etcdemo: Tearing down db
+2018-11-29 20:55:06,891{GMT}	INFO	[jepsen node ec2-18-232-141-137.compute-1.amazonaws.com] jepsen.etcdemo: Tearing down db
+2018-11-29 20:55:06,891{GMT}	INFO	[jepsen node ec2-35-174-16-155.compute-1.amazonaws.com] jepsen.control.util: Stopping etcd
+2018-11-29 20:55:06,892{GMT}	INFO	[jepsen node ec2-18-212-141-207.compute-1.amazonaws.com] jepsen.control.util: Stopping etcd
+2018-11-29 20:55:06,892{GMT}	INFO	[jepsen node ec2-18-232-141-137.compute-1.amazonaws.com] jepsen.control.util: Stopping etcd
+2018-11-29 20:55:06,892{GMT}	INFO	[jepsen node ec2-18-234-71-213.compute-1.amazonaws.com] jepsen.etcdemo: Tearing down db
+2018-11-29 20:55:06,892{GMT}	INFO	[jepsen node ec2-107-23-238-236.compute-1.amazonaws.com] jepsen.etcdemo: Tearing down db
+2018-11-29 20:55:06,892{GMT}	INFO	[jepsen node ec2-107-23-238-236.compute-1.amazonaws.com] jepsen.control.util: Stopping etcd
+2018-11-29 20:55:06,892{GMT}	INFO	[jepsen node ec2-18-234-71-213.compute-1.amazonaws.com] jepsen.control.util: Stopping etcd
+2018-11-29 20:55:07,395{GMT}	INFO	[jepsen test runner] jepsen.core: {:linear
+ {:valid? false,
+  :configs
+  ({:model {:value 0},
+    :last-op
+    {:process 5,
+     :type :ok,
+     :f :write,
+     :value 0,
+     :index 231,
+     :time 28346730072},
+    :pending
+    [{:process 0,
+      :type :invoke,
+      :f :cas,
+      :value [1 0],
+      :index 77,
+      :time 8726383119}
+     {:process 1,
+      :type :invoke,
+      :f :write,
+      :value 4,
+      :index 70,
+      :time 7678990637}
+     {:process 2,
+      :type :invoke,
+      :f :cas,
+      :value [2 2],
+      :index 153,
+      :time 18398872236}
+     {:process 4,
+      :type :invoke,
+      :f :read,
+      :value 3,
+      :index 232,
+      :time 28356672847}]}
+   {:model {:value 0},
+    :last-op
+    {:process 5,
+     :type :ok,
+     :f :write,
+     :value 0,
+     :index 231,
+     :time 28346730072},
+    :pending
+    [{:process 0,
+      :type :invoke,
+      :f :cas,
+      :value [1 0],
+      :index 77,
+      :time 8726383119}
+     {:process 2,
+      :type :invoke,
+      :f :cas,
+      :value [2 2],
+      :index 153,
+      :time 18398872236}
+     {:process 4,
+      :type :invoke,
+      :f :read,
+      :value 3,
+      :index 232,
+      :time 28356672847}]}
+   {:model {:value 0},
+    :last-op
+    {:process 5,
+     :type :ok,
+     :f :write,
+     :value 0,
+     :index 231,
+     :time 28346730072},
+    :pending
+    [{:process 0,
+      :type :invoke,
+      :f :cas,
+      :value [1 0],
+      :index 77,
+      :time 8726383119}
+     {:process 2,
+      :type :invoke,
+      :f :cas,
+      :value [2 2],
+      :index 153,
+      :time 18398872236}
+     {:process 3,
+      :type :invoke,
+      :f :write,
+      :value 0,
+      :index 152,
+      :time 18192215315}
+     {:process 4,
+      :type :invoke,
+      :f :read,
+      :value 3,
+      :index 232,
+      :time 28356672847}]}
+   {:model {:value 0},
+    :last-op
+    {:process 5,
+     :type :ok,
+     :f :write,
+     :value 0,
+     :index 231,
+     :time 28346730072},
+    :pending
+    [{:process 0,
+      :type :invoke,
+      :f :cas,
+      :value [1 0],
+      :index 77,
+      :time 8726383119}
+     {:process 1,
+      :type :invoke,
+      :f :write,
+      :value 4,
+      :index 70,
+      :time 7678990637}
+     {:process 2,
+      :type :invoke,
+      :f :cas,
+      :value [2 2],
+      :index 153,
+      :time 18398872236}
+     {:process 3,
+      :type :invoke,
+      :f :write,
+      :value 0,
+      :index 152,
+      :time 18192215315}
+     {:process 4,
+      :type :invoke,
+      :f :read,
+      :value 3,
+      :index 232,
+      :time 28356672847}]}
+   {:model {:value 0},
+    :last-op
+    {:process 5,
+     :type :ok,
+     :f :write,
+     :value 0,
+     :index 231,
+     :time 28346730072},
+    :pending
+    [{:process 1,
+      :type :invoke,
+      :f :write,
+      :value 4,
+      :index 70,
+      :time 7678990637}
+     {:process 2,
+      :type :invoke,
+      :f :cas,
+      :value [2 2],
+      :index 153,
+      :time 18398872236}
+     {:process 4,
+      :type :invoke,
+      :f :read,
+      :value 3,
+      :index 232,
+      :time 28356672847}]}
+   {:model {:value 0},
+    :last-op
+    {:process 5,
+     :type :ok,
+     :f :write,
+     :value 0,
+     :index 231,
+     :time 28346730072},
+    :pending
+    [{:process 2,
+      :type :invoke,
+      :f :cas,
+      :value [2 2],
+      :index 153,
+      :time 18398872236}
+     {:process 3,
+      :type :invoke,
+      :f :write,
+      :value 0,
+      :index 152,
+      :time 18192215315}
+     {:process 4,
+      :type :invoke,
+      :f :read,
+      :value 3,
+      :index 232,
+      :time 28356672847}]}
+   {:model {:value 0},
+    :last-op
+    {:process 5,
+     :type :ok,
+     :f :write,
+     :value 0,
+     :index 231,
+     :time 28346730072},
+    :pending
+    [{:process 1,
+      :type :invoke,
+      :f :write,
+      :value 4,
+      :index 70,
+      :time 7678990637}
+     {:process 2,
+      :type :invoke,
+      :f :cas,
+      :value [2 2],
+      :index 153,
+      :time 18398872236}
+     {:process 3,
+      :type :invoke,
+      :f :write,
+      :value 0,
+      :index 152,
+      :time 18192215315}
+     {:process 4,
+      :type :invoke,
+      :f :read,
+      :value 3,
+      :index 232,
+      :time 28356672847}]}
+   {:model {:value 0},
+    :last-op
+    {:process 5,
+     :type :ok,
+     :f :write,
+     :value 0,
+     :index 231,
+     :time 28346730072},
+    :pending
+    [{:process 2,
+      :type :invoke,
+      :f :cas,
+      :value [2 2],
+      :index 153,
+      :time 18398872236}
+     {:process 4,
+      :type :invoke,
+      :f :read,
+      :value 3,
+      :index 232,
+      :time 28356672847}]}),
+  :final-paths
+  ([{:op
+     {:process 5,
+      :type :ok,
+      :f :write,
+      :value 0,
+      :index 231,
+      :time 28346730072},
+     :model {:value 0}}
+    {:op
+     {:process 2,
+      :type :invoke,
+      :f :cas,
+      :value [2 2],
+      :index 153,
+      :time 18398872236},
+     :model {:msg "can't CAS 0 from 2 to 2"}}]
+   [{:op
+     {:process 5,
+      :type :ok,
+      :f :write,
+      :value 0,
+      :index 231,
+      :time 28346730072},
+     :model {:value 0}}
+    {:op
+     {:process 3,
+      :type :invoke,
+      :f :write,
+      :value 0,
+      :index 152,
+      :time 18192215315},
+     :model {:value 0}}
+    {:op
+     {:process 2,
+      :type :invoke,
+      :f :cas,
+      :value [2 2],
+      :index 153,
+      :time 18398872236},
+     :model {:msg "can't CAS 0 from 2 to 2"}}]
+   [{:op
+     {:process 5,
+      :type :ok,
+      :f :write,
+      :value 0,
+      :index 231,
+      :time 28346730072},
+     :model {:value 0}}
+    {:op
+     {:process 1,
+      :type :invoke,
+      :f :write,
+      :value 4,
+      :index 70,
+      :time 7678990637},
+     :model {:value 4}}
+    {:op
+     {:process 4,
+      :type :ok,
+      :f :read,
+      :value 3,
+      :index 233,
+      :time 28360154977},
+     :model {:msg "can't read 3 from register 4"}}]
+   [{:op
+     {:process 5,
+      :type :ok,
+      :f :write,
+      :value 0,
+      :index 231,
+      :time 28346730072},
+     :model {:value 0}}
+    {:op
+     {:process 1,
+      :type :invoke,
+      :f :write,
+      :value 4,
+      :index 70,
+      :time 7678990637},
+     :model {:value 4}}
+    {:op
+     {:process 0,
+      :type :invoke,
+      :f :cas,
+      :value [1 0],
+      :index 77,
+      :time 8726383119},
+     :model {:msg "can't CAS 4 from 1 to 0"}}]
+   [{:op
+     {:process 5,
+      :type :ok,
+      :f :write,
+      :value 0,
+      :index 231,
+      :time 28346730072},
+     :model {:value 0}}
+    {:op
+     {:process 3,
+      :type :invoke,
+      :f :write,
+      :value 0,
+      :index 152,
+      :time 18192215315},
+     :model {:value 0}}
+    {:op
+     {:process 0,
+      :type :invoke,
+      :f :cas,
+      :value [1 0],
+      :index 77,
+      :time 8726383119},
+     :model {:msg "can't CAS 0 from 1 to 0"}}]
+   [{:op
+     {:process 5,
+      :type :ok,
+      :f :write,
+      :value 0,
+      :index 231,
+      :time 28346730072},
+     :model {:value 0}}
+    {:op
+     {:process 0,
+      :type :invoke,
+      :f :cas,
+      :value [1 0],
+      :index 77,
+      :time 8726383119},
+     :model {:msg "can't CAS 0 from 1 to 0"}}]
+   [{:op
+     {:process 5,
+      :type :ok,
+      :f :write,
+      :value 0,
+      :index 231,
+      :time 28346730072},
+     :model {:value 0}}
+    {:op
+     {:process 1,
+      :type :invoke,
+      :f :write,
+      :value 4,
+      :index 70,
+      :time 7678990637},
+     :model {:value 4}}
+    {:op
+     {:process 3,
+      :type :invoke,
+      :f :write,
+      :value 0,
+      :index 152,
+      :time 18192215315},
+     :model {:value 0}}
+    {:op
+     {:process 0,
+      :type :invoke,
+      :f :cas,
+      :value [1 0],
+      :index 77,
+      :time 8726383119},
+     :model {:msg "can't CAS 0 from 1 to 0"}}]
+   [{:op
+     {:process 5,
+      :type :ok,
+      :f :write,
+      :value 0,
+      :index 231,
+      :time 28346730072},
+     :model {:value 0}}
+    {:op
+     {:process 3,
+      :type :invoke,
+      :f :write,
+      :value 0,
+      :index 152,
+      :time 18192215315},
+     :model {:value 0}}
+    {:op
+     {:process 1,
+      :type :invoke,
+      :f :write,
+      :value 4,
+      :index 70,
+      :time 7678990637},
+     :model {:value 4}}
+    {:op
+     {:process 0,
+      :type :invoke,
+      :f :cas,
+      :value [1 0],
+      :index 77,
+      :time 8726383119},
+     :model {:msg "can't CAS 4 from 1 to 0"}}]
+   [{:op
+     {:process 5,
+      :type :ok,
+      :f :write,
+      :value 0,
+      :index 231,
+      :time 28346730072},
+     :model {:value 0}}
+    {:op
+     {:process 1,
+      :type :invoke,
+      :f :write,
+      :value 4,
+      :index 70,
+      :time 7678990637},
+     :model {:value 4}}
+    {:op
+     {:process 3,
+      :type :invoke,
+      :f :write,
+      :value 0,
+      :index 152,
+      :time 18192215315},
+     :model {:value 0}}
+    {:op
+     {:process 2,
+      :type :invoke,
+      :f :cas,
+      :value [2 2],
+      :index 153,
+      :time 18398872236},
+     :model {:msg "can't CAS 0 from 2 to 2"}}]
+   [{:op
+     {:process 5,
+      :type :ok,
+      :f :write,
+      :value 0,
+      :index 231,
+      :time 28346730072},
+     :model {:value 0}}
+    {:op
+     {:process 1,
+      :type :invoke,
+      :f :write,
+      :value 4,
+      :index 70,
+      :time 7678990637},
+     :model {:value 4}}
+    {:op
+     {:process 2,
+      :type :invoke,
+      :f :cas,
+      :value [2 2],
+      :index 153,
+      :time 18398872236},
+     :model {:msg "can't CAS 4 from 2 to 2"}}]),
+  :previous-ok
+  {:process 5,
+   :type :ok,
+   :f :write,
+   :value 0,
+   :index 231,
+   :time 28346730072},
+  :last-op
+  {:process 5,
+   :type :ok,
+   :f :write,
+   :value 0,
+   :index 231,
+   :time 28346730072},
+  :op
+  {:process 4,
+   :type :ok,
+   :f :read,
+   :value 3,
+   :index 233,
+   :time 28360154977}},
+ :perf
+ {:latency-graph {:valid? true},
+  :rate-graph {:valid? true},
+  :valid? true},
+ :timeline {:valid? true},
+ :valid? false}
+
+
+Analysis invalid! (ﾉಥ益ಥ）ﾉ ┻━┻

@@ -1,0 +1,82 @@
+{:linear
+ {:valid? false,
+  :op
+  {:process 1,
+   :type :ok,
+   :f :read,
+   :value 2,
+   :index 76,
+   :time 7681491492},
+  :previous-ok
+  {:process 3,
+   :type :ok,
+   :f :write,
+   :value 1,
+   :index 72,
+   :time 6996594655},
+  :final-paths
+  ([{:op
+     {:process 2,
+      :type :info,
+      :f :write,
+      :value 0,
+      :index 98,
+      :time 10882019094,
+      :error "indeterminate: Read timed out"},
+     :model {:value 0}}
+    {:op
+     {:process 1,
+      :type :ok,
+      :f :read,
+      :value 2,
+      :index 76,
+      :time 7681491492},
+     :model {:msg "can't read 2 from register 0"}}]
+   [{:op
+     {:process 3,
+      :type :ok,
+      :f :write,
+      :value 1,
+      :index 72,
+      :time 6996594655},
+     :model {:value 1}}
+    {:op
+     {:process 2,
+      :type :info,
+      :f :write,
+      :value 0,
+      :index 98,
+      :time 10882019094,
+      :error "indeterminate: Read timed out"},
+     :model {:value 0}}
+    {:op
+     {:process 1,
+      :type :ok,
+      :f :read,
+      :value 2,
+      :index 76,
+      :time 7681491492},
+     :model {:msg "can't read 2 from register 0"}}]
+   [{:op
+     {:process 3,
+      :type :ok,
+      :f :write,
+      :value 1,
+      :index 72,
+      :time 6996594655},
+     :model {:value 1}}
+    {:op
+     {:process 1,
+      :type :ok,
+      :f :read,
+      :value 2,
+      :index 76,
+      :time 7681491492},
+     :model {:msg "can't read 2 from register 1"}}]),
+  :configs ()},
+ :perf
+ {:latency-graph {:valid? true},
+  :rate-graph {:valid? true},
+  :valid? true},
+ :timeline {:valid? true},
+ :valid? false}

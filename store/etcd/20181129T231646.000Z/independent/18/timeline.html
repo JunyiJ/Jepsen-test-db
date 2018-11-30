@@ -1,0 +1,1585 @@
+<html><head><style>.ops        { position: absolute; }
+.op         { position: absolute; padding: 2px; border-radius: 2px; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); transition: all 0.3s cubic-bezier(.25,.8,.25,1); }
+.op.invoke  { background: #eeeeee; }
+.op.ok      { background: #6DB6FE; }
+.op.info    { background: #FFAA26; }
+.op.fail    { background: #FEB5DA; }
+.op:target  { box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); }
+</style></head><body><div><a href="/">jepsen</a> / <a href="/files/etcd">etcd</a> / <a href="/files/etcd/20181129T231646.000Z">20181129T231646.000Z</a> / <a href="/files/etcd/20181129T231646.000Z/">independent</a> / <a href="/files/etcd/20181129T231646.000Z/independent/18">18</a></div><h1>etcd key 18</h1><div class="ops"><a href="#i1720"><div class="op info" id="i1720" style="width:100;left:0;top:0;height:16" title="Msg: nil
+Err: nil
+Wall-clock Time: 2018-11-29T23:16:51.207Z
+
+Op:
+{:type :info,
+ :f :start,
+ :value nil,
+ :process :nemesis,
+ :time 5207513883,
+ :index 1720,
+ :sub-index 0}
+">:nemesis :start </div></a><a href="#i1723"><div class="op info" id="i1723" style="width:100;left:0;top:16;height:16" title="Msg: [:isolated {&quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot; #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot; &quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot; &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;}, &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot; #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot; &quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot; &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;}, &quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot; #{&quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot; &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot;}, &quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot; #{&quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot; &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot;}, &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot; #{&quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot; &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot;}}]
+Err: nil
+Wall-clock Time: 2018-11-29T23:16:51.310Z
+
+Op:
+{:type :info,
+ :f :start,
+ :value
+ [:isolated
+  {&quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot;
+     &quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot;
+     &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;},
+   &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot;
+     &quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot;
+     &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;},
+   &quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;
+     &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot;},
+   &quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;
+     &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot;},
+   &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;
+     &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot;}}],
+ :process :nemesis,
+ :time 5310382849,
+ :index 1723,
+ :sub-index 1}
+">:nemesis :start <br /></div></a><a href="#i2649"><div class="op info" id="i2649" style="width:100;left:0;top:32;height:16" title="Msg: nil
+Err: nil
+Wall-clock Time: 2018-11-29T23:16:56.310Z
+
+Op:
+{:type :info,
+ :f :stop,
+ :value nil,
+ :process :nemesis,
+ :time 10310806038,
+ :index 2649,
+ :sub-index 2}
+">:nemesis :stop </div></a><a href="#i2690"><div class="op info" id="i2690" style="width:100;left:0;top:48;height:16" title="Msg: :network-healed
+Err: nil
+Wall-clock Time: 2018-11-29T23:16:56.514Z
+
+Op:
+{:type :info,
+ :f :stop,
+ :value :network-healed,
+ :process :nemesis,
+ :time 10514950497,
+ :index 2690,
+ :sub-index 3}
+">:nemesis :stop <br /></div></a><a href="#i3593"><div class="op fail" id="i3593" style="width:100;left:106;top:64;height:16" title="Dur: 5 ms
+Err: :not-found
+Wall-clock Time: 2018-11-29T23:17:00.687Z
+
+Op:
+{:type :fail,
+ :f :cas,
+ :value [3 4],
+ :process 11,
+ :time 14687642453,
+ :error :not-found,
+ :index 3593,
+ :sub-index 5}
+">11 :cas [3 4]</div></a><a href="#i3622"><div class="op ok" id="i3622" style="width:100;left:424;top:96;height:48" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:00.766Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 4,
+ :process 14,
+ :time 14766106345,
+ :index 3622,
+ :sub-index 9}
+">14 :write 4</div></a><a href="#i3623"><div class="op ok" id="i3623" style="width:100;left:1060;top:112;height:48" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:00.766Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 3,
+ :process 37,
+ :time 14766361877,
+ :index 3623,
+ :sub-index 10}
+">37 :write 3</div></a><a href="#i3625"><div class="op fail" id="i3625" style="width:100;left:530;top:128;height:48" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:00.770Z
+
+Op:
+{:type :fail,
+ :f :cas,
+ :value [4 1],
+ :process 16,
+ :time 14770418349,
+ :index 3625,
+ :sub-index 11}
+">16 :cas [4 1]</div></a><a href="#i3632"><div class="op ok" id="i3632" style="width:100;left:212;top:192;height:32" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:00.840Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 1,
+ :process 12,
+ :time 14840170616,
+ :index 3632,
+ :sub-index 14}
+">12 :write 1</div></a><a href="#i3633"><div class="op ok" id="i3633" style="width:100;left:636;top:208;height:32" title="Dur: 4 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:00.843Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 1,
+ :process 18,
+ :time 14843138890,
+ :index 3633,
+ :sub-index 15}
+">18 :read 1</div></a><a href="#i3638"><div class="op ok" id="i3638" style="width:100;left:742;top:256;height:32" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:00.848Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 1,
+ :process 19,
+ :time 14848626861,
+ :index 3638,
+ :sub-index 18}
+">19 :write 1</div></a><a href="#i3641"><div class="op ok" id="i3641" style="width:100;left:318;top:272;height:32" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:00.852Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 3,
+ :process 13,
+ :time 14852895138,
+ :index 3641,
+ :sub-index 19}
+">13 :write 3</div></a><a href="#i3645"><div class="op ok" id="i3645" style="width:100;left:954;top:320;height:16" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:00.861Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 2,
+ :process 35,
+ :time 14861122886,
+ :index 3645,
+ :sub-index 21}
+">35 :write 2</div></a><a href="#i3670"><div class="op ok" id="i3670" style="width:100;left:1060;top:400;height:112" title="Dur: 481 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.401Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 2,
+ :process 37,
+ :time 15401738711,
+ :index 3670,
+ :sub-index 32}
+">37 :write 2</div></a><a href="#i3671"><div class="op ok" id="i3671" style="width:100;left:530;top:432;height:96" title="Dur: 466 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.401Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 2,
+ :process 16,
+ :time 15401766088,
+ :index 3671,
+ :sub-index 33}
+">16 :read 2</div></a><a href="#i3674"><div class="op fail" id="i3674" style="width:100;left:848;top:448;height:96" title="Dur: 458 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.402Z
+
+Op:
+{:type :fail,
+ :f :cas,
+ :value [4 0],
+ :process 30,
+ :time 15402700504,
+ :index 3674,
+ :sub-index 34}
+">30 :cas [4 0]</div></a><a href="#i3675"><div class="op fail" id="i3675" style="width:100;left:954;top:464;height:96" title="Dur: 446 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.403Z
+
+Op:
+{:type :fail,
+ :f :cas,
+ :value [3 0],
+ :process 35,
+ :time 15403191580,
+ :index 3675,
+ :sub-index 35}
+">35 :cas [3 0]</div></a><a href="#i3677"><div class="op ok" id="i3677" style="width:100;left:212;top:384;height:192" title="Dur: 515 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.403Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 3,
+ :process 12,
+ :time 15403522825,
+ :index 3677,
+ :sub-index 36}
+">12 :read 3</div></a><a href="#i3679"><div class="op ok" id="i3679" style="width:100;left:424;top:416;height:176" title="Dur: 482 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.403Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 2,
+ :process 14,
+ :time 15403809353,
+ :index 3679,
+ :sub-index 37}
+">14 :read 2</div></a><a href="#i3680"><div class="op fail" id="i3680" style="width:100;left:106;top:368;height:240" title="Dur: 532 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.404Z
+
+Op:
+{:type :fail,
+ :f :cas,
+ :value [2 2],
+ :process 11,
+ :time 15404461193,
+ :index 3680,
+ :sub-index 38}
+">11 :cas [2 2]</div></a><a href="#i3681"><div class="op ok" id="i3681" style="width:100;left:742;top:352;height:272" title="Dur: 533 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.404Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 3,
+ :process 19,
+ :time 15404755750,
+ :index 3681,
+ :sub-index 39}
+">19 :write 3</div></a><a href="#i3695"><div class="op info" id="i3695" style="width:100;left:0;top:736;height:16" title="Msg: nil
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.515Z
+
+Op:
+{:type :info,
+ :f :start,
+ :value nil,
+ :process :nemesis,
+ :time 15515236143,
+ :index 3695,
+ :sub-index 46}
+">:nemesis :start </div></a><a href="#i3698"><div class="op ok" id="i3698" style="width:100;left:318;top:480;height:288" title="Dur: 552 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.561Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 4,
+ :process 13,
+ :time 15561854429,
+ :index 3698,
+ :sub-index 48}
+">13 :write 4</div></a><a href="#i3699"><div class="op ok" id="i3699" style="width:100;left:636;top:496;height:288" title="Dur: 550 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.561Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 2,
+ :process 18,
+ :time 15561854422,
+ :index 3699,
+ :sub-index 49}
+">18 :write 2</div></a><a href="#i3703"><div class="op ok" id="i3703" style="width:100;left:848;top:704;height:112" title="Dur: 73 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.566Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 0,
+ :process 30,
+ :time 15566767224,
+ :index 3703,
+ :sub-index 51}
+">30 :read 0</div></a><a href="#i3705"><div class="op ok" id="i3705" style="width:100;left:106;top:720;height:112" title="Dur: 71 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.567Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 4,
+ :process 11,
+ :time 15567093137,
+ :index 3705,
+ :sub-index 52}
+">11 :write 4</div></a><a href="#i3706"><div class="op ok" id="i3706" style="width:100;left:954;top:752;height:96" title="Dur: 45 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.567Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 4,
+ :process 35,
+ :time 15567337069,
+ :index 3706,
+ :sub-index 53}
+">35 :read 4</div></a><a href="#i3707"><div class="op ok" id="i3707" style="width:100;left:530;top:640;height:224" title="Dur: 161 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.567Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 0,
+ :process 16,
+ :time 15567363704,
+ :index 3707,
+ :sub-index 54}
+">16 :write 0</div></a><a href="#i3720"><div class="op info" id="i3720" style="width:100;left:0;top:880;height:16" title="Msg: [:isolated {&quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot; #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot; &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot; &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;}, &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot; #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot; &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot; &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;}, &quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot; #{&quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot; &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;}, &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot; #{&quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot; &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;}, &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot; #{&quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot; &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;}}]
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.618Z
+
+Op:
+{:type :info,
+ :f :start,
+ :value
+ [:isolated
+  {&quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot;
+     &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot;
+     &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;},
+   &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot;
+     &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot;
+     &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;},
+   &quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot;
+     &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;},
+   &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot;
+     &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;},
+   &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot;
+     &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;}}],
+ :process :nemesis,
+ :time 15618059878,
+ :index 3720,
+ :sub-index 55}
+">:nemesis :start <br /></div></a><a href="#i3723"><div class="op ok" id="i3723" style="width:100;left:848;top:896;height:16" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.629Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 4,
+ :process 30,
+ :time 15629297116,
+ :index 3723,
+ :sub-index 57}
+">30 :write 4</div></a><a href="#i3726"><div class="op ok" id="i3726" style="width:100;left:636;top:928;height:16" title="Dur: 4 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.653Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 4,
+ :process 18,
+ :time 15653584068,
+ :index 3726,
+ :sub-index 59}
+">18 :read 4</div></a><a href="#i3729"><div class="op ok" id="i3729" style="width:100;left:530;top:960;height:16" title="Dur: 4 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.659Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 4,
+ :process 16,
+ :time 15659450823,
+ :index 3729,
+ :sub-index 61}
+">16 :read 4</div></a><a href="#i3734"><div class="op ok" id="i3734" style="width:100;left:106;top:992;height:32" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.666Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 4,
+ :process 11,
+ :time 15666347721,
+ :index 3734,
+ :sub-index 64}
+">11 :read 4</div></a><a href="#i3735"><div class="op fail" id="i3735" style="width:100;left:318;top:1008;height:32" title="Dur: 4 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.669Z
+
+Op:
+{:type :fail,
+ :f :cas,
+ :value [1 2],
+ :process 13,
+ :time 15669696576,
+ :index 3735,
+ :sub-index 65}
+">13 :cas [1 2]</div></a><a href="#i3739"><div class="op ok" id="i3739" style="width:100;left:106;top:1056;height:16" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.716Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 4,
+ :process 11,
+ :time 15716697535,
+ :index 3739,
+ :sub-index 67}
+">11 :read 4</div></a><a href="#i3746"><div class="op ok" id="i3746" style="width:100;left:954;top:1088;height:16" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.759Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 3,
+ :process 35,
+ :time 15759038865,
+ :index 3746,
+ :sub-index 69}
+">35 :write 3</div></a><a href="#i3749"><div class="op ok" id="i3749" style="width:100;left:530;top:1120;height:16" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.780Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 2,
+ :process 16,
+ :time 15780189285,
+ :index 3749,
+ :sub-index 71}
+">16 :write 2</div></a><a href="#i3751"><div class="op ok" id="i3751" style="width:100;left:636;top:1152;height:16" title="Dur: 6 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.791Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 2,
+ :process 18,
+ :time 15791892439,
+ :index 3751,
+ :sub-index 73}
+">18 :read 2</div></a><a href="#i3758"><div class="op fail" id="i3758" style="width:100;left:106;top:1184;height:16" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.812Z
+
+Op:
+{:type :fail,
+ :f :cas,
+ :value [0 2],
+ :process 11,
+ :time 15812074594,
+ :index 3758,
+ :sub-index 75}
+">11 :cas [0 2]</div></a><a href="#i3761"><div class="op ok" id="i3761" style="width:100;left:530;top:1216;height:16" title="Dur: 4 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.822Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 1,
+ :process 16,
+ :time 15822116062,
+ :index 3761,
+ :sub-index 77}
+">16 :write 1</div></a><a href="#i3763"><div class="op ok" id="i3763" style="width:100;left:848;top:1248;height:16" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.830Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 3,
+ :process 30,
+ :time 15830043792,
+ :index 3763,
+ :sub-index 79}
+">30 :write 3</div></a><a href="#i3767"><div class="op ok" id="i3767" style="width:100;left:318;top:1280;height:16" title="Dur: 6 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.856Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 1,
+ :process 13,
+ :time 15856571323,
+ :index 3767,
+ :sub-index 81}
+">13 :write 1</div></a><a href="#i3774"><div class="op fail" id="i3774" style="width:100;left:954;top:1312;height:16" title="Dur: 6 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.865Z
+
+Op:
+{:type :fail,
+ :f :cas,
+ :value [0 2],
+ :process 35,
+ :time 15865366050,
+ :index 3774,
+ :sub-index 83}
+">35 :cas [0 2]</div></a><a href="#i3779"><div class="op ok" id="i3779" style="width:100;left:954;top:1344;height:16" title="Dur: 4 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.892Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 1,
+ :process 35,
+ :time 15892316871,
+ :index 3779,
+ :sub-index 85}
+">35 :read 1</div></a><a href="#i3781"><div class="op ok" id="i3781" style="width:100;left:106;top:1376;height:16" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.904Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 1,
+ :process 11,
+ :time 15904354994,
+ :index 3781,
+ :sub-index 87}
+">11 :read 1</div></a><a href="#i3785"><div class="op ok" id="i3785" style="width:100;left:848;top:1408;height:16" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.924Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 1,
+ :process 30,
+ :time 15924909024,
+ :index 3785,
+ :sub-index 89}
+">30 :read 1</div></a><a href="#i3788"><div class="op fail" id="i3788" style="width:100;left:848;top:1440;height:32" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.934Z
+
+Op:
+{:type :fail,
+ :f :cas,
+ :value [0 0],
+ :process 30,
+ :time 15934354424,
+ :index 3788,
+ :sub-index 92}
+">30 :cas [0 0]</div></a><a href="#i3789"><div class="op fail" id="i3789" style="width:100;left:954;top:1456;height:32" title="Dur: 7 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.939Z
+
+Op:
+{:type :fail,
+ :f :cas,
+ :value [3 0],
+ :process 35,
+ :time 15939786275,
+ :index 3789,
+ :sub-index 93}
+">35 :cas [3 0]</div></a><a href="#i3803"><div class="op ok" id="i3803" style="width:100;left:636;top:1520;height:48" title="Dur: 7 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.985Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 1,
+ :process 18,
+ :time 15985574874,
+ :index 3803,
+ :sub-index 98}
+">18 :read 1</div></a><a href="#i3804"><div class="op ok" id="i3804" style="width:100;left:318;top:1552;height:32" title="Dur: 4 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.985Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 4,
+ :process 13,
+ :time 15985774461,
+ :index 3804,
+ :sub-index 99}
+">13 :write 4</div></a><a href="#i3805"><div class="op ok" id="i3805" style="width:100;left:848;top:1504;height:96" title="Dur: 8 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.986Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 1,
+ :process 30,
+ :time 15986039968,
+ :index 3805,
+ :sub-index 100}
+">30 :read 1</div></a><a href="#i3806"><div class="op fail" id="i3806" style="width:100;left:954;top:1536;height:80" title="Dur: 8 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.987Z
+
+Op:
+{:type :fail,
+ :f :cas,
+ :value [3 0],
+ :process 35,
+ :time 15987984973,
+ :index 3806,
+ :sub-index 101}
+">35 :cas [3 0]</div></a><a href="#i3810"><div class="op ok" id="i3810" style="width:100;left:954;top:1632;height:32" title="Dur: 4 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.996Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 3,
+ :process 35,
+ :time 15996185468,
+ :index 3810,
+ :sub-index 104}
+">35 :write 3</div></a><a href="#i3812"><div class="op ok" id="i3812" style="width:100;left:318;top:1648;height:32" title="Dur: 3 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:01.997Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 0,
+ :process 13,
+ :time 15997974848,
+ :index 3812,
+ :sub-index 105}
+">13 :write 0</div></a><a href="#i3815"><div class="op fail" id="i3815" style="width:100;left:530;top:1696;height:16" title="Dur: 6 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.004Z
+
+Op:
+{:type :fail,
+ :f :cas,
+ :value [2 0],
+ :process 16,
+ :time 16004409335,
+ :index 3815,
+ :sub-index 107}
+">16 :cas [2 0]</div></a><a href="#i3822"><div class="op ok" id="i3822" style="width:100;left:318;top:1728;height:32" title="Dur: 4 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.019Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 0,
+ :process 13,
+ :time 16019963570,
+ :index 3822,
+ :sub-index 110}
+">13 :read 0</div></a><a href="#i3823"><div class="op ok" id="i3823" style="width:100;left:954;top:1744;height:32" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.021Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 1,
+ :process 35,
+ :time 16021346629,
+ :index 3823,
+ :sub-index 111}
+">35 :write 1</div></a><a href="#i3832"><div class="op fail" id="i3832" style="width:100;left:530;top:1792;height:16" title="Dur: 4 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.057Z
+
+Op:
+{:type :fail,
+ :f :cas,
+ :value [4 0],
+ :process 16,
+ :time 16057519400,
+ :index 3832,
+ :sub-index 113}
+">16 :cas [4 0]</div></a><a href="#i3839"><div class="op ok" id="i3839" style="width:100;left:106;top:1824;height:16" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.087Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 1,
+ :process 11,
+ :time 16087789531,
+ :index 3839,
+ :sub-index 115}
+">11 :read 1</div></a><a href="#i3842"><div class="op ok" id="i3842" style="width:100;left:530;top:1856;height:32" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.095Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 1,
+ :process 16,
+ :time 16095014246,
+ :index 3842,
+ :sub-index 118}
+">16 :read 1</div></a><a href="#i3843"><div class="op fail" id="i3843" style="width:100;left:636;top:1872;height:32" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.095Z
+
+Op:
+{:type :fail,
+ :f :cas,
+ :value [4 1],
+ :process 18,
+ :time 16095741921,
+ :index 3843,
+ :sub-index 119}
+">18 :cas [4 1]</div></a><a href="#i3850"><div class="op ok" id="i3850" style="width:100;left:848;top:1920;height:32" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.118Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 0,
+ :process 30,
+ :time 16118634343,
+ :index 3850,
+ :sub-index 122}
+">30 :write 0</div></a><a href="#i3851"><div class="op fail" id="i3851" style="width:100;left:318;top:1936;height:32" title="Dur: 4 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.119Z
+
+Op:
+{:type :fail,
+ :f :cas,
+ :value [1 2],
+ :process 13,
+ :time 16119227414,
+ :index 3851,
+ :sub-index 123}
+">13 :cas [1 2]</div></a><a href="#i3854"><div class="op fail" id="i3854" style="width:100;left:848;top:1984;height:32" title="Dur: 6 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.158Z
+
+Op:
+{:type :fail,
+ :f :cas,
+ :value [1 0],
+ :process 30,
+ :time 16158953023,
+ :index 3854,
+ :sub-index 126}
+">30 :cas [1 0]</div></a><a href="#i3856"><div class="op fail" id="i3856" style="width:100;left:636;top:2000;height:32" title="Dur: 4 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.161Z
+
+Op:
+{:type :fail,
+ :f :cas,
+ :value [2 0],
+ :process 18,
+ :time 16161534869,
+ :index 3856,
+ :sub-index 127}
+">18 :cas [2 0]</div></a><a href="#i3861"><div class="op ok" id="i3861" style="width:100;left:954;top:2048;height:16" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.178Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 0,
+ :process 35,
+ :time 16178646760,
+ :index 3861,
+ :sub-index 129}
+">35 :read 0</div></a><a href="#i3863"><div class="op ok" id="i3863" style="width:100;left:848;top:2080;height:16" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.196Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 0,
+ :process 30,
+ :time 16196860850,
+ :index 3863,
+ :sub-index 131}
+">30 :read 0</div></a><a href="#i3868"><div class="op ok" id="i3868" style="width:100;left:530;top:2112;height:16" title="Dur: 7 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.214Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 2,
+ :process 16,
+ :time 16214922527,
+ :index 3868,
+ :sub-index 133}
+">16 :write 2</div></a><a href="#i3871"><div class="op ok" id="i3871" style="width:100;left:318;top:2144;height:16" title="Dur: 4 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.221Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 2,
+ :process 13,
+ :time 16221439144,
+ :index 3871,
+ :sub-index 135}
+">13 :read 2</div></a><a href="#i3875"><div class="op ok" id="i3875" style="width:100;left:106;top:2176;height:16" title="Dur: 4 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.250Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 2,
+ :process 11,
+ :time 16250952051,
+ :index 3875,
+ :sub-index 137}
+">11 :read 2</div></a><a href="#i3879"><div class="op ok" id="i3879" style="width:100;left:636;top:2208;height:16" title="Dur: 4 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.260Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 1,
+ :process 18,
+ :time 16260841489,
+ :index 3879,
+ :sub-index 139}
+">18 :write 1</div></a><a href="#i3887"><div class="op fail" id="i3887" style="width:100;left:954;top:2240;height:16" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.306Z
+
+Op:
+{:type :fail,
+ :f :cas,
+ :value [4 0],
+ :process 35,
+ :time 16306784890,
+ :index 3887,
+ :sub-index 141}
+">35 :cas [4 0]</div></a><a href="#i3889"><div class="op ok" id="i3889" style="width:100;left:318;top:2272;height:16" title="Dur: 4 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.311Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 0,
+ :process 13,
+ :time 16311078639,
+ :index 3889,
+ :sub-index 143}
+">13 :write 0</div></a><a href="#i3895"><div class="op ok" id="i3895" style="width:100;left:954;top:2304;height:16" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.343Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 0,
+ :process 35,
+ :time 16343297648,
+ :index 3895,
+ :sub-index 145}
+">35 :read 0</div></a><a href="#i3900"><div class="op ok" id="i3900" style="width:100;left:954;top:2336;height:32" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.353Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 0,
+ :process 35,
+ :time 16353810662,
+ :index 3900,
+ :sub-index 148}
+">35 :read 0</div></a><a href="#i3901"><div class="op ok" id="i3901" style="width:100;left:106;top:2352;height:32" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.356Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 1,
+ :process 11,
+ :time 16356554216,
+ :index 3901,
+ :sub-index 149}
+">11 :write 1</div></a><a href="#i3904"><div class="op ok" id="i3904" style="width:100;left:106;top:2400;height:32" title="Dur: 7 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.368Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 4,
+ :process 11,
+ :time 16368896147,
+ :index 3904,
+ :sub-index 152}
+">11 :write 4</div></a><a href="#i3906"><div class="op ok" id="i3906" style="width:100;left:530;top:2416;height:48" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.373Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 4,
+ :process 16,
+ :time 16373324916,
+ :index 3906,
+ :sub-index 154}
+">16 :read 4</div></a><a href="#i3907"><div class="op ok" id="i3907" style="width:100;left:848;top:2448;height:32" title="Dur: 4 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.376Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 1,
+ :process 30,
+ :time 16376626787,
+ :index 3907,
+ :sub-index 155}
+">30 :write 1</div></a><a href="#i3913"><div class="op ok" id="i3913" style="width:100;left:954;top:2496;height:16" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.414Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 1,
+ :process 35,
+ :time 16414489110,
+ :index 3913,
+ :sub-index 157}
+">35 :read 1</div></a><a href="#i3919"><div class="op ok" id="i3919" style="width:100;left:636;top:2528;height:16" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.451Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 4,
+ :process 18,
+ :time 16451338739,
+ :index 3919,
+ :sub-index 159}
+">18 :write 4</div></a><a href="#i3926"><div class="op ok" id="i3926" style="width:100;left:106;top:2560;height:16" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.487Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 4,
+ :process 11,
+ :time 16487634489,
+ :index 3926,
+ :sub-index 161}
+">11 :read 4</div></a><a href="#i3930"><div class="op ok" id="i3930" style="width:100;left:318;top:2592;height:32" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.505Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 0,
+ :process 13,
+ :time 16505697378,
+ :index 3930,
+ :sub-index 164}
+">13 :write 0</div></a><a href="#i3931"><div class="op ok" id="i3931" style="width:100;left:848;top:2608;height:32" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.507Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 4,
+ :process 30,
+ :time 16507822936,
+ :index 3931,
+ :sub-index 165}
+">30 :write 4</div></a><a href="#i3933"><div class="op fail" id="i3933" style="width:100;left:106;top:2656;height:16" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.517Z
+
+Op:
+{:type :fail,
+ :f :cas,
+ :value [3 4],
+ :process 11,
+ :time 16517534445,
+ :index 3933,
+ :sub-index 167}
+">11 :cas [3 4]</div></a><a href="#i3936"><div class="op ok" id="i3936" style="width:100;left:318;top:2704;height:16" title="Dur: 4 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.531Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 0,
+ :process 13,
+ :time 16531328323,
+ :index 3936,
+ :sub-index 170}
+">13 :write 0</div></a><a href="#i3937"><div class="op ok" id="i3937" style="width:100;left:530;top:2688;height:48" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.532Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 3,
+ :process 16,
+ :time 16532240091,
+ :index 3937,
+ :sub-index 171}
+">16 :write 3</div></a><a href="#i3955"><div class="op ok" id="i3955" style="width:100;left:636;top:2752;height:16" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.590Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 3,
+ :process 18,
+ :time 16590279148,
+ :index 3955,
+ :sub-index 173}
+">18 :read 3</div></a><a href="#i3959"><div class="op fail" id="i3959" style="width:100;left:106;top:2784;height:16" title="Dur: 4 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.599Z
+
+Op:
+{:type :fail,
+ :f :cas,
+ :value [2 0],
+ :process 11,
+ :time 16599581673,
+ :index 3959,
+ :sub-index 175}
+">11 :cas [2 0]</div></a><a href="#i3961"><div class="op ok" id="i3961" style="width:100;left:954;top:2816;height:16" title="Dur: 6 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.609Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 3,
+ :process 35,
+ :time 16609896287,
+ :index 3961,
+ :sub-index 177}
+">35 :read 3</div></a><a href="#i3970"><div class="op ok" id="i3970" style="width:100;left:106;top:2848;height:16" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.641Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 3,
+ :process 11,
+ :time 16641011286,
+ :index 3970,
+ :sub-index 179}
+">11 :read 3</div></a><a href="#i3973"><div class="op ok" id="i3973" style="width:100;left:530;top:2880;height:16" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.664Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 3,
+ :process 16,
+ :time 16664324187,
+ :index 3973,
+ :sub-index 181}
+">16 :read 3</div></a><a href="#i3977"><div class="op ok" id="i3977" style="width:100;left:954;top:2912;height:16" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.691Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 4,
+ :process 35,
+ :time 16691456876,
+ :index 3977,
+ :sub-index 183}
+">35 :write 4</div></a><a href="#i3981"><div class="op ok" id="i3981" style="width:100;left:848;top:2944;height:16" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.700Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 4,
+ :process 30,
+ :time 16700382642,
+ :index 3981,
+ :sub-index 185}
+">30 :read 4</div></a><a href="#i3986"><div class="op fail" id="i3986" style="width:100;left:318;top:2976;height:32" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.726Z
+
+Op:
+{:type :fail,
+ :f :cas,
+ :value [3 0],
+ :process 13,
+ :time 16726916961,
+ :index 3986,
+ :sub-index 188}
+">13 :cas [3 0]</div></a><a href="#i3987"><div class="op fail" id="i3987" style="width:100;left:106;top:2992;height:32" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.729Z
+
+Op:
+{:type :fail,
+ :f :cas,
+ :value [0 3],
+ :process 11,
+ :time 16729407363,
+ :index 3987,
+ :sub-index 189}
+">11 :cas [0 3]</div></a><a href="#i3989"><div class="op fail" id="i3989" style="width:100;left:318;top:3040;height:16" title="Dur: 4 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.743Z
+
+Op:
+{:type :fail,
+ :f :cas,
+ :value [0 4],
+ :process 13,
+ :time 16743848383,
+ :index 3989,
+ :sub-index 191}
+">13 :cas [0 4]</div></a><a href="#i3993"><div class="op ok" id="i3993" style="width:100;left:848;top:3072;height:32" title="Dur: 6 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.776Z
+
+Op:
+{:type :ok,
+ :f :write,
+ :value 4,
+ :process 30,
+ :time 16776856879,
+ :index 3993,
+ :sub-index 194}
+">30 :write 4</div></a><a href="#i3994"><div class="op ok" id="i3994" style="width:100;left:636;top:3088;height:32" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.777Z
+
+Op:
+{:type :ok,
+ :f :read,
+ :value 4,
+ :process 18,
+ :time 16777174334,
+ :index 3994,
+ :sub-index 195}
+">18 :read 4</div></a><a href="#i4002"><div class="op ok" id="i4002" style="width:100;left:954;top:3136;height:16" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.789Z
+
+Op:
+{:type :ok,
+ :f :cas,
+ :value [4 4],
+ :process 35,
+ :time 16789489697,
+ :index 4002,
+ :sub-index 197}
+">35 :cas [4 4]</div></a><a href="#i4012"><div class="op fail" id="i4012" style="width:100;left:530;top:3168;height:16" title="Dur: 4 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.807Z
+
+Op:
+{:type :fail,
+ :f :cas,
+ :value [3 1],
+ :process 16,
+ :time 16807282713,
+ :index 4012,
+ :sub-index 199}
+">16 :cas [3 1]</div></a><a href="#i4021"><div class="op fail" id="i4021" style="width:100;left:106;top:3200;height:16" title="Dur: 5 ms
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:02.845Z
+
+Op:
+{:type :fail,
+ :f :cas,
+ :value [3 2],
+ :process 11,
+ :time 16845101649,
+ :index 4021,
+ :sub-index 201}
+">11 :cas [3 2]</div></a><a href="#i4584"><div class="op fail" id="i4584" style="width:100;left:424;top:656;height:2576" title="Dur: 5005 ms
+Err: :timeout
+Wall-clock Time: 2018-11-29T23:17:06.413Z
+
+Op:
+{:type :fail,
+ :f :read,
+ :value nil,
+ :process 14,
+ :time 20413191312,
+ :error :timeout,
+ :index 4584,
+ :sub-index 202}
+">14 :read </div></a><a href="#i4585"><div class="op info" id="i4585" style="width:100;left:742;top:672;height:2896" title="Dur: 5006 ms
+Err: :timeout
+Wall-clock Time: 2018-11-29T23:17:06.426Z
+
+Op:
+{:type :info,
+ :f :cas,
+ :value [3 4],
+ :process 19,
+ :time 20426273830,
+ :error :timeout,
+ :index 4585,
+ :sub-index 203}
+">19 :cas [3 4]</div></a><a href="#i4588"><div class="op fail" id="i4588" style="width:100;left:1060;top:688;height:2576" title="Dur: 5007 ms
+Err: :timeout
+Wall-clock Time: 2018-11-29T23:17:06.450Z
+
+Op:
+{:type :fail,
+ :f :read,
+ :value nil,
+ :process 37,
+ :time 20450078151,
+ :error :timeout,
+ :index 4588,
+ :sub-index 204}
+">37 :read </div></a><a href="#i4595"><div class="op fail" id="i4595" style="width:100;left:212;top:800;height:2480" title="Dur: 5007 ms
+Err: :timeout
+Wall-clock Time: 2018-11-29T23:17:06.573Z
+
+Op:
+{:type :fail,
+ :f :read,
+ :value nil,
+ :process 12,
+ :time 20573245133,
+ :error :timeout,
+ :index 4595,
+ :sub-index 205}
+">12 :read </div></a><a href="#i4598"><div class="op info" id="i4598" style="width:100;left:0;top:3296;height:16" title="Msg: nil
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:06.618Z
+
+Op:
+{:type :info,
+ :f :stop,
+ :value nil,
+ :process :nemesis,
+ :time 20618527275,
+ :index 4598,
+ :sub-index 206}
+">:nemesis :stop </div></a><a href="#i4613"><div class="op info" id="i4613" style="width:100;left:0;top:3312;height:16" title="Msg: :network-healed
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:06.822Z
+
+Op:
+{:type :info,
+ :f :stop,
+ :value :network-healed,
+ :process :nemesis,
+ :time 20822920761,
+ :index 4613,
+ :sub-index 207}
+">:nemesis :stop <br /></div></a><a href="#i5414"><div class="op info" id="i5414" style="width:100;left:0;top:3328;height:16" title="Msg: nil
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:11.823Z
+
+Op:
+{:type :info,
+ :f :start,
+ :value nil,
+ :process :nemesis,
+ :time 25823233409,
+ :index 5414,
+ :sub-index 208}
+">:nemesis :start </div></a><a href="#i5430"><div class="op info" id="i5430" style="width:100;left:0;top:3344;height:16" title="Msg: [:isolated {&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot; #{&quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot; &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot; &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot;}, &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot; #{&quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot; &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot; &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot;}, &quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot; #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot; &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;}, &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot; #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot; &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;}, &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot; #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot; &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;}}]
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:11.925Z
+
+Op:
+{:type :info,
+ :f :start,
+ :value
+ [:isolated
+  {&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot;
+     &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;
+     &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot;},
+   &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot;
+     &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;
+     &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot;},
+   &quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot;
+     &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;},
+   &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot;
+     &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;},
+   &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot;
+     &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;}}],
+ :process :nemesis,
+ :time 25925887603,
+ :index 5430,
+ :sub-index 209}
+">:nemesis :start <br /></div></a><a href="#i5457"><div class="op info" id="i5457" style="width:100;left:0;top:3360;height:16" title="Msg: nil
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:16.926Z
+
+Op:
+{:type :info,
+ :f :stop,
+ :value nil,
+ :process :nemesis,
+ :time 30926383893,
+ :index 5457,
+ :sub-index 210}
+">:nemesis :stop </div></a><a href="#i5500"><div class="op info" id="i5500" style="width:100;left:0;top:3376;height:16" title="Msg: :network-healed
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:17.130Z
+
+Op:
+{:type :info,
+ :f :stop,
+ :value :network-healed,
+ :process :nemesis,
+ :time 31130692714,
+ :index 5500,
+ :sub-index 211}
+">:nemesis :stop <br /></div></a><a href="#i6492"><div class="op info" id="i6492" style="width:100;left:0;top:3392;height:16" title="Msg: nil
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:22.130Z
+
+Op:
+{:type :info,
+ :f :start,
+ :value nil,
+ :process :nemesis,
+ :time 36130989611,
+ :index 6492,
+ :sub-index 212}
+">:nemesis :start </div></a><a href="#i6525"><div class="op info" id="i6525" style="width:100;left:0;top:3408;height:16" title="Msg: [:isolated {&quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot; #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot; &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot; &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;}, &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot; #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot; &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot; &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;}, &quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot; #{&quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot; &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;}, &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot; #{&quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot; &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;}, &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot; #{&quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot; &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;}}]
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:22.234Z
+
+Op:
+{:type :info,
+ :f :start,
+ :value
+ [:isolated
+  {&quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot;
+     &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot;
+     &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;},
+   &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot;
+     &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot;
+     &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;},
+   &quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot;
+     &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;},
+   &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot;
+     &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;},
+   &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot;
+     &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;}}],
+ :process :nemesis,
+ :time 36234221418,
+ :index 6525,
+ :sub-index 213}
+">:nemesis :start <br /></div></a><a href="#i7271"><div class="op info" id="i7271" style="width:100;left:0;top:3424;height:16" title="Msg: nil
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:27.234Z
+
+Op:
+{:type :info,
+ :f :stop,
+ :value nil,
+ :process :nemesis,
+ :time 41234709799,
+ :index 7271,
+ :sub-index 214}
+">:nemesis :stop </div></a><a href="#i7292"><div class="op info" id="i7292" style="width:100;left:0;top:3440;height:16" title="Msg: :network-healed
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:27.438Z
+
+Op:
+{:type :info,
+ :f :stop,
+ :value :network-healed,
+ :process :nemesis,
+ :time 41438901859,
+ :index 7292,
+ :sub-index 215}
+">:nemesis :stop <br /></div></a><a href="#i7585"><div class="op info" id="i7585" style="width:100;left:0;top:3456;height:16" title="Msg: nil
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:32.439Z
+
+Op:
+{:type :info,
+ :f :start,
+ :value nil,
+ :process :nemesis,
+ :time 46439172028,
+ :index 7585,
+ :sub-index 216}
+">:nemesis :start </div></a><a href="#i7605"><div class="op info" id="i7605" style="width:100;left:0;top:3472;height:16" title="Msg: [:isolated {&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot; #{&quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot; &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot; &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;}, &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot; #{&quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot; &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot; &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;}, &quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot; #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot; &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot;}, &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot; #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot; &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot;}, &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot; #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot; &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot;}}]
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:32.542Z
+
+Op:
+{:type :info,
+ :f :start,
+ :value
+ [:isolated
+  {&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot;
+     &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;
+     &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;},
+   &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot;
+     &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;
+     &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;},
+   &quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot;
+     &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot;},
+   &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot;
+     &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot;},
+   &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot;
+     &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot;}}],
+ :process :nemesis,
+ :time 46542583352,
+ :index 7605,
+ :sub-index 217}
+">:nemesis :start <br /></div></a><a href="#i8198"><div class="op info" id="i8198" style="width:100;left:0;top:3488;height:16" title="Msg: nil
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:37.543Z
+
+Op:
+{:type :info,
+ :f :stop,
+ :value nil,
+ :process :nemesis,
+ :time 51543113513,
+ :index 8198,
+ :sub-index 218}
+">:nemesis :stop </div></a><a href="#i8205"><div class="op info" id="i8205" style="width:100;left:0;top:3504;height:16" title="Msg: :network-healed
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:37.747Z
+
+Op:
+{:type :info,
+ :f :stop,
+ :value :network-healed,
+ :process :nemesis,
+ :time 51747507206,
+ :index 8205,
+ :sub-index 219}
+">:nemesis :stop <br /></div></a><a href="#i9176"><div class="op info" id="i9176" style="width:100;left:0;top:3520;height:16" title="Msg: nil
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:42.747Z
+
+Op:
+{:type :info,
+ :f :start,
+ :value nil,
+ :process :nemesis,
+ :time 56747834131,
+ :index 9176,
+ :sub-index 220}
+">:nemesis :start </div></a><a href="#i9200"><div class="op info" id="i9200" style="width:100;left:0;top:3536;height:16" title="Msg: [:isolated {&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot; #{&quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot; &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot; &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;}, &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot; #{&quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot; &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot; &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;}, &quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot; #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot; &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;}, &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot; #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot; &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;}, &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot; #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot; &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;}}]
+Err: nil
+Wall-clock Time: 2018-11-29T23:17:42.850Z
+
+Op:
+{:type :info,
+ :f :start,
+ :value
+ [:isolated
+  {&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot;
+     &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot;
+     &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;},
+   &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot;
+     &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot;
+     &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;},
+   &quot;ec2-18-234-71-213.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot;
+     &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;},
+   &quot;ec2-35-174-16-155.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot;
+     &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;},
+   &quot;ec2-18-212-141-207.compute-1.amazonaws.com&quot;
+   #{&quot;ec2-107-23-238-236.compute-1.amazonaws.com&quot;
+     &quot;ec2-18-232-141-137.compute-1.amazonaws.com&quot;}}],
+ :process :nemesis,
+ :time 56850623516,
+ :index 9200,
+ :sub-index 221}
+">:nemesis :start <br /></div></a></div></body></html>
